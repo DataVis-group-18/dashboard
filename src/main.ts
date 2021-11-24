@@ -40,6 +40,18 @@ d3.csv("test.csv").then((data) => {
     .data(data)
     .enter()
     .append("rect")
+    .on("mouseover", function() {
+      d3.select(this)
+        .transition()
+        .delay(0.5)
+        .style("fill", "orange");
+    })
+    .on("mouseout", function() {
+      d3.select(this)
+        .transition()
+        .delay(0.5)
+        .style("fill", "black");
+    })
     .attr("class", "bar")
     .attr("x", (d) => x(d.year!)!)
     .attr("y", (d) => y(parseInt(d.value!)))
