@@ -1,0 +1,26 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataVis-group-18/dashboard.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/DataVis-group-18/dashboard/issues"
+  },
+  "homepage": "https://github.com/DataVis-group-18/dashboard#readme",
+  "dependencies": {
+    "@types/d3": "^7.1.0",
+    "d3": "^7.1.1",
+    "vite": "^2.6.14"
+  }
+}
