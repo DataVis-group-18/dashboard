@@ -3,15 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <title>Data Visualization Frontend</title>
-    <script type="module" crossorigin src="/dashboard/assets/index.38788a12.js"></script>
+    <script type="module" crossorigin src="/dashboard/assets/index.a57d336f.js"></script>
     <link rel="modulepreload" href="/dashboard/assets/vendor.62b5dbce.js">
-    <link rel="stylesheet" href="/dashboard/assets/index.4451fe53.css">
+    <link rel="stylesheet" href="/dashboard/assets/index.0eea5551.css">
   </head>
 
   <body>
     <header>Shodan Data Visualization</header>
-    <main><svg width="800" height="800"></svg></main>
-    <footer>Made by Thanasis Theocharis, Gautham Venkataraman &amp; Terts Diepraam</footer>
+    <main>
+      <div>
+        <h1>Number of vulnerabilities</h1>
+        
+        <p>
+          Categorize by:&nbsp;
+          <select>
+            <option>Organization</option>
+            <option>ISP</option>
+            <option>Location</option>
+            <option>Operating System</option>
+          </select>
+        </p>
+        <svg id="left-plot"></svg>
+      </div>
+      <div id="divider"></div>
+      <div></div>
+    </main>
+    <footer>
+      <p>Made by Thanasis Theocharis, Gautham Venkataraman &amp; Terts Diepraam</p>
+      <p>|</p>
+      <p>Code on <a href="https://github.com/DataVis-group-18/dashboard">GitHub</a></p>
+    </footer>
   </body>
   
 </html>
