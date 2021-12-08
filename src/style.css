@@ -17,6 +17,7 @@ body {
     flex-direction: column;
     margin: 0;
     background: var(--background1);
+    font-family: sans-serif;
 }
 
 header {
@@ -30,20 +31,50 @@ header {
 }
 
 main {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
     flex: 1;
     justify-content: center;
+    gap: 1em;
+}
+
+main > div {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+}
+
+main > div > svg {
+    flex: 1;
+}
+
+#divider {
+    width: 2px;
+    border-radius: 2px;
+    background: #ccccd4;
+    padding: 0;
+    margin: 2em 0;
 }
 
 footer {
     display: flex;
+    gap: 2em;
     background: var(--background2);
     color: var(--text2);
     padding: 0.5em;
-    font-family: sans-serif;
     justify-content: center;
+    align-items: center;
 }
 
-.label {
-    font-family: sans-serif;
+footer a {
+    color: var(--text2);
+}
+
+h1 {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+p {
+    margin: 0.5em 0;
 }
