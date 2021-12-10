@@ -1,9 +1,6 @@
 import "./style.css";
 import * as d3 from "d3";
 
-const svg = d3.select("svg");
-const margin = 100;
-
 class Row {
   ip_str: string;
   isp: string;
@@ -57,9 +54,9 @@ const shodan: d3.DSVParsedArray<Row> = await d3.csv(
       d.isp!,
       d.org!,
       d.os!,
-      +d.port!,
+      parseInt(d.port!),
       new Date(d.timestamp!),
-      +d.location!,
+      parseInt(d.location!),
       JSON.parse(d.vulns!) as number[]
     );
   }
@@ -78,7 +75,9 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
 );
 
 function draw(transition = false) {
-  d3.select('g').remove();
+  const svg = d3.select("svg#left-plot");
+  const margin = 100;
+  svg.select("g").remove();
   const boundingRect = document
     .getElementById("left-plot")!
     .getBoundingClientRect();
