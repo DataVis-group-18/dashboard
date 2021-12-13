@@ -1,1 +1,1 @@
-tar -xvf dataset.tar.xz --strip-components=1
+tar -xvf dataset.tar.gz --strip-components=1
