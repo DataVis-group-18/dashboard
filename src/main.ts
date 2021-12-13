@@ -33,6 +33,7 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
   }
 );
 
+
 const locations: d3.DSVParsedArray<Location> = await d3.csv(
   "data/locations.csv",
   (d): Location => {
@@ -48,10 +49,17 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
   }
 );
 
-// const geo_json = await d3.json('data/nl_provinces.geojson');
+const geo_json = await d3.json('data/nl_provinces.geojson');
 
 // console.log(geo_json.features)
 
-// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
+// var test = [4,5,7,7,3].map((v) => vulnerabilities[v].cvss)
+
+// console.log(test)
+(window as any).locations = locations;
+(window as any).shodan = shodan;
+
+drawGeo(locations, shodan, vulnerabilities, geo_json, 'province', 'capita')
+
 
 // drawRightPlot(vulnerabilities);
