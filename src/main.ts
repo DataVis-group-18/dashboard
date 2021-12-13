@@ -54,4 +54,4 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
 
 // drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
 
-// drawRightPlot(vulnerabilities);
+drawRightPlot(vulnerabilities);
