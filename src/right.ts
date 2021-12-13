@@ -1,28 +1,31 @@
 import * as d3 from "d3";
-import { Vulnerability, Margin } from "./types";
+import { Vulnerability, Dimensions, Margin } from "./types";
+
+const svg = d3.select("svg#right-plot");
+const margin = Margin.all(50);
+let dim = Dimensions.of("svg#right-plot").withMargin(margin);
+const g = svg.append("g").attr("transform", "translate(90, 25)");
 
 export function drawRightPlot(
-  vulnerabilities: d3.DSVParsedArray<Vulnerability>,
+  vulnerabilities: d3.DSVParsedArray<Vulnerability>
 ) {
-  const svg = d3.select("svg#right-plot");
-  const [width, height] = Margin.all(50).dimensions("svg#right-plot");
-  
-  const g = svg.append("g").attr("transform", "translate(90, 25)");
-  const x = d3.scaleLinear().domain([0, 10]).range([0, width]);
+  let x = d3.scaleLinear().domain([0, 10]).range([0, dim.width]);
   const y = d3
     .scaleLinear()
     .domain([0, d3.max(vulnerabilities, (v) => v.count)!])
-    .range([height, 0]);
+    .range([dim.height, 0]);
 
-  g.append("g")
-    .attr("transform", "translate(0," + height + ")")
+  let xAxis = g
+    .append("g")
+    .attr("transform", "translate(0," + dim.height + ")")
     .call(d3.axisBottom(x));
 
   g.append("text")
+    .attr("id", "xLabel")
     .attr("class", "label")
     .attr("text-anchor", "end")
-    .attr("x", width)
-    .attr("y", height + 50)
+    .attr("x", dim.width)
+    .attr("y", dim.height + 50)
     .text("Severity (CVSS score)");
 
   g.append("g").call(d3.axisLeft(y).ticks(10));
@@ -34,16 +37,26 @@ export function drawRightPlot(
     .attr("x", 0)
     .text("Number of affected devices");
 
-  const dots = g
-    .append("g")
-    .selectAll("dot")
+  g.selectAll("dot")
     .data(vulnerabilities)
     .enter()
     .append("circle")
-    .attr("r", 3)
+    .attr("r", 4)
     .attr("cx", (v) => x(v.cvss))
     .attr("cy", (v) => y(v.count))
     .style("fill", "#EA5F21ff");
 
-  window.addEventListener("resize", () => {});
+  function updatePlot() {
+    dim = Dimensions.of("svg#right-plot").withMargin(margin);
+    x = x.range([0, dim.width]);
+    xAxis.call(d3.axisBottom(x));
+
+    g.selectAll("circle")
+      .data(vulnerabilities)
+      .attr("cx", (v) => x(v.cvss));
+
+    g.select("#xLabel").attr("x", dim.width);
+  }
+
+  window.addEventListener("resize", updatePlot);
 }

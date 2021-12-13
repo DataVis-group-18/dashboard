@@ -14,13 +14,28 @@ export class Margin {
   static all(val: number) {
     return new Margin(val, val, val, val);
   }
+}
 
-  dimensions(query: string): [number, number] {
-    const boundingRect = document.querySelector(query)!.getBoundingClientRect();
-    const width = boundingRect.width - this.left - this.right;
-    const height = boundingRect.height - this.top - this.bottom;
-    return [width, height];
-  }
+export class Dimensions {
+    width: number;
+    height: number;
+
+    constructor(width: number, height: number) {
+        this.width = width;
+        this.height = height;
+    }
+
+    static of(query: string) {
+        const boundingRect = document.querySelector(query)!.getBoundingClientRect();
+        return new Dimensions(boundingRect.width, boundingRect.height);
+    }
+
+    withMargin(m: Margin) {
+        return new Dimensions(
+            this.width - m.left - m.right,
+            this.height - m.top - m.bottom,
+        );
+    }
 }
 
 export class Row {
