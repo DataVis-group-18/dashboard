@@ -89,7 +89,7 @@ function transform_data_generator(
         : colorScale(0);
   }
 
-  throw "Someting is very wrong if it came to this";
+  throw "Something is very wrong if it came to this";
 }
 
 function agg_vuln_per_resolution(
