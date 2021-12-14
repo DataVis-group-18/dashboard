@@ -100,3 +100,29 @@ export class Organisation {
     return this.sev1 + this.sev2 + this.sev3 + this.sev4 + this.sev5 + this.sev6 + this.sev7 + this.sev8 + this.sev9 + this.sev10;
   }
 }
+
+export class Location {
+  city: string;
+  township: string;
+  province: string;
+  longitude: number;
+  latitude: number;
+  population: number;
+  total_devices: number;
+
+  constructor(  city: string,
+    township: string,
+    province: string,
+    longitude: number,
+    latitude: number,
+    population: number,
+    total_devices: number) {
+    this.township = township;
+    this.province = province;
+    this.longitude = longitude;
+    this.latitude = latitude;
+    this.city = city
+    this.population = population;
+    this.total_devices = total_devices;
+  }
+}
