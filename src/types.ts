@@ -95,4 +95,8 @@ export class Organisation {
     this.sev9 = sev9;
     this.sev10 = sev10;
   }
+
+  total(): number {
+    return this.sev1 + this.sev2 + this.sev3 + this.sev4 + this.sev5 + this.sev6 + this.sev7 + this.sev8 + this.sev9 + this.sev10;
+  }
 }
