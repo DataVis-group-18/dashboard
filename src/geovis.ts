@@ -40,8 +40,8 @@ export function drawGeo(
 
   const projection = d3
     .geoMercator()
-    .center([5.2913, 52.1326]) // longitude and latitude
-    .scale(5000)
+    .center([4.7913, 52.5326]) // longitude and latitude
+    .scale(4000)
     .translate([width / 2, height / 2]);
 
   const transform_data = transform_data_generator(resolution, scaling);

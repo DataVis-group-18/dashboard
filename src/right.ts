@@ -39,7 +39,7 @@ export class RightPlot extends Plot {
       .attr("class", "label")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -50)
+      .attr("y", -70)
       .attr("x", 0)
       .text("Number of affected devices");
 
