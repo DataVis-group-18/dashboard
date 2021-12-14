@@ -4,6 +4,7 @@ import { Row, Vulnerability, Location } from "./types";
 import { drawLeftPlot } from "./left";
 import { drawRightPlot } from "./right";
 import { drawGeo } from "./geovis";
+import { FeatureCollection, GeoJsonObject } from "geojson";
 
 const shodan: d3.DSVParsedArray<Row> = await d3.csv(
   "data/shodan.csv",
@@ -33,6 +34,7 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
   }
 );
 
+
 const locations: d3.DSVParsedArray<Location> = await d3.csv(
   "data/locations.csv",
   (d): Location => {
@@ -48,10 +50,13 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
   }
 );
 
-// const geo_json = await d3.json('data/nl_provinces.geojson');
+const resolution = 'township'; // 'province' or 'township';
+const scaling = 'capita'; // 'nil' or 'capita' or 'fraction';
 
-// console.log(geo_json.features)
+// load the appropriate geojson file
+const geo_json: FeatureCollection = (await d3.json('data/nl_'+resolution+'s.geojson'))!;
 
-// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
+drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
+
 
 // drawRightPlot(vulnerabilities);
