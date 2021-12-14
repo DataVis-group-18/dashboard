@@ -1,9 +1,10 @@
 import "./style.css";
 import * as d3 from "d3";
-import { Row, Vulnerability, Location } from "./types";
+import { Row, Vulnerability, Organisation, Location } from "./types";
 import { drawLeftPlot } from "./left";
 import { RightPlot } from "./right";
 import { drawGeo } from "./geovis";
+import { FeatureCollection } from "geojson";
 
 const shodan: d3.DSVParsedArray<Row> = await d3.csv(
   "data/shodan.csv",
@@ -33,6 +34,25 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
   }
 );
 
+const organisations: d3.DSVParsedArray<Organisation> = await d3.csv(
+    "data/vulnerabilities_by_orgs_and_severity.csv",
+    (o): Organisation => {
+        return new Organisation(
+            o.name!,
+            parseInt(o.sev1!),
+            parseInt(o.sev2!),
+            parseInt(o.sev3!),
+            parseInt(o.sev4!),
+            parseInt(o.sev5!),
+            parseInt(o.sev6!),
+            parseInt(o.sev7!),
+            parseInt(o.sev8!),
+            parseInt(o.sev9!),
+            parseInt(o.sev10!)
+        );
+    }
+);
+
 const locations: d3.DSVParsedArray<Location> = await d3.csv(
   "data/locations.csv",
   (d): Location => {
@@ -48,10 +68,14 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
   }
 );
 
-// const geo_json = await d3.json('data/nl_provinces.geojson');
+const resolution = 'township'; // 'province' or 'township';
+const scaling = 'capita'; // 'nil' or 'capita' or 'fraction';
 
-// console.log(geo_json.features)
+// load the appropriate geojson file
+const geo_json: FeatureCollection = (await d3.json('data/nl_'+resolution+'s.geojson'))!;
 
 // drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
 
+drawLeftPlot(organisations);
 new RightPlot(document.querySelector("svg#right-plot")!, vulnerabilities);
+drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
