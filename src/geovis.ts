@@ -10,9 +10,18 @@ export function drawGeo(
     resolution : string,
     scaling : string
 ) {
-    var loc_vuln_counts = agg_vuln_per_resolution(shodan, vulnerabilities, locations, resolution)
-    // console.log(loc_vuln_counts)
+    const loc_vuln_counts = agg_vuln_per_resolution(shodan, vulnerabilities, locations, resolution)
 
+    // var debug_fn = (lvc) => {
+    //     var arr = []
+    //     for (let i in lvc){
+    //         arr.push(lvc[i]['total_vulns']/lvc[i]['population'])
+    //     }
+
+    //     return arr.sort((a, b) => b - a);
+    // };
+
+    // console.log(debug_fn(loc_vuln_counts));
 
     const svg = d3.select("svg#right-plot");
     const [width, height] = Margin.all(50).dimensions("svg#right-plot");
@@ -22,26 +31,81 @@ export function drawGeo(
                         .scale(5000)
                         .translate([width / 2, height / 2]);
 
-
-    var colorScale = d3.scaleThreshold()
-    .domain([5000, 10000, 25000, 50000])
-    .range(d3.schemeReds[5]);
-
+    const transform_data = transform_data_generator(resolution, scaling);
+    
 
     svg.append('g')
         .selectAll('path')
         .data(geo_json.features)
         .enter().append('path')
                 .attr('id', (d) => d.properties.name)
-                .attr('fill', (d) => {
-                    var resolution_name = d.properties.name;
-                    var agg = loc_vuln_counts[resolution_name]['total_vulns'];
-                    return colorScale(agg);
-                })
+                .attr('fill', (d) => transform_data(loc_vuln_counts, d.properties.name))
                 .attr('d', d3.geoPath()
                     .projection(projection))
-                .style('stroke', 'none');
+                .style('stroke', 'black');
 
+}
+
+
+// this function returns a function that will ultimately set the fill for a given configuration of resolution and scaling
+// its IMPORTANT to tweak with the colorscale domain values cause I'm not sure if there is a heuristic to do that.
+function transform_data_generator( 
+    resolution : string,
+    scaling : string
+) {
+    if (resolution === 'province'){
+        if (scaling === 'nil') {
+            var colorScale = d3.scaleThreshold()
+                               .domain([0, 6000, 20000, 50000])
+                               .range(d3.schemeReds[5]);
+
+            return (lvc, rn) => colorScale(lvc[rn]['total_vulns']);
+        }
+
+        else if (scaling === 'capita'){
+            var colorScale = d3.scaleThreshold()
+                               .domain([0, 0.005, 0.01, 0.1])
+                               .range(d3.schemeReds[5]);
+
+            return (lvc, rn) => colorScale(lvc[rn]['total_vulns'] / lvc[rn]['population']);
+        }
+
+        else if (scaling === 'fraction'){
+            var colorScale = d3.scaleThreshold()
+                               .domain([0, 0.03, 0.1, 0.2])
+                               .range(d3.schemeReds[5]);
+
+            return (lvc, rn) => colorScale(lvc[rn]['total_vulns'] / lvc[rn]['total_devices']);
+        }
+    }
+
+    else if (resolution === 'township'){
+        if (scaling === 'nil'){
+            var colorScale = d3.scaleThreshold()
+                               .domain([0, 20, 1000, 50000])
+                               .range(d3.schemeReds[5]);
+            return (lvc, rn) => { return (rn in lvc) ? // necessary to perform this check cause some townships have no vuln devices
+                                    colorScale(lvc[rn]['total_vulns']) : colorScale(0); }
+        }
+
+        else if (scaling === 'capita'){
+            var colorScale = d3.scaleThreshold()
+                               .domain([0, 0.005, 0.01, 0.1])
+                               .range(d3.schemeReds[5]);
+            return (lvc, rn) => { return (rn in lvc) ? 
+                                    colorScale(lvc[rn]['total_vulns'] / lvc[rn]['population']) : colorScale(0); }
+        }
+
+        else if (scaling === 'fraction'){
+            var colorScale = d3.scaleThreshold()
+                               .domain([0, 0.03, 0.1, 0.2])
+                               .range(d3.schemeReds[5]);
+            return (lvc, rn) => { return (rn in lvc) ? 
+                                    colorScale(lvc[rn]['total_vulns'] / lvc[rn]['total_devices']) : colorScale(0); }
+        }
+    }
+
+    return 'Someting is very wrong if it came to this';
 }
 
 function agg_vuln_per_resolution (
@@ -69,7 +133,7 @@ function agg_vuln_per_resolution (
                 'severity_high' : 0,
                 'severity_critial' : 0,
                 'total_vulns' : 0,
-                'population' : 1, //avoiding division by 0 like a legend
+                'population' : 1, //avoid division by 0 like a legend
                 'total_devices' : 1,
             }
         }
@@ -117,13 +181,6 @@ function get_device_resolution (
 ) {
     return locations[loc_idx][resolution];
 }
-
-// function get_device_city (
-//     loc_idx: number,
-//     locations: d3.DSVParsedArray<Location>
-// ) {
-//     return locations[loc_idx].city;
-// }
 
 function get_city_population (
     loc_idx: number,

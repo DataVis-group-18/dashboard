@@ -49,12 +49,11 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
   }
 );
 
-const geo_json = await d3.json('data/nl_provinces.geojson');
+const resolution = 'township'; // 'province' or 'township';
+const scaling = 'capita'; // 'nil' or 'capita' or 'fraction';
+const geo_json = await d3.json('data/nl_'+resolution+'s.geojson'); // load the appropriate geojson file
 
-// (window as any).locations = locations;
-// (window as any).shodan = shodan;
-
-drawGeo(locations, shodan, vulnerabilities, geo_json, 'province', 'capita')
+drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
 
 
 // drawRightPlot(vulnerabilities);
