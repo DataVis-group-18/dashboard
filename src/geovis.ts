@@ -19,8 +19,8 @@ export function drawGeo(
     
     const projection = d3.geoMercator()
                         .center([5.2913, 52.1326]) // longitude and latitude
-                        .scale(4000)
-                        .translate([width / 1.5, height / 1.5]);
+                        .scale(5000)
+                        .translate([width / 2, height / 2]);
 
 
     var colorScale = d3.scaleThreshold()
@@ -51,8 +51,8 @@ function agg_vuln_per_resolution (
     resolution : string,
     scaling : string
 ) {
-    var loc_vuln_counts = {}; 
-    var seen_loc_idx = []; // list to hold indexes of locations we've already seen
+    const loc_vuln_counts = {}; 
+    const seen_loc_idx = []; // list to hold indexes of locations we've already seen
 
     for (let i = 0; i<shodan.length; i++) {
 
@@ -107,8 +107,7 @@ function get_avg_cvss_score (
     vulns: number[],
     vulnerabilities: d3.DSVParsedArray<Vulnerability>
 ) {
-     return vulns.map((v) => vulnerabilities[v].cvss)
-                            .reduce((p,c) => p+c, 0) / vulns.length;
+     return d3.mean(vulns.map((v) => vulnerabilities[v].cvss));
 }
 
 function get_device_resolution (
