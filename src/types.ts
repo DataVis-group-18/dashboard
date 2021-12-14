@@ -17,25 +17,30 @@ export class Margin {
 }
 
 export class Dimensions {
-    width: number;
-    height: number;
+  #width = 0;
+  #height = 0;
+  margin: Margin;
+  elem: HTMLElement;
 
-    constructor(width: number, height: number) {
-        this.width = width;
-        this.height = height;
-    }
+  constructor(elem: HTMLElement, margin: Margin) {
+    this.elem = elem;
+    this.margin = margin;
+    this.refresh();
+  }
 
-    static of(query: string) {
-        const boundingRect = document.querySelector(query)!.getBoundingClientRect();
-        return new Dimensions(boundingRect.width, boundingRect.height);
-    }
+  refresh() {
+    const rect = this.elem.getBoundingClientRect();
+    this.#width = rect.width;
+    this.#height = rect.height;
+  }
 
-    withMargin(m: Margin) {
-        return new Dimensions(
-            this.width - m.left - m.right,
-            this.height - m.top - m.bottom,
-        );
-    }
+  get width() {
+    return this.#width - this.margin.left - this.margin.right;
+  }
+
+  get height() {
+    return this.#height - this.margin.top - this.margin.bottom;
+  }
 }
 
 export class Row {
@@ -92,19 +97,44 @@ export class Location {
   population: number;
   total_devices: number;
 
-  constructor(  city: string,
+  constructor(
+    city: string,
     township: string,
     province: string,
     longitude: number,
     latitude: number,
     population: number,
-    total_devices: number) {
+    total_devices: number
+  ) {
     this.township = township;
     this.province = province;
     this.longitude = longitude;
     this.latitude = latitude;
-    this.city = city
+    this.city = city;
     this.population = population;
     this.total_devices = total_devices;
+  }
+}
+
+export abstract class Plot {
+  container: HTMLElement;
+  dimensions: Dimensions;
+  margin: Margin;
+
+  constructor(elem: HTMLElement, margin: Margin) {
+    this.container = elem;
+    this.margin = margin;
+    this.dimensions = new Dimensions(elem, margin);
+  }
+
+  abstract update(): void;
+  abstract clear(): void;
+
+  get width() {
+    return this.dimensions.width;
+  }
+
+  get height() {
+    return this.dimensions.height;
   }
 }

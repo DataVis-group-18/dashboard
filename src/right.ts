@@ -1,62 +1,73 @@
 import * as d3 from "d3";
-import { Vulnerability, Dimensions, Margin } from "./types";
+import { Vulnerability, Margin, Plot } from "./types";
 
-const svg = d3.select("svg#right-plot");
-const margin = Margin.all(50);
-let dim = Dimensions.of("svg#right-plot").withMargin(margin);
-const g = svg.append("g").attr("transform", "translate(90, 25)");
+export class RightPlot extends Plot {
+  vulnerabilities: d3.DSVParsedArray<Vulnerability>;
+  x: d3.ScaleLinear<number, number, never>;
+  y: d3.ScaleLinear<number, number, never>;
+  xAxis: d3.Selection<SVGGElement, unknown, null, undefined>;
+  group: d3.Selection<SVGGElement, unknown, null, undefined>
 
-export function drawRightPlot(
-  vulnerabilities: d3.DSVParsedArray<Vulnerability>
-) {
-  let x = d3.scaleLinear().domain([0, 10]).range([0, dim.width]);
-  const y = d3
-    .scaleLinear()
-    .domain([0, d3.max(vulnerabilities, (v) => v.count)!])
-    .range([dim.height, 0]);
+  constructor(container: HTMLElement, vulnerabilities: d3.DSVParsedArray<Vulnerability>) {
+    super(container, Margin.all(50));
+    
+    this.vulnerabilities = vulnerabilities;
 
-  let xAxis = g
-    .append("g")
-    .attr("transform", "translate(0," + dim.height + ")")
-    .call(d3.axisBottom(x));
+    this.group = d3.select(this.container).append("g").attr("transform", "translate(90, 25)");
 
-  g.append("text")
-    .attr("id", "xLabel")
-    .attr("class", "label")
-    .attr("text-anchor", "end")
-    .attr("x", dim.width)
-    .attr("y", dim.height + 50)
-    .text("Severity (CVSS score)");
+    this.x = d3.scaleLinear().domain([0, 10]).range([0, this.width]);
+    this.y = d3
+      .scaleLinear()
+      .domain([0, d3.max(vulnerabilities, (v) => v.count)!])
+      .range([this.height, 0]);
 
-  g.append("g").call(d3.axisLeft(y).ticks(10));
-  g.append("text")
-    .attr("class", "label")
-    .attr("text-anchor", "end")
-    .attr("transform", "rotate(-90)")
-    .attr("y", -50)
-    .attr("x", 0)
-    .text("Number of affected devices");
+    this.xAxis = this.group
+      .append("g")
+      .attr("transform", "translate(0," + this.height + ")")
+      .call(d3.axisBottom(this.x));
 
-  g.selectAll("dot")
-    .data(vulnerabilities)
-    .enter()
-    .append("circle")
-    .attr("r", 4)
-    .attr("cx", (v) => x(v.cvss))
-    .attr("cy", (v) => y(v.count))
-    .style("fill", "#EA5F21ff");
+    this.group.append("text")
+      .attr("id", "xLabel")
+      .attr("class", "label")
+      .attr("text-anchor", "end")
+      .attr("x", this.width)
+      .attr("y", this.height + 50)
+      .text("Severity (CVSS score)");
 
-  function updatePlot() {
-    dim = Dimensions.of("svg#right-plot").withMargin(margin);
-    x = x.range([0, dim.width]);
-    xAxis.call(d3.axisBottom(x));
+    this.group.append("g").call(d3.axisLeft(this.y).ticks(10));
+    this.group.append("text")
+      .attr("class", "label")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -50)
+      .attr("x", 0)
+      .text("Number of affected devices");
 
-    g.selectAll("circle")
+    this.group.selectAll("dot")
       .data(vulnerabilities)
-      .attr("cx", (v) => x(v.cvss));
-
-    g.select("#xLabel").attr("x", dim.width);
+      .enter()
+      .append("circle")
+      .attr("r", 4)
+      .attr("cx", (v) => this.x(v.cvss))
+      .attr("cy", (v) => this.y(v.count))
+      .style("fill", "#EA5F21ff");
+    
+      window.addEventListener("resize", () => { this.update() });
   }
 
-  window.addEventListener("resize", updatePlot);
+  update(): void {
+    this.dimensions.refresh();
+    this.x = this.x.range([0, this.width]);
+    this.xAxis.call(d3.axisBottom(this.x));
+
+    this.group.selectAll("circle")
+      .data(this.vulnerabilities)
+      .attr("cx", (v) => this.x(v.cvss));
+
+    this.group.select("#xLabel").attr("x", this.width);
+  }
+
+  clear() {
+    this.group.remove();
+  }
 }

@@ -2,7 +2,7 @@ import "./style.css";
 import * as d3 from "d3";
 import { Row, Vulnerability, Location } from "./types";
 import { drawLeftPlot } from "./left";
-import { drawRightPlot } from "./right";
+import { RightPlot } from "./right";
 import { drawGeo } from "./geovis";
 
 const shodan: d3.DSVParsedArray<Row> = await d3.csv(
@@ -36,15 +36,15 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
 const locations: d3.DSVParsedArray<Location> = await d3.csv(
   "data/locations.csv",
   (d): Location => {
-      return new Location(
-          d.city!,
-          d.township!,
-          d.province!,
-          parseFloat(d.longitude!),
-          parseFloat(d.latitude!),
-          parseInt(d.population!),
-          parseInt(d.total_devices!)
-      );
+    return new Location(
+      d.city!,
+      d.township!,
+      d.province!,
+      parseFloat(d.longitude!),
+      parseFloat(d.latitude!),
+      parseInt(d.population!),
+      parseInt(d.total_devices!)
+    );
   }
 );
 
@@ -54,4 +54,4 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
 
 // drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
 
-drawRightPlot(vulnerabilities);
+new RightPlot(document.querySelector("svg#right-plot")!, vulnerabilities);
