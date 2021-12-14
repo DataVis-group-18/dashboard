@@ -5,28 +5,31 @@ import {Series} from "d3";
 export function drawLeftPlot(organisations: d3.DSVParsedArray<Organisation>) {
 // set the dimensions and margins of the graph
    const svg = d3.select("svg#left-plot");
-   const [width, height] = Margin.all(50).dimensions("svg#right-plot");
-
-   const g = svg.append("g").attr("transform", "translate(90, 25)");
-
+   let [width, height] = Margin.all(50).dimensions("svg#left-plot");
    const subgroups = organisations.columns.slice(1)
 
    const groups = organisations.map(d => (d.name))
 
-   const x = d3.scaleBand()
-          .domain(groups)
-          .range([0, width])
-          .padding(0.2)
+   const x = d3.scaleLinear()
+       .domain([0, 8000])
+       .range([0, width]);
       svg.append("g")
           .attr("transform", `translate(0, ${height})`)
-          .call(d3.axisBottom(x).tickSizeOuter(0));
+          .call(d3.axisBottom(x))
+          .selectAll("text")
+          .attr("transform", "translate(-10,0)rotate(-45)")
+          .style("text-anchor", "end");
 
       // Add Y axis
-      const y = d3.scaleLinear()
-          .domain([0, 8000])
-          .range([ height, 0 ]);
-      svg.append("g")
-          .call(d3.axisLeft(y));
+      const y = d3.scaleBand()
+          .domain(groups)
+          .range([ 10, height ])
+          .padding(0.1);
+   svg.append("g")
+       .attr("transform", `translate(0, ${width}+${width})`)
+       .call(d3.axisLeft(y).tickSizeOuter(0))
+       .selectAll("text")
+       .style("text-anchor", "end");
 
       // color palette = one color per subgroup
       const color = d3.scaleOrdinal()
@@ -49,10 +52,12 @@ export function drawLeftPlot(organisations: d3.DSVParsedArray<Organisation>) {
           // enter a second time = loop subgroup per subgroup to add all rectangles
           .data(d => d)
           .join("rect")
-          .attr("x", d => x(d.data.name))
-          .attr("y", d => y(d[1]))
-          .attr("height", d => y(d[0]) - y(d[1]))
-          .attr("width",x.bandwidth())
+          .attr("x", d=> x(d[0]))
+          .attr("y", d=> y(d.data.name))//y(d.name))
+          .attr("width", d => x(d[1]) - x(d[0]))
+          .attr("height",y.bandwidth())
+
+
    }
 
 // let counts = new Map<number, number>();
