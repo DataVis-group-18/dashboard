@@ -47,6 +47,12 @@ export class Dimensions {
   }
 }
 
+export interface Data {
+  shodan: d3.DSVParsedArray<Row>;
+  vulnerabilities: d3.DSVParsedArray<Vulnerability>;
+  locations: d3.DSVParsedArray<Location>;
+}
+
 export class Row {
   ip_str: string;
   isp: string;

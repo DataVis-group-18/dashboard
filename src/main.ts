@@ -1,7 +1,7 @@
 import "./style.css";
 import * as d3 from "d3";
-import { Row, Vulnerability, Location, Choice } from "./types";
-import { drawLeftPlot } from "./left";
+import { Row, Vulnerability, Location, Choice, Data } from "./types";
+import { LeftPlot } from "./left";
 import { RightPlot } from "./right";
 import { drawGeo } from "./geovis";
 import { FeatureCollection } from "geojson";
@@ -53,7 +53,11 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
   }
 );
 
-console.log(locations);
+const data: Data = {
+  shodan,
+  vulnerabilities,
+  locations,
+};
 
 const resolution = "township"; // 'province' or 'township';
 const scaling = "capita"; // 'nil' or 'capita' or 'fraction';
@@ -77,20 +81,11 @@ function redraw(element: string) {}
 const category = document.getElementById("category")! as HTMLOptionElement;
 category!.onchange = function () {
   setSelection(null);
-  drawLeftPlot(
-    shodan,
-    vulnerabilities,
-    locations,
-    setSelection,
-    category.value as Choice
-  );
+  left.updateChoice(category.value as Choice);
 };
 
-// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
-drawLeftPlot(
-  shodan,
-  vulnerabilities,
-  locations,
+let left = new LeftPlot(
+  data,
   setSelection,
   category.value as Choice
 );
