@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { FeatureCollection } from "geojson";
-import { Row, Vulnerability, Location, Margin } from "./types";
+import { Row, Vulnerability, Location, Margin, Dimensions } from "./types";
 
 type Resolution = "province" | "township";
 type Scaling = "nil" | "capita" | "fraction";
@@ -33,13 +33,15 @@ export function drawGeo(
     resolution
   );
 
-  const svg = d3.select("svg#right-plot");
-  const [width, height] = Margin.all(50).dimensions("svg#right-plot");
+  const svg = d3.select("svg#map");
+  const dim = new Dimensions(document.querySelector("svg#map")!, Margin.all(50));
+  const width = dim.width;
+  const height = dim.height;
 
   const projection = d3
     .geoMercator()
-    .center([5.2913, 52.1326]) // longitude and latitude
-    .scale(5000)
+    .center([4.7913, 52.5326]) // longitude and latitude
+    .scale(4000)
     .translate([width / 2, height / 2]);
 
   const transform_data = transform_data_generator(resolution, scaling);

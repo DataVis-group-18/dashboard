@@ -1,3 +1,5 @@
+import * as d3 from "d3";
+
 export class Margin {
   left: number;
   right: number;
@@ -14,12 +16,32 @@ export class Margin {
   static all(val: number) {
     return new Margin(val, val, val, val);
   }
+}
 
-  dimensions(query: string): [number, number] {
-    const boundingRect = document.querySelector(query)!.getBoundingClientRect();
-    const width = boundingRect.width - this.left - this.right;
-    const height = boundingRect.height - this.top - this.bottom;
-    return [width, height];
+export class Dimensions {
+  #width = 0;
+  #height = 0;
+  margin: Margin;
+  elem: HTMLElement;
+
+  constructor(elem: HTMLElement, margin: Margin) {
+    this.elem = elem;
+    this.margin = margin;
+    this.refresh();
+  }
+
+  refresh() {
+    const rect = this.elem.getBoundingClientRect();
+    this.#width = rect.width;
+    this.#height = rect.height;
+  }
+
+  get width() {
+    return this.#width - this.margin.left - this.margin.right;
+  }
+
+  get height() {
+    return this.#height - this.margin.top - this.margin.bottom;
   }
 }
 
@@ -70,34 +92,19 @@ export class Vulnerability {
 
 export class Organisation {
   name: string;
-  sev1: number;
-  sev2: number;
-  sev3: number;
-  sev4: number;
-  sev5: number;
-  sev6: number;
-  sev7: number;
-  sev8: number;
-  sev9: number;
-  sev10: number;
+  vulns: number[];
 
-  constructor(  name: string, sev1: number, sev2: number, sev3: number, sev4: number, sev5: number, sev6: number,
-                sev7: number, sev8: number, sev9: number, sev10: number) {
+  constructor(  name: string, vulns: number[]) {
     this.name = name;
-    this.sev1 = sev1;
-    this.sev2 = sev2;
-    this.sev3 = sev3;
-    this.sev4 = sev4;
-    this.sev5 = sev5;
-    this.sev6 = sev6;
-    this.sev7 = sev7;
-    this.sev8 = sev8;
-    this.sev9 = sev9;
-    this.sev10 = sev10;
+    this.vulns = vulns;
   }
 
   total(): number {
-    return this.sev1 + this.sev2 + this.sev3 + this.sev4 + this.sev5 + this.sev6 + this.sev7 + this.sev8 + this.sev9 + this.sev10;
+    return d3.sum(this.vulns);
+  }
+
+  dimensions(): [number, number][] {
+    return d3.zip([0].concat(Array.from(d3.cumsum(this.vulns))), this.vulns) as [number, number][];
   }
 }
 
@@ -110,19 +117,44 @@ export class Location {
   population: number;
   total_devices: number;
 
-  constructor(  city: string,
+  constructor(
+    city: string,
     township: string,
     province: string,
     longitude: number,
     latitude: number,
     population: number,
-    total_devices: number) {
+    total_devices: number
+  ) {
     this.township = township;
     this.province = province;
     this.longitude = longitude;
     this.latitude = latitude;
-    this.city = city
+    this.city = city;
     this.population = population;
     this.total_devices = total_devices;
+  }
+}
+
+export abstract class Plot {
+  container: HTMLElement;
+  dimensions: Dimensions;
+  margin: Margin;
+
+  constructor(elem: HTMLElement, margin: Margin) {
+    this.container = elem;
+    this.margin = margin;
+    this.dimensions = new Dimensions(elem, margin);
+  }
+
+  abstract update(): void;
+  abstract clear(): void;
+
+  get width() {
+    return this.dimensions.width;
+  }
+
+  get height() {
+    return this.dimensions.height;
   }
 }
