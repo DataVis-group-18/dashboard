@@ -35,24 +35,6 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
   }
 );
 
-const organisations: d3.DSVParsedArray<Organisation> = await d3.csv(
-  "data/vulnerabilities_by_orgs_and_severity.csv",
-  (o): Organisation => {
-    return new Organisation(o.name!, [
-      parseInt(o.sev1!),
-      parseInt(o.sev2!),
-      parseInt(o.sev3!),
-      parseInt(o.sev4!),
-      parseInt(o.sev5!),
-      parseInt(o.sev6!),
-      parseInt(o.sev7!),
-      parseInt(o.sev8!),
-      parseInt(o.sev9!),
-      parseInt(o.sev10!),
-    ]);
-  }
-);
-
 const locations: d3.DSVParsedArray<Location> = await d3.csv(
   "data/locations.csv",
   (d): Location => {
@@ -87,6 +69,6 @@ function setSelection(org: string | null) {
 
 // drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
 
-drawLeftPlot(organisations, setSelection);
+drawLeftPlot(shodan, vulnerabilities, setSelection);
 let right = new RightPlot(document.querySelector("svg#right-plot")!, shodan, vulnerabilities);
 drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);

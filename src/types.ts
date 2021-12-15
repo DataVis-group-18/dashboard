@@ -93,12 +93,10 @@ export class Vulnerability {
 export class Organisation {
   name: string;
   vulns: number[];
-  cumsum: number[];
 
   constructor(  name: string, vulns: number[]) {
     this.name = name;
     this.vulns = vulns;
-    this.cumsum = Array.from(d3.cumsum(vulns));
   }
 
   total(): number {
@@ -106,7 +104,7 @@ export class Organisation {
   }
 
   dimensions(): [number, number][] {
-    return d3.zip([0].concat(this.cumsum), this.vulns) as [number, number][];
+    return d3.zip([0].concat(Array.from(d3.cumsum(this.vulns))), this.vulns) as [number, number][];
   }
 }
 
