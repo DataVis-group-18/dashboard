@@ -1,3 +1,5 @@
+import * as d3 from "d3";
+
 export class Margin {
   left: number;
   right: number;
@@ -90,34 +92,21 @@ export class Vulnerability {
 
 export class Organisation {
   name: string;
-  sev1: number;
-  sev2: number;
-  sev3: number;
-  sev4: number;
-  sev5: number;
-  sev6: number;
-  sev7: number;
-  sev8: number;
-  sev9: number;
-  sev10: number;
+  vulns: number[];
+  cumsum: number[];
 
-  constructor(  name: string, sev1: number, sev2: number, sev3: number, sev4: number, sev5: number, sev6: number,
-                sev7: number, sev8: number, sev9: number, sev10: number) {
+  constructor(  name: string, vulns: number[]) {
     this.name = name;
-    this.sev1 = sev1;
-    this.sev2 = sev2;
-    this.sev3 = sev3;
-    this.sev4 = sev4;
-    this.sev5 = sev5;
-    this.sev6 = sev6;
-    this.sev7 = sev7;
-    this.sev8 = sev8;
-    this.sev9 = sev9;
-    this.sev10 = sev10;
+    this.vulns = vulns;
+    this.cumsum = Array.from(d3.cumsum(vulns));
   }
 
   total(): number {
-    return this.sev1 + this.sev2 + this.sev3 + this.sev4 + this.sev5 + this.sev6 + this.sev7 + this.sev8 + this.sev9 + this.sev10;
+    return d3.sum(this.vulns);
+  }
+
+  dimensions(): [number, number][] {
+    return d3.zip([0].concat(this.cumsum), this.vulns) as [number, number][];
   }
 }
 
