@@ -1,11 +1,14 @@
 import "./style.css";
 import * as d3 from "d3";
-import { Row, Vulnerability, Organisation, Location } from "./types";
+import { Row, Vulnerability, Location, Choice } from "./types";
 import { drawLeftPlot } from "./left";
 import { RightPlot } from "./right";
 import { drawGeo } from "./geovis";
 import { FeatureCollection } from "geojson";
-import { select } from "d3";
+
+function parseOs(os: string): string {
+  return os.replace(/[\- ](Service Pack)?[\- ]?[0-9]+$/g, '');
+}
 
 const shodan: d3.DSVParsedArray<Row> = await d3.csv(
   "data/shodan.csv",
@@ -14,7 +17,7 @@ const shodan: d3.DSVParsedArray<Row> = await d3.csv(
       d.ip_str!,
       d.isp!,
       d.org!,
-      d.os!,
+      parseOs(d.os!),
       parseInt(d.port!),
       new Date(d.timestamp!),
       parseInt(d.location!),
@@ -67,8 +70,15 @@ function setSelection(org: string | null) {
   }
 }
 
-// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
+function redraw(element:string){
+}
 
-drawLeftPlot(shodan, vulnerabilities, setSelection);
+const category = document.getElementById('category')! as HTMLOptionElement;
+category!.onchange=function() {
+    drawLeftPlot(shodan, vulnerabilities, setSelection, category.value as Choice);
+}
+
+// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
+drawLeftPlot(shodan, vulnerabilities, setSelection, category.value as Choice);
 let right = new RightPlot(document.querySelector("svg#right-plot")!, shodan, vulnerabilities);
 drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);

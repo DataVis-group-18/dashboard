@@ -1,5 +1,7 @@
 import * as d3 from "d3";
 
+export type Choice = "org" | "isp" | "os" | "location";
+
 export class Margin {
   left: number;
   right: number;
@@ -90,7 +92,7 @@ export class Vulnerability {
   }
 }
 
-export class Organisation {
+export class LeftPlotObject {
   name: string;
   vulns: number[];
 
