@@ -1,6 +1,13 @@
 import * as d3 from "d3";
 import { ScaleOrdinal } from "d3";
-import {Dimensions, Margin, LeftPlotObject, Row, Vulnerability, Location} from "./types";
+import {
+  Dimensions,
+  Margin,
+  LeftPlotObject,
+  Row,
+  Vulnerability,
+  Choice,
+} from "./types";
 
 let selected: Element | null = null;
 
@@ -8,15 +15,8 @@ export function drawLeftPlot(
   shodan: d3.DSVParsedArray<Row>,
   vulnerabilities: d3.DSVParsedArray<Vulnerability>,
   onSelect: (org: string | null) => void,
-  choice: string
+  choice: Choice
 ) {
-  let data;
-  if (choice == 'org' || choice == 'isp' || choice == 'location' || choice == 'os') {
-    data = getData(shodan, vulnerabilities, choice);
-  } else {
-    throw "Wrong choices";
-  }
-
   // set the dimensions and margins of the graph
   d3.select("svg#left-plot").selectAll("*").remove();
   const svg = d3
@@ -28,9 +28,9 @@ export function drawLeftPlot(
     new Margin(0, 20, 50, 160)
   );
 
-  data = Object.values(data);
+  let data = Object.values(getData(shodan, vulnerabilities, choice));
   data.sort((a, b) => b.total() - a.total());
-  data = data.slice(0,20);
+  data = data.slice(0, 20);
 
   const groups = data.map((d) => d.name);
 
@@ -52,7 +52,9 @@ export function drawLeftPlot(
       d3
         .axisLeft(y)
         .tickSizeOuter(0)
-        .tickFormat((x) => shortenText(x, 30))
+        .tickFormat((x) =>
+          choice == "os" ? shortenOSText(x, 25) : shortenText(x, 25)
+        )
     )
     .selectAll("text")
     .style("text-anchor", "end");
@@ -120,15 +122,35 @@ function shortenText(text: string, maxLength: number): string {
   }
 }
 
-function getData(shodan: d3.DSVParsedArray<Row>, vulnerabilities: d3.DSVParsedArray<Vulnerability>, choice: string){
-  const data: { [key: string]: LeftPlotObject } = {}
+function shortenOSText(text: string, maxLength: number): string {
+  if (text.length > maxLength) {
+    const s = text.split(" ");
+    const version = s[s.length - 1];
+    return text.slice(0, maxLength - version.length - 2) + "..." + version;
+  } else {
+    return text;
+  }
+}
+
+function getData(
+  shodan: d3.DSVParsedArray<Row>,
+  vulnerabilities: d3.DSVParsedArray<Vulnerability>,
+  choice: Choice
+): { [key: string]: LeftPlotObject } {
+  const data: { [key: string]: LeftPlotObject } = {};
   for (const row of shodan) {
+    if (row[choice] == "") continue;
+
     if (!(row[choice] in data)) {
-      data[row[choice]] = new LeftPlotObject(row[choice], [0,0,0,0,0,0,0,0,0,0]);
+      data[row[choice]] = new LeftPlotObject(
+        row[choice].toString(),
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      );
     }
     for (const v in row.vulns) {
-      data[row[choice]].vulns[Math.floor(vulnerabilities[v].cvss-1)] += 1;
+      data[row[choice]].vulns[Math.floor(vulnerabilities[v].cvss - 1)] += 1;
     }
   }
+  console.log(data);
   return data;
 }
