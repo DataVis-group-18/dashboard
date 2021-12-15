@@ -90,7 +90,7 @@ export class Vulnerability {
   }
 }
 
-export class Organisation {
+export class LeftPlotObject {
   name: string;
   vulns: number[];
 

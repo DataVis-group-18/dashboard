@@ -67,8 +67,15 @@ function setSelection(org: string | null) {
   }
 }
 
-// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
+function redraw(element:string){
+}
 
-drawLeftPlot(shodan, vulnerabilities, setSelection);
+const category = document.getElementById('category');
+category!.onchange=function() {
+    drawLeftPlot(shodan, vulnerabilities, setSelection, this.value);
+}
+
+// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
+drawLeftPlot(shodan, vulnerabilities, setSelection, 'isp');
 let right = new RightPlot(document.querySelector("svg#right-plot")!, shodan, vulnerabilities);
 drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);

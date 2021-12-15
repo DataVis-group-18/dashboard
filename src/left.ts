@@ -1,15 +1,24 @@
 import * as d3 from "d3";
 import { ScaleOrdinal } from "d3";
-import { Dimensions, Margin, Organisation, Row, Vulnerability } from "./types";
+import {Dimensions, Margin, LeftPlotObject, Row, Vulnerability, Location} from "./types";
 
 let selected: Element | null = null;
 
 export function drawLeftPlot(
   shodan: d3.DSVParsedArray<Row>,
   vulnerabilities: d3.DSVParsedArray<Vulnerability>,
-  onSelect: (org: string | null) => void
+  onSelect: (org: string | null) => void,
+  choice: string
 ) {
+  let data;
+  if (choice == 'org' || choice == 'isp' || choice == 'location' || choice == 'os') {
+    data = getData(shodan, vulnerabilities, choice);
+  } else {
+    throw "Wrong choices";
+  }
+
   // set the dimensions and margins of the graph
+  d3.select("svg#left-plot").selectAll("*").remove();
   const svg = d3
     .select("svg#left-plot")
     .append("g")
@@ -19,23 +28,13 @@ export function drawLeftPlot(
     new Margin(0, 20, 50, 160)
   );
 
-  const orgs: { [key: string]: Organisation } = {}
-  for (const row of shodan) {
-    if (!(row.org in orgs)) {
-      orgs[row.org] = new Organisation(row.org, [0,0,0,0,0,0,0,0,0,0]);
-    }
-    for (const v in row.vulns) {
-      orgs[row.org].vulns[Math.floor(vulnerabilities[v].cvss-1)] += 1;
-    }
-  }
+  data = Object.values(data);
+  data.sort((a, b) => b.total() - a.total());
+  data = data.slice(0,20);
 
-  let organisations = Object.values(orgs);
-  organisations.sort((a, b) => b.total() - a.total());
-  organisations = organisations.slice(0,20);
+  const groups = data.map((d) => d.name);
 
-  const groups = organisations.map((d) => d.name);
-
-  const x = d3.scaleLinear().domain([0, organisations[0].total()]).range([0, dim.width]);
+  const x = d3.scaleLinear().domain([0, data[0].total()]).range([0, dim.width]);
   svg
     .append("g")
     .attr("transform", `translate(0, ${dim.height})`)
@@ -70,7 +69,7 @@ export function drawLeftPlot(
     .attr("transform", `translate(1, 0)`)
     .selectAll("g")
     // Enter in the stack data = loop key per key = group per group
-    .data(organisations)
+    .data(data)
     .join("g")
     .attr("id", (d) => d.name!)
     .attr("transform", (d) => `translate(0, ${y(d.name!)!})`)
@@ -119,4 +118,17 @@ function shortenText(text: string, maxLength: number): string {
   } else {
     return text;
   }
+}
+
+function getData(shodan: d3.DSVParsedArray<Row>, vulnerabilities: d3.DSVParsedArray<Vulnerability>, choice: string){
+  const data: { [key: string]: LeftPlotObject } = {}
+  for (const row of shodan) {
+    if (!(row[choice] in data)) {
+      data[row[choice]] = new LeftPlotObject(row[choice], [0,0,0,0,0,0,0,0,0,0]);
+    }
+    for (const v in row.vulns) {
+      data[row[choice]].vulns[Math.floor(vulnerabilities[v].cvss-1)] += 1;
+    }
+  }
+  return data;
 }
