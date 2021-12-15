@@ -47,6 +47,12 @@ export class Dimensions {
   }
 }
 
+export interface Data {
+  shodan: d3.DSVParsedArray<Row>;
+  vulnerabilities: d3.DSVParsedArray<Vulnerability>;
+  locations: d3.DSVParsedArray<Location>;
+}
+
 export class Row {
   ip_str: string;
   isp: string;
@@ -93,10 +99,12 @@ export class Vulnerability {
 }
 
 export class LeftPlotObject {
+  val: string;
   name: string;
   vulns: number[];
 
-  constructor(  name: string, vulns: number[]) {
+  constructor(val: string, name: string, vulns: number[]) {
+    this.val = val;
     this.name = name;
     this.vulns = vulns;
   }

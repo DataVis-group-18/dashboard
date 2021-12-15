@@ -9,9 +9,9 @@
     <header>Shodan Data Visualization</header>
     <main>
       <div>
-        <h1>Number of vulnerabilities</h1>
+        <h1>Number of vulnerable devices</h1>
         
-        <p>
+        <div id="left-controls">
           Categorize by:&nbsp;
           <select id="category">
             <option value="org">Organization</option>
@@ -19,7 +19,8 @@
             <option value="location">Location</option>
             <option value="os">Operating System</option>
           </select>
-        </p>
+          Scale: <input id="scale" type="range" min="1" max="1" value="1">
+        </div>
         <svg id="left-plot"></svg>
       </div>
       <div id="divider"></div>

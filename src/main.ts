@@ -1,13 +1,13 @@
 import "./style.css";
 import * as d3 from "d3";
-import { Row, Vulnerability, Location, Choice } from "./types";
-import { drawLeftPlot } from "./left";
+import { Row, Vulnerability, Location, Choice, Data } from "./types";
+import { LeftPlot } from "./left";
 import { RightPlot } from "./right";
 import { drawGeo } from "./geovis";
 import { FeatureCollection } from "geojson";
 
 function parseOs(os: string): string {
-  return os.replace(/[\- ](Service Pack)?[\- ]?[0-9]+$/g, '');
+  return os.replace(/[\- ](Service Pack)?[\- ]?[0-9]+$/g, "");
 }
 
 const shodan: d3.DSVParsedArray<Row> = await d3.csv(
@@ -53,6 +53,12 @@ const locations: d3.DSVParsedArray<Location> = await d3.csv(
   }
 );
 
+const data: Data = {
+  shodan,
+  vulnerabilities,
+  locations,
+};
+
 const resolution = "township"; // 'province' or 'township';
 const scaling = "capita"; // 'nil' or 'capita' or 'fraction';
 
@@ -61,24 +67,31 @@ const geo_json: FeatureCollection = (await d3.json(
   "data/nl_" + resolution + "s.geojson"
 ))!;
 
-let selectedOrganisation: string | null = null;
+let selectedVal: string | null = null;
 
-function setSelection(org: string | null) {
-  if (selectedOrganisation != org) {
-    selectedOrganisation = org;
-    right.setFilter(selectedOrganisation);
+function setSelection(val: string | null) {
+  if (selectedVal != val) {
+    selectedVal = val;
+    right.setFilter(category.value as Choice, selectedVal);
   }
 }
 
-function redraw(element:string){
-}
+function redraw(element: string) {}
 
-const category = document.getElementById('category')! as HTMLOptionElement;
-category!.onchange=function() {
-    drawLeftPlot(shodan, vulnerabilities, setSelection, category.value as Choice);
-}
+const category = document.getElementById("category")! as HTMLOptionElement;
+category!.onchange = function () {
+  setSelection(null);
+  left.updateChoice(category.value as Choice);
+};
 
-// drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
-drawLeftPlot(shodan, vulnerabilities, setSelection, category.value as Choice);
-let right = new RightPlot(document.querySelector("svg#right-plot")!, shodan, vulnerabilities);
+let left = new LeftPlot(
+  data,
+  setSelection,
+  category.value as Choice
+);
+let right = new RightPlot(
+  document.querySelector("svg#right-plot")!,
+  shodan,
+  vulnerabilities
+);
 drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
