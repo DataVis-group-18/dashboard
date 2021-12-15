@@ -1,7 +1,5 @@
 import * as d3 from "d3";
-import { ScaleOrdinal } from "d3";
 import {
-  Dimensions,
   Margin,
   LeftPlotObject,
   Row,
