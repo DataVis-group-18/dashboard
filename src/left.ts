@@ -52,7 +52,6 @@ export function drawLeftPlot(
   const y = d3.scaleBand().domain(groups).range([10, dim.height]).padding(0.1);
   svg
     .append("g")
-    .attr("transform", `translate(0, ${dim.width}+${dim.width})`)
     .call(
       d3
         .axisLeft(y)
