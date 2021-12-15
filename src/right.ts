@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { Vulnerability, Margin, Plot, Row } from "./types";
+import { Vulnerability, Margin, Plot, Row, Choice } from "./types";
 
 export class RightPlot extends Plot {
   shodan: d3.DSVParsedArray<Row>;
@@ -12,6 +12,9 @@ export class RightPlot extends Plot {
   group: d3.Selection<SVGGElement, unknown, null, undefined>;
   filter: string | null = null;
   filteredVulns: { [key: number]: number } | null = null;
+  cachedFilters: {
+    [key: string]: { [key: string]: { [key: number]: number } };
+  };
 
   constructor(
     container: HTMLElement,
@@ -22,6 +25,7 @@ export class RightPlot extends Plot {
 
     this.shodan = shodan;
     this.vulnerabilities = vulnerabilities;
+    this.cachedFilters = {};
 
     this.group = d3
       .select(this.container)
@@ -66,7 +70,7 @@ export class RightPlot extends Plot {
       .enter()
       .append("circle")
       .attr("r", 4);
-    
+
     this.update();
 
     window.addEventListener("resize", () => {
@@ -93,25 +97,40 @@ export class RightPlot extends Plot {
         )
       )
       .attr("cx", (v) => this.x(v.cvss))
-      .style("fill", (v) => d3.interpolateTurbo((v.cvss-1)/9));
+      .style("fill", (v) => d3.interpolateTurbo((v.cvss - 1) / 9));
 
     this.group.select("#xLabel").attr("x", this.width);
   }
 
-  setFilter(org: string | null) {
-    if (org) {
-      this.filter = org;
-      const vulns = this.shodan
-        .filter((r) => r.org == org)
-        .map((r) => r.vulns)
-        .flat();
-      this.filteredVulns = {};
-      for (const v of vulns) {
-        if (v in this.filteredVulns) {
-          this.filteredVulns[v] += 1;
-        } else {
-          this.filteredVulns[v] = 1;
+  setFilter(category: Choice, val: string | null) {
+    if (val) {
+      this.filter = val;
+
+      // Use cache if we already did this calculation once
+      if (
+        category in this.cachedFilters &&
+        val in this.cachedFilters[category]
+      ) {
+        this.filteredVulns = this.cachedFilters[category][val];
+      } else {
+        const vulns = this.shodan
+          .filter((r) => r[category] == val)
+          .map((r) => r.vulns)
+          .flat();
+
+        this.filteredVulns = {};
+        for (const v of vulns) {
+          if (v in this.filteredVulns) {
+            this.filteredVulns[v] += 1;
+          } else {
+            this.filteredVulns[v] = 1;
+          }
         }
+        
+        if (!(category in this.cachedFilters)) {
+          this.cachedFilters[category] = {};
+        }
+        this.cachedFilters[category][val] = this.filteredVulns;
       }
       this.y = this.y.domain([0, d3.max(Object.values(this.filteredVulns))!]);
     } else {
@@ -120,7 +139,7 @@ export class RightPlot extends Plot {
       this.y = this.y.domain([0, this.maxCount]);
     }
 
-    this.yAxis.call(d3.axisLeft(this.y)) 
+    this.yAxis.call(d3.axisLeft(this.y));
 
     this.update();
   }
