@@ -2,9 +2,12 @@ import * as d3 from "d3";
 import { ScaleOrdinal } from "d3";
 import { Dimensions, Margin, Organisation } from "./types";
 
-let selected: d3.Selection<any, unknown, any, any> | null = null;
+let selected: Element | null = null;
 
-export function drawLeftPlot(organisations: d3.DSVParsedArray<Organisation>) {
+export function drawLeftPlot(
+  organisations: d3.DSVParsedArray<Organisation>,
+  onSelect: (org: string | null) => void
+) {
   // set the dimensions and margins of the graph
   const svg = d3
     .select("svg#left-plot")
@@ -43,7 +46,10 @@ export function drawLeftPlot(organisations: d3.DSVParsedArray<Organisation>) {
     .style("text-anchor", "end");
 
   // color palette = one color per subgroup
-  const color = d3.scaleOrdinal([...new Array(10).keys()].reverse(), d3.schemeSpectral[10]);
+  const color = d3.scaleOrdinal(
+    [...new Array(10).keys()].reverse(),
+    d3.schemeSpectral[10]
+  );
 
   // Show the bars
   svg
@@ -53,28 +59,45 @@ export function drawLeftPlot(organisations: d3.DSVParsedArray<Organisation>) {
     // Enter in the stack data = loop key per key = group per group
     .data(organisations)
     .join("g")
+    .attr("id", (d) => d.name!)
     .attr("transform", (d) => `translate(0, ${y(d.name!)!})`)
     .selectAll("rect")
-    .on("click", function () {
-      selected?.selectAll("rect").attr("opacity", "0.5");
-      selected = d3.select(this as SVGRectElement);
-      selected?.selectAll("rect").attr("opacity", "1");
-    })
     // enter a second time = loop subgroup per subgroup to add all rectangles
     .data((d) => d.dimensions())
     .join("rect")
     .attr("x", (d) => x(d[0]))
-    .attr("class", (_d,i) => i.toString())
+    .attr("class", (_d, i) => i.toString())
     .attr("width", (d) => x(d[1]))
     .attr("height", y.bandwidth())
     .attr("fill", (_d, i) => color(i))
-    .attr("opacity", "0.5")
+    .attr("opacity", "1")
     .on("click", function () {
-      selected?.selectAll("rect").attr("opacity", "0.5");
-      selected = d3.select((this as Element).parentElement!);
-      selected?.selectAll("rect").attr("opacity", "1");
+      const parent = (this as Element).parentElement!;
+      if (selected == parent) {
+        d3.select(parent.parentElement)
+          .selectAll("g")
+          .selectAll("rect")
+          .transition()
+          .duration(300)
+          .attr("opacity", "1");
+        selected = null;
+        onSelect(null);
+      } else {
+        selected = parent;
+        d3.select(parent.parentElement)
+          .selectAll("g")
+          .selectAll("rect")
+          .transition()
+          .duration(300)
+          .attr("opacity", "0.4");
+        d3.select(parent)
+          .selectAll("rect")
+          .transition()
+          .duration(300)
+          .attr("opacity", "1");
+        onSelect(d3.select(selected).attr("id"));
+      }
     });
-    
 }
 
 function shortenText(text: string, maxLength: number): string {

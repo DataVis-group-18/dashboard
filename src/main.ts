@@ -5,6 +5,7 @@ import { drawLeftPlot } from "./left";
 import { RightPlot } from "./right";
 import { drawGeo } from "./geovis";
 import { FeatureCollection } from "geojson";
+import { select } from "d3";
 
 const shodan: d3.DSVParsedArray<Row> = await d3.csv(
   "data/shodan.csv",
@@ -75,8 +76,17 @@ const geo_json: FeatureCollection = (await d3.json(
   "data/nl_" + resolution + "s.geojson"
 ))!;
 
+let selectedOrganisation: string | null = null;
+
+function setSelection(org: string | null) {
+  if (selectedOrganisation != org) {
+    selectedOrganisation = org;
+    right.setFilter(selectedOrganisation);
+  }
+}
+
 // drawGeo(locations, shodan, vulnerabilities, geo_json, 'province')
 
-drawLeftPlot(organisations);
-new RightPlot(document.querySelector("svg#right-plot")!, vulnerabilities);
+drawLeftPlot(organisations, setSelection);
+let right = new RightPlot(document.querySelector("svg#right-plot")!, shodan, vulnerabilities);
 drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
