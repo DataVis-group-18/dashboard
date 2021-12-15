@@ -15,13 +15,14 @@ export class RightPlot extends Plot {
   cachedFilters: {
     [key: string]: { [key: string]: { [key: number]: number } };
   };
+  tooltip: d3.Selection<SVGGElement, unknown, null, undefined>;
 
   constructor(
     container: HTMLElement,
     shodan: d3.DSVParsedArray<Row>,
     vulnerabilities: d3.DSVParsedArray<Vulnerability>
   ) {
-    super(container, Margin.all(50));
+    super(container, new Margin(70, 50, 70, 90));
 
     this.shodan = shodan;
     this.vulnerabilities = vulnerabilities;
@@ -30,7 +31,7 @@ export class RightPlot extends Plot {
     this.group = d3
       .select(this.container)
       .append("g")
-      .attr("transform", "translate(90, 25)");
+      .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
 
     this.x = d3.scaleLinear().domain([1, 10]).range([0, this.width]);
 
@@ -69,9 +70,62 @@ export class RightPlot extends Plot {
       .data(vulnerabilities)
       .enter()
       .append("circle")
-      .attr("r", 4);
+      .attr("r", 4)
+      .on("mouseout", () => {
+        this.tooltip.style("display", "none");
+      })
+      .on("mouseover", (_ev, v) => {
+        this.tooltip.style("display", null);
+        this.tooltip.attr(
+          "transform",
+          `translate(${this.x(v.cvss)},${this.y(v.count)})`
+        );
+
+        const path = this.tooltip
+          .selectAll("path")
+          .data([,])
+          .join("path")
+          .attr("fill", "white")
+          .attr("stroke", "#ccc");
+
+        const text = this.tooltip
+          .selectAll("text")
+          .data([,])
+          .join("text")
+          .call((text) =>
+            text
+              .selectAll("tspan")
+              .data(`${v.cve}`.split(/\n/))
+              .join("tspan")
+              .attr("x", 0)
+              .attr("y", (_, i) => `${i * 1.1}em`)
+              .text((d) => d)
+              .style("font-size", "0.8em")
+          );
+
+        const {
+          x,
+          y,
+          width: w,
+          height: h,
+        } = (text.node()! as SVGGraphicsElement).getBBox();
+        text.attr("transform", `translate(${-w / 2},${y - 7})`);
+        path.attr(
+          "d",
+          `M ${-w / 2 - 6},-${h + 21}
+           H ${w / 2 + 6}
+           v ${h + 12}
+           H 5
+           l -5,5
+           l -5,-5
+           H ${-w / 2 - 5}
+           z`
+        );
+      });
 
     this.update();
+
+    this.tooltip = this.group.append("g").style("pointer-events", "none");
 
     window.addEventListener("resize", () => {
       this.update();
@@ -126,7 +180,7 @@ export class RightPlot extends Plot {
             this.filteredVulns[v] = 1;
           }
         }
-        
+
         if (!(category in this.cachedFilters)) {
           this.cachedFilters[category] = {};
         }
