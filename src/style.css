@@ -94,3 +94,19 @@ p {
 #scale {
   flex: 1;
 }
+
+#cve-widgets {
+  height: 1em;
+  margin: 20px 0;
+}
+
+#cve-summary {
+  height: 7em;
+  overflow-y: scroll;
+}
+
+.cve-widget {
+  padding: 4px;
+  border-radius: 4px;
+  margin-right: 10px;
+}

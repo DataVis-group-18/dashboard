@@ -116,7 +116,7 @@ export class LeftPlot extends Plot {
     this.scaleElem.min = this.objects[this.objects.length - 1]
       .total()
       .toString();
-    this.scaleElem.value = this.objects[0].total().toString();
+    this.scaleElem.value = this.scaleElem.max;
 
     // Add Y axis
     const y = d3

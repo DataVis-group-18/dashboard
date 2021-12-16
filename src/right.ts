@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { Vulnerability, Margin, Plot, Row, Choice } from "./types";
-import {style} from "d3";
+import { style } from "d3";
 
 export class RightPlot extends Plot {
   shodan: d3.DSVParsedArray<Row>;
@@ -11,12 +11,14 @@ export class RightPlot extends Plot {
   xAxis: d3.Selection<SVGGElement, unknown, null, undefined>;
   yAxis: d3.Selection<SVGGElement, unknown, null, undefined>;
   group: d3.Selection<SVGGElement, unknown, null, undefined>;
+  selectedCVE: d3.Selection<SVGGElement, unknown, null, undefined> | null;
   filter: string | null = null;
   filteredVulns: { [key: number]: number } | null = null;
   cachedFilters: {
     [key: string]: { [key: string]: { [key: number]: number } };
   };
   tooltip: d3.Selection<SVGGElement, unknown, null, undefined>;
+  color: (v: Vulnerability) => string;
 
   constructor(
     container: HTMLElement,
@@ -28,6 +30,8 @@ export class RightPlot extends Plot {
     this.shodan = shodan;
     this.vulnerabilities = vulnerabilities;
     this.cachedFilters = {};
+    this.selectedCVE = null;
+    this.color = (v) => d3.interpolateTurbo((v.cvss - 1) / 9);
 
     this.group = d3
       .select(this.container)
@@ -59,10 +63,11 @@ export class RightPlot extends Plot {
     this.yAxis = this.group.append("g").call(d3.axisLeft(this.y));
     this.group
       .append("text")
+      .attr("id", "yLabel")
       .attr("class", "label")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -70)
+      .attr("y", -this.margin.bottom)
       .attr("x", 0)
       .text("Number of affected devices");
 
@@ -72,17 +77,18 @@ export class RightPlot extends Plot {
       .enter()
       .append("circle")
       .attr("r", 4)
-      .on("mouseout", () => {
+      .on("mouseout", (ev) => {
+        if (d3.select(ev.target).attr("opacity") == "0") return;
         this.tooltip.style("display", "none");
-        d3.select(event.target).style("stroke", null);
       })
-      .on("mouseover", (_ev, v) => {
+      .on("mouseover", (ev, v) => {
+        if (d3.select(ev.target).attr("opacity") == "0") return;
         this.tooltip.style("display", null);
         this.tooltip.attr(
           "transform",
-          `translate(${this.x(v.cvss)},${this.y(v.count)})`
+          `translate(${this.x(v.cvss)},${+d3.select(ev.target).attr("cy")})`
         );
-        d3.select(event.target).style("stroke", "black");
+
         const path = this.tooltip
           .selectAll("path")
           .data([,])
@@ -97,7 +103,7 @@ export class RightPlot extends Plot {
           .call((text) =>
             text
               .selectAll("tspan")
-              .data(`${v.cve} ${v.summary}`.split(/\n/))
+              .data(`${v.cve}`.split(/\n/))
               .join("tspan")
               .attr("x", 0)
               .attr("y", (_, i) => `${i * 1.1}em`)
@@ -124,6 +130,24 @@ export class RightPlot extends Plot {
            z`
         );
       })
+      .on("click", (ev, v) => {
+        if (d3.select(ev.target).attr("opacity") == "0") return;
+        d3.select("#cve-name").html(v.cve);
+        d3.select("#cve-summary").html(v.summary);
+        d3.select("#cve-cvss")
+          .html("CVSS: " + v.cvss.toString())
+          .style("color", v.cvss <= 2.5 || v.cvss >= 9 ? "white" : "black")
+          .style("background", this.color(v));
+        
+        d3.select("#cve-verified")
+          .html(v.verified ? "verified" : "unverified")
+          .style("background", v.verified ? "lightblue" : "lightcoral");
+        this.selectedCVE?.style("stroke", null);
+        this.selectedCVE = d3.select(ev.target);
+        this.selectedCVE.style("stroke", "black");
+        this.update();
+      });
+
     this.update();
 
     this.tooltip = this.group.append("g").style("pointer-events", "none");
@@ -136,13 +160,20 @@ export class RightPlot extends Plot {
   update(): void {
     this.dimensions.refresh();
     this.x = this.x.range([1, this.width]);
-    this.xAxis.call(d3.axisBottom(this.x));
+    this.y = this.y.range([this.height, 0]);
+    this.yAxis.call(d3.axisLeft(this.y));
+    this.xAxis
+      .attr("transform", "translate(0," + this.height + ")")
+      .call(d3.axisBottom(this.x));
 
     this.group
       .selectAll("circle")
       .data(this.vulnerabilities)
-      .attr("opacity", (v, i) =>
+      .attr("opacity", (_v, i) =>
         this.filteredVulns ? (i in this.filteredVulns ? "1" : "0") : "1"
+      )
+      .attr("pointer-events", (_v, i) =>
+        this.filteredVulns && !(i in this.filteredVulns) ? "none" : null
       )
       .attr("cy", (v, i) =>
         this.y(
@@ -152,9 +183,13 @@ export class RightPlot extends Plot {
         )
       )
       .attr("cx", (v) => this.x(v.cvss))
-      .style("fill", (v) => d3.interpolateTurbo((v.cvss - 1) / 9));
+      .style("fill", this.color);
 
-    this.group.select("#xLabel").attr("x", this.width);
+    this.group
+      .select("#xLabel")
+      .attr("x", this.width)
+      .attr("y", this.height + 50);
+    this.group.select("#ylabel").attr("y", -this.margin.bottom);
   }
 
   setFilter(category: Choice, val: string | null) {
