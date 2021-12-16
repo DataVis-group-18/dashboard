@@ -33,7 +33,8 @@ const vulnerabilities: d3.DSVParsedArray<Vulnerability> = await d3.csv(
       r.cve!,
       parseInt(r.count!),
       r.verified! == "true",
-      parseFloat(r.cvss!)
+      parseFloat(r.cvss!),
+        r.summary!
     );
   }
 );

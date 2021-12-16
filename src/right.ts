@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import { Vulnerability, Margin, Plot, Row, Choice } from "./types";
+import {style} from "d3";
 
 export class RightPlot extends Plot {
   shodan: d3.DSVParsedArray<Row>;
@@ -73,6 +74,7 @@ export class RightPlot extends Plot {
       .attr("r", 4)
       .on("mouseout", () => {
         this.tooltip.style("display", "none");
+        d3.select(event.target).style("stroke", null);
       })
       .on("mouseover", (_ev, v) => {
         this.tooltip.style("display", null);
@@ -80,7 +82,7 @@ export class RightPlot extends Plot {
           "transform",
           `translate(${this.x(v.cvss)},${this.y(v.count)})`
         );
-
+        d3.select(event.target).style("stroke", "black");
         const path = this.tooltip
           .selectAll("path")
           .data([,])
@@ -121,8 +123,10 @@ export class RightPlot extends Plot {
            H ${-w / 2 - 5}
            z`
         );
-      });
-
+      })
+        .on("click", (_ev, v) => {
+          document.getElementById("info")!.innerHTML = v.summary
+        })
     this.update();
 
     this.tooltip = this.group.append("g").style("pointer-events", "none");

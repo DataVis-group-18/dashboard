@@ -89,12 +89,14 @@ export class Vulnerability {
   count: number;
   verified: boolean;
   cvss: number;
+  summary: string
 
-  constructor(cve: string, count: number, verified: boolean, cvss: number) {
+  constructor(cve: string, count: number, verified: boolean, cvss: number, summary: string) {
     this.cve = cve;
     this.count = count;
     this.verified = verified;
     this.cvss = cvss;
+    this.summary = summary;
   }
 }
 
