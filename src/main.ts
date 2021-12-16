@@ -60,7 +60,7 @@ const data: Data = {
 };
 
 const resolution = "township"; // 'province' or 'township';
-const scaling = "capita"; // 'nil' or 'capita' or 'fraction';
+const scaling = "fraction"; // 'nil' or 'capita' or 'fraction';
 
 // load the appropriate geojson file
 const geo_json: FeatureCollection = (await d3.json(
@@ -94,4 +94,20 @@ let right = new RightPlot(
   shodan,
   vulnerabilities
 );
-drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
+const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
+
+
+// EVERYTHING BELOW THIS IS FOR DEBUGGING
+
+//
+(window as any).d = loc_vuln_counts;
+
+var fn = (d, r) => {
+    var arr = [];
+    for (let k in d){
+        arr.push(d[k].total_vulns / d[k][r])
+    }
+return arr; 
+}
+
+// console.log(fn(d, 'total_devices').sort((a,b) => b-a));
