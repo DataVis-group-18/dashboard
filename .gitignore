@@ -1,4 +1,5 @@
 *.csv.backup
+*.csv
 *.geojson
 *.ipynb
 .ipynb_checkpoints/
