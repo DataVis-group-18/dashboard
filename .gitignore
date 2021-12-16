@@ -1,3 +1,7 @@
+*.csv.backup
+*.geojson
+*.ipynb
+.ipynb_checkpoints/
 # Logs
 logs
 *.log
