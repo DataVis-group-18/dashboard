@@ -44,8 +44,26 @@ export class LeftPlot extends Plot {
 
     this.svg = d3
       .select(this.container)
+      .on("click", function () {
+        selected = null;
+        d3.select(this)
+          .selectAll("rect.bar")
+          .transition()
+          .duration(300)
+          .attr("opacity", "1");
+        onSelect(null);
+      })
       .append("g")
-      .attr("transform", `translate(160, 0)`);
+      .attr("transform", `translate(160, 0)`)
+    
+    // This is a transparent rect in the background that receives unpropagated events
+    // this makes it possible to detect mouse evetns outside the bars.
+    this.svg.append("rect")
+      .attr("x", "0")
+      .attr("y", "0")
+      .attr("width", this.dimensions.width.toString())
+      .attr("height", this.dimensions.height.toString())
+      .attr("opacity", "0")
 
     this.xAxis = this.svg
       .append("g")
@@ -140,16 +158,17 @@ export class LeftPlot extends Plot {
       .join("rect")
       .attr("x", "0")
       .attr("width", "0")
-      .attr("class", (_d, i) => i.toString())
+      // .attr("class", "bar")
+      .attr("class", (_d, i) => i.toString() + " bar")
       .attr("height", y.bandwidth())
       .attr("fill", (_d, i) => color(i))
       .attr("opacity", "1")
-      .on("click", function () {
+      .on("click", function (ev: Event) {
+        ev.stopPropagation();
         const parent = (this as Element).parentElement!;
         if (selected == parent) {
           d3.select(parent.parentElement)
-            .selectAll("g")
-            .selectAll("rect")
+            .selectAll("rect.bar")
             .transition()
             .duration(300)
             .attr("opacity", "1");
@@ -158,13 +177,12 @@ export class LeftPlot extends Plot {
         } else {
           selected = parent;
           d3.select(parent.parentElement)
-            .selectAll("g")
-            .selectAll("rect")
+            .selectAll("rect.bar")
             .transition()
             .duration(300)
             .attr("opacity", "0.4");
           d3.select(parent)
-            .selectAll("rect")
+            .selectAll("rect.bar")
             .transition()
             .duration(300)
             .attr("opacity", "1");
