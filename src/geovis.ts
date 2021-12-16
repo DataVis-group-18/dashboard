@@ -46,16 +46,46 @@ export function drawGeo(
 
   const transform_data = transform_data_generator(resolution, scaling);
 
+  var Tooltip = d3.select("svg#map")
+                  .append('div')
+                  .attr('class', 'tooltip')
+                  .style('opacity', '1')
+                  .style("background-color", "white")
+                  .style("border", "solid")
+                  .style("border-width", "2px")
+                  .style("border-radius", "5px")
+                  .style("padding", "5px")
+
+  var mouseover = (d) => {
+    Tooltip.style('opacity', 1)
+  }
+
+  var mousemove = (d) => {
+    Tooltip.html(d.name + '<br>')
+    .style('left', d3.select(this).attr("cx") + "px")
+    .style("top", d3.select(this).attr("cy") + "px")
+  }
+
+  var mouseleave = (d) => {
+    Tooltip.style('opacity', 0)
+  }
+
   svg
     .append("g")
     .selectAll("path")
     .data(geo_json.features)
     .enter()
-    .append("path")
-    .attr("id", (d) => d.properties!.name)
-    .attr("fill", (d) => transform_data(loc_vuln_counts, d.properties!.name))
-    .attr("d", d3.geoPath().projection(projection))
-    .style("stroke", "black");
+      .append("path")
+      .attr("id", (d) => d.properties!.name)
+      .attr("fill", (d) => transform_data(loc_vuln_counts, d.properties!.name))
+      .attr("d", d3.geoPath().projection(projection))
+      .on('mouseover',mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseleave', mouseleave)
+      .style("stroke", "black");
+    
+
+  return loc_vuln_counts;
 }
 
 // this function returns a function that will ultimately set the fill for a given configuration of resolution and scaling
@@ -64,15 +94,30 @@ function transform_data_generator(
   resolution: Resolution,
   scaling: Scaling
 ): (lvc: LocVulnCounts, rn: string) => string {
-  const domains: { [key: string]: number[] } = {
-    nil: [0, 6000, 20000, 50000],
-    capita: [0, 0.005, 0.01, 0.1],
-    fraction: [0, 0.03, 0.1, 0.2],
-  };
-  const colorScale = d3
-    .scaleThreshold<number, string, never>()
-    .domain(domains[scaling])
-    .range(d3.schemeReds[5]);
+  if (resolution === 'province') {
+    var domains: { [key: string]: number[] } = {
+      nil: [0, 6000, 20000, 50000],
+      capita: [0, 0.005, 0.01, 0.1],
+      fraction: [0, 0.03, 0.1, 0.3],
+    };
+    var colorScale = d3
+      .scaleThreshold<number, string, never>()
+      .domain(domains[scaling])
+      .range(d3.schemeReds[5]);
+    }
+
+  else if (resolution === 'township') {
+    var domains: { [key: string]: number[] } = {
+      nil: [0, 6000, 20000, 50000],
+      capita: [0, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5],
+      fraction: [0, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 3, 10, 30],
+    };
+
+    var colorScale = d3
+      .scaleThreshold<number, string, never>()
+      .domain(domains[scaling])
+      .range(d3.schemeReds[domains[scaling].length + 1]);    
+    }
 
   const stats: { [key: string]: (l: LocationVulnerabilities) => number } = {
     nil: (x) => x.total_vulns,

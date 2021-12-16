@@ -94,4 +94,22 @@ let right = new RightPlot(
   shodan,
   vulnerabilities
 );
-drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
+
+const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
+
+
+
+// EVERYTHING BELOW THIS IS FOR DEBUGGING
+
+var fn = (d, r) => {
+    var arr = [];
+    for (let k in d){
+        arr.push(d[k].total_vulns / 1)
+    }
+return arr; 
+}
+(window as any).d = loc_vuln_counts;
+(window as any).fn = fn;
+
+
+// console.log(fn(d, 'total_devices').sort((a,b) => b-a));
