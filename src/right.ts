@@ -97,7 +97,7 @@ export class RightPlot extends Plot {
           .call((text) =>
             text
               .selectAll("tspan")
-              .data(`${v.cve}`.split(/\n/))
+              .data(`${v.cve} ${v.summary}`.split(/\n/))
               .join("tspan")
               .attr("x", 0)
               .attr("y", (_, i) => `${i * 1.1}em`)
@@ -124,9 +124,6 @@ export class RightPlot extends Plot {
            z`
         );
       })
-        .on("click", (_ev, v) => {
-          document.getElementById("info")!.innerHTML = v.summary
-        })
     this.update();
 
     this.tooltip = this.group.append("g").style("pointer-events", "none");
