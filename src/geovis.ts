@@ -46,30 +46,6 @@ export function drawGeo(
 
   const transform_data = transform_data_generator(resolution, scaling);
 
-  var Tooltip = d3.select("svg#map")
-                  .append('div')
-                  .attr('class', 'tooltip')
-                  .style('opacity', '1')
-                  .style("background-color", "white")
-                  .style("border", "solid")
-                  .style("border-width", "2px")
-                  .style("border-radius", "5px")
-                  .style("padding", "5px")
-
-  var mouseover = (d) => {
-    Tooltip.style('opacity', 1)
-  }
-
-  var mousemove = (d) => {
-    Tooltip.html(d.name + '<br>')
-    .style('left', d3.select(this).attr("cx") + "px")
-    .style("top", d3.select(this).attr("cy") + "px")
-  }
-
-  var mouseleave = (d) => {
-    Tooltip.style('opacity', 0)
-  }
-
   svg
     .append("g")
     .selectAll("path")
@@ -79,11 +55,7 @@ export function drawGeo(
       .attr("id", (d) => d.properties!.name)
       .attr("fill", (d) => transform_data(loc_vuln_counts, d.properties!.name))
       .attr("d", d3.geoPath().projection(projection))
-      .on('mouseover',mouseover)
-      .on('mousemove', mousemove)
-      .on('mouseleave', mouseleave)
       .style("stroke", "black");
-    
 
   return loc_vuln_counts;
 }
