@@ -1,8 +1,8 @@
 :root {
   --background1: #f6f8f8;
-  --background2: #042b58;
-  --text1: #000000;
-  --text2: #eeeeee;
+  --background2: #e96d5e;
+  --text1: #ff9760;
+  --text2: #e96d5e;
   --highlight: #ea5f21;
 }
 
@@ -17,22 +17,23 @@ body {
   align-items: stretch;
   flex-direction: column;
   margin: 0;
-  background: var(--background1);
+  background: url('/wallpaper.png');
   font-family: sans-serif;
 }
 
 header {
   display: flex;
-  background: var(--background2);
+  #background: var(--background2);
   color: var(--text2);
   padding: 1em;
-  font-family: sans-serif;
+  font-family: Helvetica, sans-serif;
   justify-content: center;
-  font-size: 1.3em;
+  font-size: 1.8em;
 }
 
 main {
   display: grid;
+  color: var(--text1);
   grid-template-columns: 1fr min-content 1fr;
   flex: 1;
   justify-content: center;
@@ -52,7 +53,7 @@ main > div > svg {
 #divider {
   width: 2px;
   border-radius: 2px;
-  background: #ccccd4;
+  background: var(--background2);
   padding: 0;
   margin: 2em 0;
 }
@@ -60,7 +61,7 @@ main > div > svg {
 footer {
   display: flex;
   gap: 2em;
-  background: var(--background2);
+  #background: var(--background2);
   color: var(--text2);
   padding: 0.5em;
   justify-content: center;

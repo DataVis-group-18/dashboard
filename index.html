@@ -7,26 +7,28 @@
 
   <body>
     <header>Shodan Data Visualization</header>
-    <main>
+    <main class="overlay">
       <div>
         <h1>Number of vulnerable devices</h1>
         
         <div id="left-controls">
           Categorize by:&nbsp;
-          <select id="category">
-            <option value="org">Organization</option>
-            <option value="isp">ISP</option>
-            <option value="location">Location</option>
-            <option value="os">Operating System</option>
-          </select>
+	  <div id="left-select">
+            <select id="category">
+              <option value="org">Organization</option>
+              <option value="isp">ISP</option>
+              <option value="location">Location</option>
+              <option value="os">Operating System</option>
+            </select>
+	  </div>
           Scale: <input id="scale" type="range" min="1" max="1" value="1">
         </div>
         <svg id="left-plot"></svg>
       </div>
       <div id="divider"></div>
       <div>
-        <svg id="right-plot"></svg>
         <svg id="map"></svg>
+        <svg id="right-plot"></svg>
       </div>
     </main>
     <footer>
