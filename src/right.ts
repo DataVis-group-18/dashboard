@@ -38,7 +38,7 @@ export class RightPlot extends Plot {
       .append("g")
       .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
 
-    this.x = d3.scaleLinear().domain([1, 11]).range([0, this.width]);
+    this.x = d3.scaleLinear().domain([1, 10]).range([0, this.width]);
 
     this.maxCount = d3.max(vulnerabilities, (v) => v.count)!;
     this.y = d3
