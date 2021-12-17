@@ -1,5 +1,8 @@
 *.csv.backup
 *.csv
+!shodan.csv
+!vulnerabilities.csv
+!locations.csv
 *.geojson
 *.ipynb
 .ipynb_checkpoints/

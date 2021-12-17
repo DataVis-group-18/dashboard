@@ -1,0 +1,972 @@
+,city,township,province,longitude,latitude,population,total_devices
+0,Slochteren,Slochteren,Groningen,6.80547,53.22078,2055,52
+1,Boskoop,Alphen aan den Rijn,Zuid-Holland,4.65556,52.075,15090,405
+2,Den Helder,Den Helder,Noord-Holland,4.75933,52.95988,59569,3041
+3,Ellecom,Rheden,Gelderland,6.0875,52.0325,1015,29
+4,Ritthem,Vlissingen,Zeeland,3.62639,51.4525,370,19
+5,Dieteren,Echt-Susteren,Limburg,5.84583,51.07667,745,346
+6,Weerselo,Dinkelland,Overijssel,6.85694,52.35167,700,91
+7,Zelhem,Bronckhorst,Gelderland,6.34861,52.00667,5760,467
+8,Spankeren,Rheden,Gelderland,6.1125,52.05833,775,33
+9,Weert,Weert,Limburg,5.70694,51.25167,48662,6089
+10,Aagtdorp,Bergen (NH),Noord-Holland,4.70417,52.69,570,209
+11,Elp,Midden-Drenthe,Drenthe,6.64583,52.88167,330,8
+12,Wanssum,Venray,Limburg,6.07639,51.53583,1905,63
+13,Groede,Sluis,Zeeland,3.50694,51.37833,720,29
+14,Molenhoek,'s-Hertogenbosch,Noord-Brabant,5.36809,51.71113,0,7
+15,Ingen,Buren,Gelderland,5.48472,51.95917,1080,206
+16,Margraten,Eijsden-Margraten,Limburg,5.82083,50.82083,3320,231
+17,Hulshorst,Nunspeet,Gelderland,5.73194,52.36333,775,70
+18,Hellevoetsluis,Hellevoetsluis,Zuid-Holland,4.13333,51.83333,21927,5834
+19,Uitgeest,Uitgeest,Noord-Holland,4.70972,52.52917,11794,2162
+20,Heeze,Heeze-Leende,Noord-Brabant,5.57145,51.3828,15886,2857
+21,Hellendoorn,Hellendoorn,Overijssel,6.45139,52.38833,660,127
+22,Zeist,Zeist,Utrecht,5.23333,52.09,60949,3177
+23,Enschede,Enschede,Overijssel,6.8376,52.2218,153655,43321
+24,Duizel,Eersel,Noord-Brabant,5.29722,51.36833,1460,25
+25,Daarle,Hellendoorn,Overijssel,6.5375,52.43417,855,31
+26,Oploo,Sint Anthonis,Noord-Brabant,5.87361,51.60833,3340,22
+27,Voorburg,Leidschendam-Voorburg,Zuid-Holland,4.35972,52.07417,38000,3901
+28,Ouderkerk aan de Amstel,Ouder-Amstel,Noord-Holland,4.90746,52.29504,7955,188
+29,Schiermonnikoog,Schiermonnikoog,Friesland (Fryslân),6.15209,53.48025,0,237
+30,Thesinge,Ten Boer,Groningen,6.65139,53.26833,440,5
+31,Oosterdijk,Enkhuizen,Noord-Holland,5.26528,52.745,100,129
+32,Oosteinde,Aalsmeer,Noord-Holland,4.79583,52.27917,155,54
+33,Nes,Ameland,Friesland (Fryslân),5.774,53.44502,1080,28
+34,Heerhugowaard,Heerhugowaard,Noord-Holland,4.84862,52.67144,47580,6097
+35,Rucphen,Rucphen,Noord-Brabant,4.55833,51.53167,22401,506
+36,Heel,Maasgouw,Limburg,5.89444,51.17917,3980,159
+37,Amstelveen,Amstelveen,Noord-Holland,4.8773,52.3095,79639,9929
+38,Maasdam,Binnenmaas,Zuid-Holland,4.55556,51.78917,585,294
+39,Amerongen,Utrechtse Heuvelrug,Utrecht,5.45972,52.0025,5085,1325
+40,Obdam,Koggenland,Noord-Holland,4.90694,52.67583,5690,256
+41,Amsterdam,Amsterdam,Noord-Holland,4.9041,52.371,741636,5567684
+42,Bosschenhoofd,Halderberge,Noord-Brabant,4.54028,51.56083,1925,187
+43,Onderdijk,Medemblik,Noord-Holland,5.1375,52.74333,1630,433
+44,Vianen,Vianen,Utrecht,5.09167,51.9925,19967,895
+45,Geffen,Maasdonk,Noord-Brabant,5.46389,51.74,3870,540
+46,Ossendrecht,Woensdrecht,Noord-Brabant,4.32639,51.39417,3970,166
+47,De Zandloper,Den Helder,Noord-Holland,4.71667,52.9,150,376
+48,Waarland,Schagen,Noord-Holland,4.83194,52.72667,1970,78
+49,The Hague,'s-Gravenhage,Zuid-Holland,4.318,52.078,474292,83372
+50,Ospel,Nederweert,Limburg,5.78472,51.2975,2505,108
+51,Earnewâld,Tietjerksteradeel (Tytsjerksteradiel),Friesland (Fryslân),5.94609,53.13109,345,122
+52,Putten,Putten,Gelderland,5.60694,52.25917,23168,1588
+53,Elburg,Elburg,Gelderland,5.84306,52.4475,21844,684
+54,Middelbeers,Oirschot,Noord-Brabant,5.25,51.46667,2715,55
+55,Makkum,Súdwest-Fryslân,Friesland (Fryslân),5.40231,53.05458,3285,151
+56,Wijnandsrade,Nuth,Limburg,5.88333,50.90583,1365,12
+57,Barendrecht,Barendrecht,Zuid-Holland,4.53472,51.85667,38672,4989
+58,Gasselte,Aa en Hunze,Drenthe,6.79444,52.97167,1495,22
+59,'s-Hertogenbosch,'s-Hertogenbosch,Noord-Brabant,5.30417,51.69917,134520,31140
+60,Middelstum,Loppersum,Groningen,6.64167,53.34667,2105,79
+61,Hemrik,Opsterland,Friesland (Fryslân),6.13876,53.03163,490,2
+62,Nieuwe-Niedorp,Hollands Kroon,Noord-Holland,4.89861,52.74,2810,48
+63,Hoofddorp,Haarlemmermeer,Noord-Holland,4.68889,52.3025,132734,14946
+64,Veldhuizen,Utrecht (Ut),Utrecht,5.01234,52.07537,9460,1546
+65,Esch,Haaren,Noord-Brabant,5.29028,51.61083,1820,46
+66,Wijk bij Duurstede,Wijk bij Duurstede,Utrecht,5.34167,51.97417,17465,706
+67,Wekerom,Ede,Gelderland,5.71389,52.1125,2540,583
+68,Westdorp,Borger-Odoorn,Drenthe,6.76667,52.905,60,26
+69,Bergeijk,Bergeijk,Noord-Brabant,5.35833,51.31917,18181,1387
+70,Oud-Loosdrecht,Wijdemeren,Noord-Holland,5.08056,52.20667,2035,421
+71,Donkerbroek,Ooststellingwerf,Friesland (Fryslân),6.23927,53.01734,1140,51
+72,Mechelen,Gulpen-Wittem,Limburg,5.92639,50.79583,1375,69
+73,Voorhout,Teylingen,Zuid-Holland,4.48472,52.22167,4670,3615
+74,Schellinkhout,Drechterland,Noord-Holland,5.12083,52.635,900,8
+75,Groot-Ammers,Molenwaard,Zuid-Holland,4.82361,51.92333,3305,61
+76,Oene,Epe,Gelderland,6.04861,52.34417,630,32
+77,Maastricht,Maastricht,Limburg,5.688,50.8641,122378,14931
+78,Burdaard,Ferwerderadeel (Ferwerderadiel),Friesland (Fryslân),5.87897,53.29421,1166,16
+79,Groningen,Groningen (Gr),Groningen,6.5326,53.2425,181194,279990
+80,Urk,Urk,Flevoland,5.60139,52.6625,17345,2030
+81,Kortenhoef,Wijdemeren,Noord-Holland,5.10694,52.23917,6250,4283
+82,Moerdijk,Moerdijk,Noord-Brabant,4.62639,51.70167,1030,44
+83,Tilligte,Dinkelland,Overijssel,6.95139,52.40583,741,434
+84,West-Terschelling,Terschelling,Friesland (Fryslân),5.21482,53.35911,2525,167
+85,Sint-Oedenrode,Sint-Oedenrode,Noord-Brabant,5.45972,51.5675,16931,1895
+86,Diemen,Diemen,Noord-Holland,4.96256,52.33964,24361,6036
+87,Zuidbroek,Menterwolde,Groningen,6.86111,53.16333,2255,178
+88,Ool,Roermond,Limburg,5.95139,51.18833,280,216
+89,Oisterwijk,Oisterwijk,Noord-Brabant,5.18889,51.57917,25980,1657
+90,Biddinghuizen,Dronten,Flevoland,5.69306,52.455,5010,165
+91,Maasbree,Peel en Maas,Limburg,6.04861,51.3575,5045,462
+92,Wijlre,Gulpen-Wittem,Limburg,5.89583,50.83333,1960,109
+93,Erp,Veghel,Noord-Brabant,5.60694,51.6,3600,492
+94,Ypenburg,'s-Gravenhage,Zuid-Holland,4.3886,52.069,30000,855
+95,Steenbergen,Noordenveld,Drenthe,6.40833,53.1,23582,1361
+96,Hendrik-Ido-Ambacht,Hendrik-Ido-Ambacht,Zuid-Holland,4.63889,51.84417,21027,1956
+97,Best,Best,Noord-Brabant,5.39028,51.5075,29074,2194
+98,Lauwersoog,De Marne,Groningen,6.21418,53.40468,130,46
+99,Heerde,Heerde,Gelderland,6.04016,52.38723,18603,566
+100,Rotterdam,Rotterdam,Zuid-Holland,4.4759,51.9186,598199,210537
+101,Gronsveld,Eijsden-Margraten,Limburg,5.73056,50.81083,2380,63
+102,Oost,Eijsden-Margraten,Limburg,5.7101,50.79568,1240,18
+103,Elshout,Heusden,Noord-Brabant,5.14167,51.70083,1655,550
+104,Epen,Gulpen-Wittem,Limburg,5.91111,50.77583,725,40
+105,Bocholtz,Simpelveld,Limburg,6.00556,50.81833,4340,51
+106,Oudega,De Friese Meren,Friesland (Fryslân),5.52235,52.90347,1715,16
+107,Westerhoeven,Twenterand,Overijssel,6.58194,52.42167,160,305
+108,Silvolde,Oude IJsselstreek,Gelderland,6.3875,51.90917,4850,441
+109,Schijndel,Schijndel,Noord-Brabant,5.43194,51.6225,23239,1574
+110,Haren,Haren,Groningen,6.60931,53.17209,9375,1025
+111,Boijl,Weststellingwerf,Friesland (Fryslân),6.19972,52.90921,525,14
+112,Gnephoek,Alphen aan den Rijn,Zuid-Holland,4.62778,52.14,185,52
+113,Beesel,Beesel,Limburg,6.03889,51.26833,13444,72
+114,Zwijndrecht,Zwijndrecht,Zuid-Holland,4.63333,51.8175,45696,2199
+115,Wassenaar,Wassenaar,Zuid-Holland,4.40278,52.14583,25353,2660
+116,Kropswolde,Hoogezand-Sappemeer,Groningen,6.72361,53.1425,180,15
+117,Loil,Montferland,Gelderland,6.14167,51.95333,840,1289
+118,Eindhoven,Eindhoven,Noord-Brabant,5.47778,51.44083,209620,73303
+119,Kronenberg,Horst aan de Maas,Limburg,6.0,51.41583,670,20
+120,De Cocksdorp,Texel,Noord-Holland,4.87083,53.15667,535,41
+121,Ede,Ede,Gelderland,5.65833,52.03333,67670,17910
+122,Leiderdorp,Leiderdorp,Zuid-Holland,4.52917,52.15833,25966,1369
+123,Hegelsom,Horst aan de Maas,Limburg,6.03889,51.43917,1185,1038
+124,Helden,Peel en Maas,Limburg,6.0,51.31917,5530,988
+125,Abbenes,Haarlemmermeer,Noord-Holland,4.59167,52.235,855,1132
+126,Rande,Deventer,Overijssel,6.12639,52.29,115,91
+127,Veenendaal,Veenendaal,Utrecht,5.55891,52.02863,61271,6977
+128,Hilversum,Hilversum,Noord-Holland,5.17639,52.22333,83640,13942
+129,Borculo,Berkelland,Gelderland,6.52222,52.11583,10373,214
+130,Klundert,Moerdijk,Noord-Brabant,4.53472,51.665,5405,404
+131,Hattem,Hattem,Gelderland,6.06389,52.475,11876,546
+132,Noordwolde,Weststellingwerf,Friesland (Fryslân),6.14153,52.88964,3605,56
+133,Vorden,Bronckhorst,Gelderland,6.30972,52.105,4900,492
+134,Hellum,Slochteren,Groningen,6.83889,53.23833,515,14
+135,Opheusden,Neder-Betuwe,Gelderland,5.63194,51.93167,5460,221
+136,Goirle,Goirle,Noord-Brabant,5.06667,51.52083,22646,1342
+137,Vaals,Vaals,Limburg,6.01806,50.77083,6970,460
+138,Elsendorp,Gemert-Bakel,Noord-Brabant,5.76944,51.58083,560,29
+139,Maren-Kessel,Oss,Noord-Brabant,5.39306,51.79583,645,10
+140,Zijdewind,Hollands Kroon,Noord-Holland,4.83889,52.7425,290,23
+141,Sluiskil,Terneuzen,Zeeland,3.83611,51.27833,2411,38
+142,Wedde,Bellingwedde,Groningen,7.07917,53.06917,600,34
+143,Dorst,Oosterhout,Noord-Brabant,4.85694,51.59,1965,278
+144,Terneuzen,Terneuzen,Zeeland,3.82778,51.33583,27930,1128
+145,Naarden,Naarden,Noord-Holland,5.1625,52.29583,17115,436
+146,Hippolytushoef,Hollands Kroon,Noord-Holland,4.9625,52.9075,4800,437
+147,Baarn,Baarn,Utrecht,5.2875,52.21167,24584,2632
+148,Odijk,Bunnik,Utrecht,5.23611,52.0525,5480,25
+149,Beusichem,Buren,Gelderland,5.29167,51.95,2750,20
+150,Den Hout,Oosterhout,Noord-Brabant,4.8125,51.6575,0,24
+151,Oosterleek,Drechterland,Noord-Holland,5.19722,52.63917,285,692
+152,Heino,Raalte,Overijssel,6.23282,52.43661,6459,585
+153,Milheeze,Gemert-Bakel,Noord-Brabant,5.77917,51.50167,1400,39
+154,Koudum,Súdwest-Fryslân,Friesland (Fryslân),5.44834,52.91551,2600,52
+155,Vliedberg,Heusden,Noord-Brabant,5.19031,51.68961,4445,703
+156,Gendringen,Oude IJsselstreek,Gelderland,6.37639,51.87333,3880,114
+157,Capelle aan den IJssel,Capelle aan den IJssel,Zuid-Holland,4.57778,51.92917,65255,3370
+158,Ter Apel,Vlagtwedde,Groningen,7.05972,52.87667,3880,396
+159,Aalburg,Aalburg,Noord-Brabant,5.13156,51.75482,6588,611
+160,Zwolle,Zwolle,Overijssel,6.1537,52.5538,111805,44228
+161,Leusden,Leusden,Utrecht,5.43194,52.1325,29215,1157
+162,Boekel,Boekel,Noord-Brabant,5.675,51.60333,10502,1085
+163,Kapelle,Kapelle,Zeeland,3.95804,51.48627,65255,467
+164,Giethoorn,Steenwijkerland,Overijssel,6.07917,52.74,30697,379
+165,Lisserbroek,Haarlemmermeer,Noord-Holland,4.57222,52.25667,3360,16
+166,Valkenswaard,Valkenswaard,Noord-Brabant,5.45972,51.35083,31071,2611
+167,Varsseveld,Oude IJsselstreek,Gelderland,6.45833,51.94333,5450,415
+168,Surhuisterveen,Achtkarspelen,Friesland (Fryslân),6.17031,53.18477,5550,81
+169,Blaricum,Blaricum,Noord-Holland,5.24167,52.2725,5060,278
+170,Burum,Kollumerland en Nieuwkruisland,Friesland (Fryslân),6.22942,53.2734,525,106
+171,Renswoude,Renswoude,Utrecht,5.54028,52.07333,5175,47
+172,Heusden,Asten,Noord-Brabant,5.76389,51.38417,1300,88
+173,Dordrecht,Dordrecht,Zuid-Holland,4.67361,51.81,119260,13571
+174,Lelystad,Lelystad,Flevoland,5.475,52.50833,70741,7921
+175,Waddinxveen,Waddinxveen,Zuid-Holland,4.65139,52.045,25338,1440
+176,Kollum,Kollumerland en Nieuwkruisland,Friesland (Fryslân),6.15293,53.27695,5230,234
+177,Sint Anthonis,Sint Anthonis,Noord-Brabant,5.88194,51.62667,3340,116
+178,Broek in Waterland,Waterland,Noord-Holland,4.99583,52.43417,17259,86
+179,Borssele,Borsele,Zeeland,3.73472,51.42333,22285,70
+180,Ammerzoden,Maasdriel,Gelderland,5.22083,51.74917,3040,63
+181,Zoetermeer,Zoetermeer,Zuid-Holland,4.49306,52.0575,115845,10800
+182,Oss,Oss,Noord-Brabant,5.51806,51.765,76430,8402
+183,Epe,Epe,Gelderland,5.98333,52.3475,33385,1393
+184,Herpen,Oss,Noord-Brabant,5.64167,51.77167,2360,15
+185,Standdaarbuiten,Moerdijk,Noord-Brabant,4.51389,51.61333,1930,7
+186,Doorn,Utrechtse Heuvelrug,Utrecht,5.34571,52.03343,10330,135
+187,Nieuwkoop,Nieuwkoop,Zuid-Holland,4.77639,52.15083,28269,222
+188,Stiens,Leeuwarderadeel,Friesland (Fryslân),5.75769,53.26234,7300,454
+189,Geldermalsen,Geldermalsen,Gelderland,5.28889,51.88083,25734,825
+190,Kerkenveld,De Wolden,Drenthe,6.5,52.66833,525,22
+191,Nuth,Nuth,Limburg,5.88611,50.9175,4585,401
+192,Heeswijk-Dinther,Bernheze,Noord-Brabant,5.475,51.65083,7985,638
+193,Ermelo,Ermelo,Gelderland,5.62222,52.29833,10255,4751
+194,Axel,Terneuzen,Zeeland,3.90833,51.26667,8149,129
+195,Goutum,Leeuwarden,Friesland (Fryslân),5.8037,53.17734,2790,80
+196,Beringe,Peel en Maas,Limburg,5.94861,51.33667,1925,124
+197,Asten,Asten,Noord-Brabant,5.74861,51.40417,9535,1098
+198,Woold,Winterswijk,Gelderland,6.71667,51.93,65,7
+199,Westkapelle,Veere,Zeeland,3.44028,51.52917,2515,50
+200,Ruurlo,Berkelland,Gelderland,6.45,52.08833,5940,190
+201,Teteringen,Breda,Noord-Brabant,4.82083,51.60917,7230,333
+202,Born,Sittard-Geleen,Limburg,5.80972,51.03167,2430,560
+203,Winkel,Hollands Kroon,Noord-Holland,4.90278,52.75417,3460,70
+204,Bolsward,Súdwest-Fryslân,Friesland (Fryslân),5.53176,53.06555,9160,624
+205,Terborg,Oude IJsselstreek,Gelderland,6.35417,51.92,4425,181
+206,Annen,Aa en Hunze,Drenthe,6.71944,53.0575,3405,37
+207,Grou,Leeuwarden,Friesland (Fryslân),5.83745,53.09456,5535,864
+208,Voorschoten,Voorschoten,Zuid-Holland,4.44861,52.1275,22468,1213
+209,Vledder,Westerveld,Drenthe,6.20833,52.85583,1815,45
+210,Vught,Vught,Noord-Brabant,5.2875,51.65333,25043,1672
+211,Gulpen,Gulpen-Wittem,Limburg,5.88889,50.81583,14196,314
+212,Nieuwegein,Nieuwegein,Utrecht,5.08056,52.02917,61489,3888
+213,Nieuwerkerk,Schouwen-Duiveland,Zeeland,4.00139,51.65083,0,73
+214,Nistelrode,Bernheze,Noord-Brabant,5.5625,51.70417,6090,79
+215,Emmer-Compascuum,Emmen,Drenthe,7.04722,52.81167,8130,402
+216,Purmerend,Purmerend,Noord-Holland,4.95972,52.505,76745,4232
+217,Someren,Someren,Noord-Brabant,5.71111,51.385,10690,2017
+218,Westerbroek,Hoogezand-Sappemeer,Groningen,6.6875,53.18417,370,34
+219,De Knipe,Heerenveen,Friesland (Fryslân),5.97116,52.96829,1480,11
+220,Midwoud,Medemblik,Noord-Holland,5.075,52.71667,2280,140
+221,Nuenen,"Nuenen, Gerwen en Nederwetten",Noord-Brabant,5.55278,51.47,23223,4673
+222,Den Burg,Texel,Noord-Holland,4.79722,53.05417,6485,1679
+223,Est,Neerijnen,Gelderland,5.31528,51.85333,470,10
+224,Schinveld,Onderbanken,Limburg,5.97917,50.96917,4685,225
+225,Ederveen,Ede,Gelderland,5.57778,52.06333,3100,83
+226,Kwadijk,Zeevang,Noord-Holland,4.98056,52.52833,760,214
+227,Harfsen,Lochem,Gelderland,6.29722,52.2075,755,18
+228,Oudesluis,Schagen,Noord-Holland,4.80833,52.83417,760,87
+229,Haaksbergen,Haaksbergen,Overijssel,6.73889,52.15667,24137,1716
+230,Farmsum,Delfzijl,Groningen,6.92639,53.32167,2185,92
+231,Oude Molen,Deventer,Overijssel,6.28611,52.26083,115,89
+232,Oosterholt,Kampen,Overijssel,5.95556,52.55917,1175,374
+233,Schoonhoven,Krimpenerwaard,Zuid-Holland,4.84861,51.9475,12352,258
+234,Woubrugge,Kaag en Braassem,Zuid-Holland,4.63611,52.17,1060,38
+235,Heelweg,Oude IJsselstreek,Gelderland,6.48365,51.97029,110,102
+236,Riel,Eindhoven,Noord-Brabant,5.52222,51.42333,0,10
+237,Den Andel,Winsum,Groningen,6.50833,53.3925,385,5
+238,Den Oever,Hollands Kroon,Noord-Holland,5.03079,52.93353,2145,8
+239,Tubbergen,Tubbergen,Overijssel,6.78472,52.4075,20334,1105
+240,Haarle,Hellendoorn,Overijssel,6.38056,52.35917,1045,151
+241,Heide,Roermond,Limburg,6.04306,51.24083,0,385
+242,Bovenstreek,Oldebroek,Gelderland,5.9,52.43333,0,159
+243,Giessendam,Hardinxveld-Giessendam,Zuid-Holland,4.83583,51.83257,0,532
+244,Vaassen,Epe,Gelderland,5.96667,52.28583,12719,473
+245,Eijsden,Eijsden-Margraten,Limburg,5.7177,50.78,11795,457
+246,Smakt,Venray,Limburg,6.00417,51.56667,220,227
+247,Heidenschap,Slochteren,Groningen,6.68415,53.23636,0,3
+248,Schaarsbergen,Arnhem,Gelderland,5.87083,52.02833,230,23
+249,Reusel,Reusel-De Mierden,Noord-Brabant,5.16528,51.3625,13040,337
+250,Ochten,Neder-Betuwe,Gelderland,5.56944,51.91,4185,81
+251,Barneveld,Barneveld,Gelderland,5.58472,52.14,28640,4671
+252,Middelharnis,Goeree-Overflakkee,Zuid-Holland,4.16528,51.7575,17554,1185
+253,Abcoude,De Ronde Venen,Utrecht,4.96944,52.2725,6920,2104
+254,Beesd,Geldermalsen,Gelderland,5.19167,51.8875,2980,600
+255,Halfweg,Haarlemmerliede en Spaarnwoude,Noord-Holland,4.75417,52.3825,2350,5357
+256,Nieuwolda,Oldambt,Groningen,6.975,53.24417,1110,14
+257,Moorveld,Meerssen,Limburg,5.76353,50.91981,495,153
+258,Veere,Veere,Zeeland,3.66667,51.54833,500,22
+259,Vuren,Lingewaal,Gelderland,5.04583,51.825,1880,67
+260,Rossum,Maasdriel,Gelderland,5.33333,51.80083,1355,69
+261,Leeuwarden,Leeuwarden,Friesland (Fryslân),5.80859,53.20139,91424,15925
+262,Deil,Geldermalsen,Gelderland,5.24306,51.88417,1880,61
+263,De Rijp,Alkmaar,Noord-Holland,4.84583,52.55667,6450,184
+264,Goedereede,Goeree-Overflakkee,Zuid-Holland,3.98056,51.8175,11597,500
+265,Alkmaar,Alkmaar,Noord-Holland,4.74861,52.63167,94853,10465
+266,Monster,Westland,Zuid-Holland,4.175,52.02583,11580,373
+267,Hulst,Hulst,Zeeland,4.05278,51.28,27472,109
+268,Veeningen,De Wolden,Drenthe,6.36944,52.67,300,23
+269,Heeg,Súdwest-Fryslân,Friesland (Fryslân),5.61075,52.9686,1995,150
+270,Apeldoorn,Apeldoorn,Gelderland,5.96944,52.21,136670,19308
+271,Middel,Zaanstad,Noord-Holland,4.775,52.47833,315,3258
+272,Maassluis,Maassluis,Zuid-Holland,4.25,51.92333,32780,540
+273,Almelo,Almelo,Overijssel,6.6625,52.35667,72725,45889
+274,Rijsbergen,Zundert,Noord-Brabant,4.69722,51.5175,4140,227
+275,Brummen,Brummen,Gelderland,6.15556,52.09,20771,579
+276,Eelde,Tynaarlo,Drenthe,6.5625,53.13583,0,467
+277,Midsland,Terschelling,Friesland (Fryslân),5.28528,53.38215,915,21
+278,Nijmegen,Nijmegen,Gelderland,5.85278,51.8425,158732,46905
+279,Goor,Hof van Twente,Overijssel,6.58611,52.23333,11460,324
+280,Kerkrade,Kerkrade,Limburg,6.0625,50.86583,49777,1858
+281,Zeddam,Montferland,Gelderland,6.25972,51.90333,2305,70
+282,Nieuw-Lekkerland,Molenwaard,Zuid-Holland,4.68653,51.88915,9530,600
+283,Zeewolde,Zeewolde,Flevoland,5.54167,52.33,19022,676
+284,Steenwijk,Steenwijkerland,Overijssel,6.12083,52.7875,17138,1838
+285,Vroomshoop,Twenterand,Overijssel,6.56528,52.46083,8480,152
+286,Aalsmeer,Aalsmeer,Noord-Holland,4.75972,52.25917,22991,1200
+287,Montfort,Roerdalen,Limburg,5.94861,51.12583,2815,37
+288,Wageningen,Wageningen,Gelderland,5.66667,51.97,35433,4659
+289,Bunschoten,Bunschoten,Utrecht,5.37884,52.24304,3015,645
+290,Lunteren,Ede,Gelderland,5.62222,52.085,12510,777
+291,Waalwijk,Waalwijk,Noord-Brabant,5.07083,51.6825,45610,3426
+292,Ootmarsum,Dinkelland,Overijssel,6.90139,52.40833,4450,388
+293,Kats,Noord-Beveland,Zeeland,3.88472,51.5675,325,7
+294,Wilp,Voorst,Gelderland,6.15,52.21833,0,53
+295,Marum,Marum,Groningen,6.2625,53.14417,5170,244
+296,Bergen,Bergen (NH),Noord-Holland,4.70417,52.66917,66256,336
+297,Meedhuizen,Delfzijl,Groningen,6.91111,53.285,385,32
+298,Nieuw-Schoonebeek,Emmen,Drenthe,6.98611,52.64833,780,1
+299,Reeuwijk,Bodegraven-Reeuwijk,Zuid-Holland,4.725,52.04667,12817,384
+300,Ulvenhout,Breda,Noord-Brabant,4.79931,51.54907,4520,53
+301,Amersfoort,Amersfoort,Utrecht,5.3875,52.155,139914,29226
+302,Laak,Maasgouw,Limburg,5.82083,51.12,0,23
+303,Alphen,Alphen-Chaam,Noord-Brabant,4.95833,51.48167,70251,123
+304,Almere Stad,Almere,Flevoland,5.2366,52.3668,176432,33939
+305,Wilhelminadorp,Goes,Zeeland,3.89722,51.52917,665,1
+306,Vriezenveen,Twenterand,Overijssel,6.62222,52.40833,12310,575
+307,Bergschenhoek,Lansingerland,Zuid-Holland,4.49861,51.99,16579,805
+308,Markeloschebroek,Hof van Twente,Overijssel,6.42477,52.23843,430,522
+309,Tzum,Franekeradeel,Friesland (Fryslân),5.56277,53.15899,945,20
+310,Landsmeer,Landsmeer,Noord-Holland,4.91528,52.43083,1800,233
+311,Oosterbierum,Franekeradeel,Friesland (Fryslân),5.51136,53.23419,455,17
+312,Eext,Aa en Hunze,Drenthe,6.73472,53.0175,1225,19
+313,Eersel,Eersel,Noord-Brabant,5.31806,51.3575,18185,1160
+314,Melderslo,Horst aan de Maas,Limburg,6.08611,51.46167,1175,148
+315,Elspeet,Nunspeet,Gelderland,5.78889,52.29167,2810,142
+316,Prinsenbeek,Breda,Noord-Brabant,4.7125,51.59833,10720,557
+317,Wieringerwerf,Hollands Kroon,Noord-Holland,5.02639,52.85083,3210,299
+318,Eerbeek,Brummen,Gelderland,6.05833,52.105,10103,857
+319,Overloon,Boxmeer,Noord-Brabant,5.94722,51.57167,3626,66
+320,Harderwijk,Harderwijk,Gelderland,5.62083,52.34167,40516,10673
+321,Lakerveld,Zederik,Zuid-Holland,5.01944,51.9425,360,39
+322,Wieldrecht,Dordrecht,Zuid-Holland,4.63194,51.78417,175,231
+323,Pijnacker,Pijnacker-Nootdorp,Zuid-Holland,4.42946,52.01954,18695,3931
+324,Bakkeveen,Opsterland,Friesland (Fryslân),6.25671,53.08072,1450,61
+325,Sellingen,Vlagtwedde,Groningen,7.15139,52.94583,1060,97
+326,Sittard,Sittard-Geleen,Limburg,5.86944,50.99833,48400,4161
+327,Alblasserdam,Alblasserdam,Zuid-Holland,4.6703,51.856,18348,502
+328,Kollumerzwaag,Kollumerland en Nieuwkruisland,Friesland (Fryslân),6.07544,53.26224,2805,87
+329,Wildervank,Veendam,Groningen,6.8625,53.08083,2990,978
+330,Ysbrechtum,Súdwest-Fryslân,Friesland (Fryslân),5.63204,53.04121,654,13
+331,Ommen,Ommen,Overijssel,6.42083,52.52083,11820,1281
+332,Kerkdriel,Maasdriel,Gelderland,5.33472,51.77167,6580,599
+333,Schore,Kapelle,Zeeland,4.0,51.4625,440,72
+334,Beilen,Midden-Drenthe,Drenthe,6.51389,52.86333,9495,1045
+335,Bodegraven,Bodegraven-Reeuwijk,Zuid-Holland,4.75,52.0825,19395,2090
+336,Echtenerbrug,De Friese Meren,Friesland (Fryslân),5.82147,52.87141,1200,120
+337,Onstwedde,Stadskanaal,Groningen,7.04028,53.035,1935,175
+338,Hapert,Bladel,Noord-Brabant,5.25694,51.36833,4955,229
+339,Valthermond,Borger-Odoorn,Drenthe,6.9625,52.88167,3385,107
+340,Hulsen,Hellendoorn,Overijssel,6.47361,52.37917,680,1119
+341,Hoog Soeren,Apeldoorn,Gelderland,5.8731,52.2184,180,57
+342,Hooghalen,Midden-Drenthe,Drenthe,6.53889,52.92083,810,44
+343,Vinkel,Maasdonk,Noord-Brabant,5.4625,51.70583,60,39
+344,Niftrik,Wijchen,Gelderland,5.67083,51.79583,295,1
+345,Waardenburg,Neerijnen,Gelderland,5.25694,51.8325,1740,387
+346,Ureterp,Opsterland,Friesland (Fryslân),6.16718,53.09244,3810,191
+347,Diergaarde,Echt-Susteren,Limburg,5.96327,51.08555,0,25
+348,Neerkant,Deurne,Noord-Brabant,5.86667,51.36833,1325,40
+349,Ravenstein,Oss,Noord-Brabant,5.65,51.79667,1465,280
+350,Rhenen,Rhenen,Utrecht,5.56806,51.95917,18061,1035
+351,Roermond,Roermond,Limburg,5.9875,51.19417,44975,5006
+352,Stramproy,Weert,Limburg,5.71944,51.19417,4510,139
+353,Beverwijk,Beverwijk,Noord-Holland,4.65694,52.48333,37585,3466
+354,De Moer,Loon op Zand,Noord-Brabant,5.0125,51.62417,0,572
+355,Budel,Cranendonck,Noord-Brabant,5.575,51.27167,7895,941
+356,Voorst,Voorst,Gelderland,6.14167,52.17,1505,168
+357,Oirsbeek,Schinnen,Limburg,5.90833,50.95083,3600,353
+358,Arkel,Giessenlanden,Zuid-Holland,4.99444,51.86417,2980,7
+359,Hank,Werkendam,Noord-Brabant,4.89722,51.735,4323,69
+360,Renkum,Renkum,Gelderland,5.73333,51.97667,9421,292
+361,Castricum,Castricum,Noord-Holland,4.66944,52.54833,35256,836
+362,Overasselt,Heumen,Gelderland,5.78889,51.76,1715,74
+363,Duiven,Duiven,Gelderland,6.01389,51.94667,25469,3920
+364,Kerkwerve,Schouwen-Duiveland,Zeeland,3.89861,51.68667,575,22
+365,Groessen,Duiven,Gelderland,6.02639,51.93167,1955,200
+366,Zaandijk,Zaanstad,Noord-Holland,4.80686,52.47494,9040,1944
+367,Doetinchem,Doetinchem,Gelderland,6.28889,51.965,49906,14138
+368,Zweeloo,Coevorden,Drenthe,6.73056,52.795,345,11
+369,Aalsmeerderbrug,Haarlemmermeer,Noord-Holland,4.75,52.27417,505,3522
+370,Beuningen,Beuningen,Gelderland,5.76667,51.86083,25557,2963
+371,Lutjebroek,Stede Broec,Noord-Holland,5.20417,52.6975,2120,56
+372,Vijfhuizen,Haarlemmermeer,Noord-Holland,4.67778,52.35083,1895,183
+373,Egmond aan Zee,Bergen (NH),Noord-Holland,4.62705,52.6204,2505,42
+374,Elst,Overbetuwe,Gelderland,5.84167,51.91917,20488,2434
+375,Stavenisse,Tholen,Zeeland,4.0125,51.5875,1505,84
+376,Berkhout,Koggenland,Noord-Holland,5.00139,52.64083,1905,234
+377,Riethoven,Bergeijk,Noord-Brabant,5.3875,51.35417,1420,43
+378,Posterholt,Roerdalen,Limburg,6.03472,51.12333,3540,131
+379,Petten,Schagen,Noord-Holland,4.66111,52.76667,1640,11
+380,De Westereen,Dantumadeel (Dantumadiel),Friesland (Fryslân),6.0363,53.25731,5030,206
+381,Twello,Voorst,Gelderland,6.10278,52.23667,13500,753
+382,Halsteren,Bergen op Zoom,Noord-Brabant,4.26785,51.52834,9850,385
+383,Eemnes,Eemnes,Utrecht,5.26111,52.25417,9112,264
+384,Dronten,Dronten,Flevoland,5.71806,52.525,28073,14065
+385,Heemserveen,Hardenberg,Overijssel,6.56667,52.58167,0,29
+386,Zierikzee,Schouwen-Duiveland,Zeeland,3.91944,51.65,10483,309
+387,Zevenaar,Zevenaar,Gelderland,6.07083,51.93,26063,2914
+388,Ruinen,De Wolden,Drenthe,6.35417,52.7625,2610,1039
+389,Neede,Berkelland,Gelderland,6.61389,52.13417,7730,518
+390,Klazienaveen,Emmen,Drenthe,6.99028,52.72417,11919,576
+391,Reuver,Beesel,Limburg,6.07778,51.28417,6140,841
+392,Middenmeer,Hollands Kroon,Noord-Holland,4.99861,52.80667,3155,207
+393,Edam,Edam-Volendam,Noord-Holland,5.04805,52.51215,7380,79
+394,Berkel en Rodenrijs,Lansingerland,Zuid-Holland,4.47865,51.99313,20189,1852
+395,Wessem,Maasgouw,Limburg,5.88146,51.15954,2050,11
+396,Haarsteeg,Heusden,Noord-Brabant,5.19861,51.71167,2100,160
+397,Klimmen,Voerendaal,Limburg,5.88056,50.87583,1780,123
+398,Montfoort,Montfoort,Utrecht,4.95278,52.04583,13879,580
+399,Handel,Gemert-Bakel,Noord-Brabant,5.70972,51.58,1310,56
+400,Menaam,Menaldumadeel (Menaldumadiel),Friesland (Fryslân),5.66124,53.21797,2682,111
+401,Geestdorp,Woerden,Utrecht,4.90694,52.0975,165,41
+402,Siegerswoude,Opsterland,Friesland (Fryslân),6.2447,53.09974,830,3
+403,Uithuizermeeden,Eemsmond,Groningen,6.72361,53.41417,2775,115
+404,Utrecht,Utrecht (Ut),Utrecht,5.12222,52.09083,290529,65490
+405,Breda,Breda,Noord-Brabant,4.77596,51.58656,167673,38752
+406,Mijdrecht,De Ronde Venen,Utrecht,4.8625,52.20667,15230,924
+407,Drogteropslagen,De Wolden,Drenthe,6.49861,52.6225,290,315
+408,Wouwse Plantage,Roosendaal,Noord-Brabant,4.3875,51.48417,590,12
+409,Tegelen,Venlo,Limburg,6.13611,51.34417,20190,683
+410,Heukelom,Oisterwijk,Noord-Brabant,5.15694,51.57667,0,100
+411,Fijnaart,Moerdijk,Noord-Brabant,4.46944,51.6375,4855,197
+412,Papendrecht,Papendrecht,Zuid-Holland,4.6875,51.83167,31621,2683
+413,Soerendonk,Cranendonck,Noord-Brabant,5.575,51.30083,1660,48
+414,Wanroij,Sint Anthonis,Noord-Brabant,5.81806,51.6575,2340,129
+415,Dirkshorn,Schagen,Noord-Holland,4.775,52.75,1480,35
+416,Oude Pekela,Pekela,Groningen,7.00972,53.10417,7580,207
+417,Nieuw-Balinge,Midden-Drenthe,Drenthe,6.60694,52.76667,765,14
+418,Deest,Druten,Gelderland,5.66667,51.89,1655,200
+419,Katwijk aan den Rijn,Katwijk,Zuid-Holland,4.42222,52.19417,5940,1
+420,Echteld,Neder-Betuwe,Gelderland,5.49583,51.91,545,235
+421,Sint Hubert,Mill en Sint Hubert,Noord-Brabant,5.80833,51.67833,10831,227
+422,Schipluiden,Midden-Delfland,Zuid-Holland,4.31389,51.97583,3635,24
+423,Mijnsheerenland,Binnenmaas,Zuid-Holland,4.4875,51.79667,1775,47
+424,Drongelen,Aalburg,Noord-Brabant,5.05417,51.71583,235,60
+425,Serooskerke,Veere,Zeeland,3.59444,51.54833,1605,56
+426,Meerssen,Meerssen,Limburg,5.75,50.8875,5650,436
+427,Binnenwijzend,Drechterland,Noord-Holland,5.14444,52.68,245,259
+428,Gemert,Gemert-Bakel,Noord-Brabant,5.69028,51.55583,15995,1113
+429,Wolvega,Weststellingwerf,Friesland (Fryslân),5.99691,52.87545,12730,1285
+430,Schagen,Schagen,Noord-Holland,4.79861,52.7875,5910,2252
+431,Gennep,Gennep,Limburg,5.97361,51.69833,16642,1498
+432,Broekhuizenvorst,Horst aan de Maas,Limburg,6.15694,51.495,870,10
+433,Oud Verlaat,Zuidplas,Zuid-Holland,4.55278,51.97833,380,1045
+433,Oud Verlaat,Lansingerland,Zuid-Holland,4.55278,51.97833,380,1045
+434,Emmen,Emmen,Drenthe,6.90694,52.77917,57010,8341
+435,Oijen,Oss,Noord-Brabant,5.50278,51.82417,745,60
+436,Dinteloord,Steenbergen,Noord-Brabant,4.36944,51.635,5105,99
+437,Gebroek,Echt-Susteren,Limburg,5.87266,51.09533,0,1089
+438,Hallum,Ferwerderadeel (Ferwerderadiel),Friesland (Fryslân),5.78379,53.30657,2355,44
+439,Hoorn,Hoorn,Noord-Holland,5.05972,52.6425,68852,7476
+440,Tholen,Tholen,Zeeland,4.22083,51.53167,7475,395
+441,Meppel,Meppel,Drenthe,6.19444,52.69583,30697,33200
+442,Huls,Simpelveld,Limburg,5.97222,50.84417,345,4
+443,Wittelte,Westerveld,Drenthe,6.30774,52.82889,110,20
+444,Berg,Valkenburg aan de Geul,Limburg,5.78333,50.86167,18741,82
+445,Diever,Westerveld,Drenthe,6.31806,52.85417,2175,110
+446,Simpelveld,Simpelveld,Limburg,5.98194,50.83417,2405,146
+447,Gerkesklooster,Achtkarspelen,Friesland (Fryslân),6.20367,53.23794,730,2
+448,Beekbergen,Apeldoorn,Gelderland,5.96389,52.16,2545,133
+449,Oranje,Midden-Drenthe,Drenthe,6.44722,52.9075,395,97
+450,Boxmeer,Boxmeer,Noord-Brabant,5.94722,51.64667,12407,1865
+451,Volendam,Edam-Volendam,Noord-Holland,5.07083,52.495,22000,1717
+452,Medemblik,Medemblik,Noord-Holland,5.10556,52.77167,41500,422
+453,Bloemendaal,Bloemendaal,Noord-Holland,4.62222,52.4025,3905,1725
+454,Leerdam,Leerdam,Zuid-Holland,5.09167,51.89333,20758,524
+455,Nieuw-Namen,Hulst,Zeeland,4.16111,51.2925,0,3
+456,Kruisweg,Lansingerland,Zuid-Holland,4.54444,52.04417,330,89
+457,Hoensbroek,Heerlen,Limburg,5.92528,50.92387,25000,1004
+458,Lichtenvoorde,Oost Gelre,Gelderland,6.56667,51.98667,19590,1101
+459,Kessel,Peel en Maas,Limburg,6.05417,51.29167,3020,138
+460,Langeheit,Zaanstad,Noord-Holland,4.75849,52.492,1180,1346
+461,Sint Willebrord,Rucphen,Noord-Brabant,4.58889,51.54833,8655,493
+462,Sappemeer,Hoogezand-Sappemeer,Groningen,6.79028,53.16417,34305,113
+463,Raalte,Raalte,Overijssel,6.275,52.38583,20015,1830
+464,Eefde,Lochem,Gelderland,6.225,52.16667,3285,80
+465,Haaften,Neerijnen,Gelderland,5.21111,51.81583,2370,198
+466,Winsum,Winsum,Groningen,6.52083,53.33,13560,318
+467,Nieuwveen,Nieuwkoop,Zuid-Holland,4.75694,52.19667,1265,34
+468,Voorthuizen,Barneveld,Gelderland,5.60556,52.18667,9710,911
+469,Vlierden,Deurne,Noord-Brabant,5.75833,51.445,1115,1073
+470,De Lier,Westland,Zuid-Holland,4.24861,51.975,11823,270
+471,Bronkhorst,Bronckhorst,Gelderland,6.17917,52.07583,95,10
+472,Sint-Michielsgestel,Sint-Michielsgestel,Noord-Brabant,5.35278,51.64167,2580,309
+473,Callantsoog,Schagen,Noord-Holland,4.69583,52.84,2420,201
+474,Haarlem,Haarlem,Noord-Holland,4.63683,52.38084,147590,219159
+475,Brunssum,Brunssum,Limburg,5.97083,50.94667,29254,1883
+476,Nijkerk,Nijkerk,Gelderland,5.48611,52.22,38335,3558
+477,Klarenbeek,Apeldoorn,Gelderland,6.0625,52.1675,565,45
+478,Blokzijl,Steenwijkerland,Overijssel,5.96111,52.72667,1110,95
+479,Voerendaal,Voerendaal,Limburg,5.92978,50.88327,12390,405
+480,Emmeloord,Noordoostpolder,Flevoland,5.74861,52.71083,46409,3128
+481,Zaamslag,Terneuzen,Zeeland,3.9125,51.3125,2980,83
+482,Ysselsteyn,Venray,Limburg,5.89722,51.49,2260,14
+483,Schoonebeek,Emmen,Drenthe,6.88472,52.6625,3845,146
+484,Zuidlaren,Tynaarlo,Drenthe,6.68194,53.09417,3905,255
+485,Aarle-Rixtel,Laarbeek,Noord-Brabant,5.63839,51.50976,5125,267
+486,Bergen op Zoom,Bergen op Zoom,Noord-Brabant,4.29167,51.495,66256,5886
+487,Gorinchem,Gorinchem,Zuid-Holland,4.97243,51.83652,34736,2612
+488,IJmuiden,Velsen,Noord-Holland,4.61048,52.4603,31925,1734
+489,Willemstad,Moerdijk,Noord-Brabant,4.43889,51.69167,800,11847
+490,Noardburgum,Tietjerksteradeel (Tytsjerksteradiel),Friesland (Fryslân),6.00523,53.22135,2385,16
+491,Angeren,Lingewaard,Gelderland,5.95833,51.91583,2275,501
+492,Laren,Lochem,Gelderland,6.36528,52.19417,11508,865
+493,Scheemda,Oldambt,Groningen,6.97222,53.17333,2395,306
+494,Oldenzaal,Oldenzaal,Overijssel,6.92917,52.31333,31410,3114
+495,Woudrichem,Woudrichem,Noord-Brabant,5.00139,51.815,4674,59
+496,Scherpenisse,Tholen,Zeeland,4.10556,51.54667,1605,112
+497,Eibergen,Berkelland,Gelderland,6.64861,52.1,16493,1067
+498,Zuilichem,Zaltbommel,Gelderland,5.13611,51.80917,1245,11
+499,Soest,Soest,Utrecht,5.3029,52.1781,45021,211025
+500,Roosendaal,Roosendaal,Noord-Brabant,4.46528,51.53083,77725,8116
+501,Leek,Leek,Groningen,6.37639,53.1625,19651,1814
+502,Leende,Heeze-Leende,Noord-Brabant,5.55417,51.35083,15886,104
+503,Vierpolders,Brielle,Zuid-Holland,4.17917,51.87917,1215,50
+504,Rietmolen,Berkelland,Gelderland,6.6625,52.14083,525,26
+505,Tynaarlo,Tynaarlo,Drenthe,6.61667,53.0775,1530,69
+506,Delft,Delft,Zuid-Holland,4.35556,52.00667,95060,14164
+507,Vijlen,Vaals,Limburg,5.96528,50.78833,1290,63
+508,Sneek,Súdwest-Fryslân,Friesland (Fryslân),5.6589,53.03297,32811,3563
+509,Heteren,Overbetuwe,Gelderland,5.75556,51.95667,4805,173
+510,Akkrum,Heerenveen,Friesland (Fryslân),5.83087,53.05024,3440,162
+511,Kesteren,Neder-Betuwe,Gelderland,5.56944,51.935,4455,260
+512,Dongen,Dongen,Noord-Brabant,4.93889,51.62667,25464,1696
+513,Staphorst,Staphorst,Overijssel,6.21111,52.645,15765,2280
+514,Lopik,Lopik,Utrecht,4.94861,51.9725,14395,1245
+515,Appingedam,Appingedam,Groningen,6.85833,53.32167,11801,482
+516,Deventer,Deventer,Overijssel,6.16389,52.255,97331,11676
+517,Hidaard,Littenseradeel (Littenseradiel),Friesland (Fryslân),5.60337,53.07897,130,25
+518,Eperheide,Gulpen-Wittem,Limburg,5.89306,50.7725,125,11
+519,Delfzijl,Delfzijl,Groningen,6.91806,53.33,28649,898
+520,Heythuysen,Leudal,Limburg,5.89861,51.25,6420,2033
+521,Avenhorn,Koggenland,Noord-Holland,4.95139,52.6175,2945,122
+522,Mook,Mook en Middelaar,Limburg,5.88194,51.7525,7768,74
+523,Puiflijk,Druten,Gelderland,5.59028,51.87833,1105,173
+524,Grootegast,Grootegast,Groningen,6.27361,53.2125,3350,405
+525,Made,Drimmelen,Noord-Brabant,4.79306,51.67667,11795,403
+526,Tzummarum,Franekeradeel,Friesland (Fryslân),5.54612,53.23733,1205,59
+527,Harkstede,Slochteren,Groningen,6.69861,53.21333,2490,46
+528,Anna Jacobapolder,Tholen,Zeeland,4.12917,51.63917,230,201
+529,Heinenoord,Binnenmaas,Zuid-Holland,4.47659,51.82602,610,21
+530,Uden,Uden,Noord-Brabant,5.61944,51.66083,34601,5212
+531,Rijnsburg,Katwijk,Zuid-Holland,4.44167,52.19,7990,162
+532,Woudsend,Súdwest-Fryslân,Friesland (Fryslân),5.62843,52.94357,1375,63
+533,Sas van Gent,Terneuzen,Zeeland,3.79861,51.2275,3856,35
+534,Schimmert,Nuth,Limburg,5.82361,50.90667,2310,83
+535,Blauwe Keet,Den Helder,Noord-Holland,4.7802,52.89658,50,91
+536,Scheveningen,'s-Gravenhage,Zuid-Holland,4.27557,52.10461,23000,105
+537,Terwispel,Opsterland,Friesland (Fryslân),6.0478,53.01973,545,32
+538,Oosterhesselen,Coevorden,Drenthe,6.72222,52.75417,1690,36
+539,Udenhout,Tilburg,Noord-Brabant,5.14306,51.60917,7650,412
+540,Oudewater,Oudewater,Utrecht,4.86806,52.025,10180,230
+541,Bergen aan Zee,Bergen (NH),Noord-Holland,4.63056,52.66083,2505,30
+542,Wapenveld,Heerde,Gelderland,6.07361,52.42917,3995,173
+543,Ruinerwold,De Wolden,Drenthe,6.24861,52.72333,2485,168
+544,Aldeboarn,Heerenveen,Friesland (Fryslân),5.9,53.05,1525,19
+545,Maasland,Midden-Delfland,Zuid-Holland,4.27222,51.93417,4545,163
+546,Hattemerbroek,Oldebroek,Gelderland,6.02222,52.47417,1025,428
+547,Vollenhove,Steenwijkerland,Overijssel,5.95417,52.68083,3955,190
+548,Mussel,Stadskanaal,Groningen,7.03889,52.955,985,51
+549,Breedenbroek,Oude IJsselstreek,Gelderland,6.47222,51.87333,440,122
+550,Parrega,Súdwest-Fryslân,Friesland (Fryslân),5.47909,53.01871,335,11
+551,Marle,Hellendoorn,Overijssel,6.48056,52.42417,75,69
+552,Heerenveen,Heerenveen,Friesland (Fryslân),5.91854,52.95929,43094,5095
+553,Roelofarendsveen,Kaag en Braassem,Zuid-Holland,4.63333,52.20333,2710,358
+554,Koufurderrige,Súdwest-Fryslân,Friesland (Fryslân),5.65423,52.95647,65,17
+555,Schaijk,Landerd,Noord-Brabant,5.63194,51.74583,5970,455
+556,Noorbeek,Eijsden-Margraten,Limburg,5.8125,50.76917,750,38
+557,Vinkeveen,De Ronde Venen,Utrecht,4.93372,52.21507,2340,89
+558,Oost-Vlieland,Vlieland,Friesland (Fryslân),5.07431,53.29703,1025,115
+559,Scharnegoutum,Súdwest-Fryslân,Friesland (Fryslân),5.67822,53.06051,1540,49
+560,Maarssen,Stichtse Vecht,Utrecht,5.04167,52.13917,39675,1960
+561,Kootstertille,Achtkarspelen,Friesland (Fryslân),6.09209,53.21261,2180,58
+562,Honselersdijk,Westland,Zuid-Holland,4.22441,52.00665,7366,493
+563,Okkenbroek,Deventer,Overijssel,6.31944,52.29833,290,115
+564,Zaandam,Zaanstad,Noord-Holland,4.82643,52.43854,71708,6626
+565,Rinnegom,Bergen (NH),Noord-Holland,4.65,52.60917,180,98
+566,Heemskerk,Heemskerk,Noord-Holland,4.67165,52.51108,36170,2066
+567,Rijen,Gilze en Rijen,Noord-Brabant,4.91944,51.59083,16230,4410
+568,Kootwijkerbroek,Barneveld,Gelderland,5.66944,52.15083,1690,162
+569,Aalten,Aalten,Gelderland,6.58056,51.925,19141,1078
+570,Oude Meer,Haarlemmermeer,Noord-Holland,4.78611,52.28833,175,2361
+571,Ballast,Coevorden,Drenthe,6.73299,52.67218,1710,528
+572,Sloten,De Friese Meren,Friesland (Fryslân),5.64526,52.89477,735,10
+573,Maasdijk,Westland,Zuid-Holland,4.21389,51.95917,5000,207
+574,De Krim,Hardenberg,Overijssel,6.61806,52.64917,250,18
+575,Hillegom,Hillegom,Zuid-Holland,4.58333,52.29083,18419,1248
+576,Warnsveld,Zutphen,Gelderland,6.23056,52.1375,9200,59
+577,Aalden,Coevorden,Drenthe,6.71806,52.79,1625,26
+578,Velsen-Zuid,Velsen,Noord-Holland,4.65,52.46,67758,914
+579,Sliedrecht,Sliedrecht,Zuid-Holland,4.77639,51.82083,23854,1178
+580,Venray,Venray,Limburg,5.975,51.525,39047,2345
+581,Rozenburg,Rotterdam,Zuid-Holland,4.24861,51.90417,12420,4899
+582,Nieuwkuijk,Heusden,Noord-Brabant,5.18194,51.69,2140,42
+583,Gilze,Gilze en Rijen,Noord-Brabant,4.94028,51.54417,0,438
+584,Assen,Assen,Drenthe,6.5625,52.99667,62237,7764
+585,Maarheeze,Cranendonck,Noord-Brabant,5.61667,51.31167,4715,123
+586,Sterrenberg,Soest,Utrecht,5.28194,52.11417,0,3280
+587,Oudendijk,Korendijk,Zuid-Holland,4.27361,51.7725,435,38
+588,De Kwakel,Uithoorn,Noord-Holland,4.79306,52.23917,4435,351
+589,Neerloon,Oss,Noord-Brabant,5.67639,51.78833,205,53
+590,Bruinisse,Schouwen-Duiveland,Zeeland,4.09444,51.66167,3100,251
+591,Tiel,Tiel,Gelderland,5.42917,51.88667,40702,4760
+592,Horstermeer,Wijdemeren,Noord-Holland,5.07778,52.25,750,18
+593,Vlagtwedde,Vlagtwedde,Groningen,7.10833,53.0275,1955,361
+594,Westeinde,Enkhuizen,Noord-Holland,5.26528,52.70083,100,83
+595,Peize,Noordenveld,Drenthe,6.49722,53.14667,4295,172
+596,Langenboom,Mill en Sint Hubert,Noord-Brabant,5.73056,51.70417,1400,34
+597,Thorn,Maasgouw,Limburg,5.84167,51.16167,2295,152
+598,Oosterwolde,Ooststellingwerf,Friesland (Fryslân),6.29096,52.99164,9245,1344
+599,Roosteren,Echt-Susteren,Limburg,5.81806,51.08333,1125,34
+600,Vlaardingen,Vlaardingen,Zuid-Holland,4.34167,51.9125,73798,3554
+601,Hoeven,Halderberge,Noord-Brabant,4.58333,51.57917,4895,303
+602,Woudenberg,Woudenberg,Utrecht,5.41667,52.08083,13021,4432
+603,Berghem,Oss,Noord-Brabant,5.56827,51.76991,6500,734
+604,Graft,Alkmaar,Noord-Holland,4.83056,52.56083,6450,1
+605,Tussenlanen,Krimpenerwaard,Zuid-Holland,4.80417,51.94083,110,84
+606,Bennekom,Ede,Gelderland,5.67639,51.99833,14810,492
+607,Kekerdom,Groesbeek,Gelderland,6.00833,51.86417,485,34
+608,Nieuw- en Sint Joosland,Middelburg,Zeeland,3.65694,51.48333,1140,25
+609,Groesbeek,Groesbeek,Gelderland,5.93611,51.77667,18741,748
+610,Geldrop,Geldrop-Mierlo,Noord-Brabant,5.55972,51.42167,27900,1135
+611,Krimpen aan den IJssel,Krimpen aan den IJssel,Zuid-Holland,4.60278,51.91667,29017,14378
+612,Huizen,Huizen,Noord-Holland,5.24167,52.29917,45292,3442
+613,Maarn,Utrechtse Heuvelrug,Utrecht,5.37083,52.06417,4618,499
+614,Sint Joost,Echt-Susteren,Limburg,5.89861,51.1175,1310,22
+615,Elsen,Hof van Twente,Overijssel,6.53889,52.27,760,3712
+616,Giessenburg,Giessenlanden,Zuid-Holland,4.89028,51.85083,4800,1015
+617,Maasbracht,Maasgouw,Limburg,5.88627,51.13929,5680,543
+618,Graaf,Lopik,Utrecht,4.97917,51.98083,12999,18
+619,Volkel,Uden,Noord-Brabant,5.65417,51.6425,0,51
+620,Hoek van Holland,Rotterdam,Zuid-Holland,4.13333,51.9775,9400,470
+621,Nieuwe Pekela,Pekela,Groningen,6.96528,53.07917,3895,44
+622,Wommels,Littenseradeel (Littenseradiel),Friesland (Fryslân),5.58749,53.10883,2065,47
+623,Sprundel,Rucphen,Noord-Brabant,4.59722,51.5375,3625,41
+624,Ven-Zelderheide,Gennep,Limburg,6.02361,51.7125,610,11
+625,Bemmel,Lingewaard,Gelderland,5.89861,51.89167,12020,600
+626,Hoogvliet,Rotterdam,Zuid-Holland,4.3625,51.86333,34950,1629
+627,Giessen,Woudrichem,Noord-Brabant,5.03056,51.79,1640,4
+628,Kampen,Kampen,Overijssel,5.91111,52.555,48980,19870
+629,Noordwijk-Binnen,Noordwijk,Zuid-Holland,4.44474,52.234,24363,2671
+630,Geertruidenberg,Geertruidenberg,Noord-Brabant,4.85694,51.70167,20941,108
+631,De Belt,Hardenberg,Overijssel,6.53889,52.63833,75,110
+632,Hasselt,Zwartewaterland,Overijssel,6.09527,52.59267,6959,1103
+633,Diffelen,Hardenberg,Overijssel,6.55972,52.5225,130,5
+634,Eindewege,Goes,Zeeland,3.81667,51.4975,215,172
+635,Eenigenburg,Schagen,Noord-Holland,4.725,52.74167,170,423
+636,Beek gem Montferland,Montferland,Gelderland,6.1875,51.90667,1315,95
+637,Winterswijk,Winterswijk,Gelderland,6.71944,51.9725,29623,3397
+638,Sevenum,Horst aan de Maas,Limburg,6.0375,51.4125,5035,551
+639,Norg,Noordenveld,Drenthe,6.45833,53.06667,3290,117
+640,Dussen,Werkendam,Noord-Brabant,4.9625,51.73083,2528,31
+641,Stoutenburg,Leusden,Utrecht,5.43611,52.1525,365,45
+642,Helmond,Helmond,Noord-Brabant,5.66111,51.48167,74740,11293
+643,Gieten,Aa en Hunze,Drenthe,6.76389,53.005,4885,577
+644,'s-Gravenzande,Westland,Zuid-Holland,4.16528,52.00167,19190,824
+645,Milsbeek,Gennep,Limburg,5.94861,51.725,2055,99
+646,Sexbierum,Franekeradeel,Friesland (Fryslân),5.48402,53.21823,1530,45
+647,Schiedam,Schiedam,Zuid-Holland,4.3792,51.9337,75438,5699
+648,Epse,Lochem,Gelderland,6.2,52.225,1470,42
+649,Ulft,Oude IJsselstreek,Gelderland,6.37778,51.89,0,412
+650,Elsloo,Stein,Limburg,5.77083,50.94917,7220,269
+651,Poortugaal,Albrandswaard,Zuid-Holland,4.39444,51.85833,55,183
+652,Weesp,Weesp,Noord-Holland,5.04167,52.3075,17802,5072
+653,Zuid-Scharwoude,Langedijk,Noord-Holland,4.80833,52.68667,6165,904
+654,Lijnden,Haarlemmermeer,Noord-Holland,4.75694,52.3525,705,1703
+655,Sint Nicolaasga,De Friese Meren,Friesland (Fryslân),5.74242,52.92293,3285,67
+656,Siddeburen,Slochteren,Groningen,6.86806,53.25,2910,33
+657,Woerden,Woerden,Utrecht,4.88333,52.085,48431,4548
+658,Boxtel,Boxtel,Noord-Brabant,5.32917,51.59083,29511,2189
+659,Kamperland,Noord-Beveland,Zeeland,3.70417,51.57167,1610,177
+660,Warffum,Eemsmond,Groningen,6.55833,53.3925,1950,42
+661,Workum,Súdwest-Fryslân,Friesland (Fryslân),5.4471,52.97969,4105,97
+662,Monnickendam,Waterland,Noord-Holland,5.0375,52.45833,2015,250
+663,Culemborg,Culemborg,Gelderland,5.22778,51.955,26826,1586
+664,Urmond,Stein,Limburg,5.77222,50.99083,3560,171
+665,Schalkhaar,Deventer,Overijssel,6.19444,52.26833,4610,150
+666,Baarlo,Peel en Maas,Limburg,6.09444,51.33083,5215,600
+667,'s-Heerenberg,Montferland,Gelderland,6.25877,51.8767,4720,207
+668,Saasveld,Dinkelland,Overijssel,6.80694,52.33167,660,98
+669,Zandberg,Borger-Odoorn,Drenthe,7.02627,52.91868,0,30
+670,Beek,Beek,Limburg,5.79722,50.94083,8415,1065
+671,Nieuw Moscou,Hoogeveen,Drenthe,6.5375,52.6725,547,182
+672,Stolwijk,Krimpenerwaard,Zuid-Holland,4.77361,51.9725,3730,239
+673,Naaldwijk,Westland,Zuid-Holland,4.20972,51.99417,17753,76579
+674,Franeker,Franekeradeel,Friesland (Fryslân),5.54123,53.18546,12996,1132
+675,Driel,Overbetuwe,Gelderland,5.81389,51.95917,2940,57
+676,Nederasselt,Heumen,Gelderland,5.74444,51.77167,645,27
+677,Lutjewinkel,Hollands Kroon,Noord-Holland,4.88472,52.76667,490,13
+678,Oosthuizen,Zeevang,Noord-Holland,4.99583,52.5725,1260,1381
+679,Berkenwoude,Krimpenerwaard,Zuid-Holland,4.70694,51.945,1390,42
+680,Joure,De Friese Meren,Friesland (Fryslân),5.80301,52.9657,12902,1114
+681,Limmen,Castricum,Noord-Holland,4.69444,52.56917,7300,126
+682,Holwerd,Dongeradeel,Friesland (Fryslân),5.90073,53.36815,1435,23
+683,Haps,Cuijk,Noord-Brabant,5.86111,51.68917,2165,80
+684,Aagtekerke,Veere,Zeeland,3.50972,51.54667,1245,64
+685,Feanwâlden,Dantumadeel (Dantumadiel),Friesland (Fryslân),5.98832,53.23558,3440,60
+686,Schin op Geul,Valkenburg aan de Geul,Limburg,5.86944,50.85417,725,103
+687,Zetten,Overbetuwe,Gelderland,5.71389,51.92833,2985,137
+688,Dokkum,Dongeradeel,Friesland (Fryslân),5.99697,53.32224,13145,1994
+689,Brielle,Brielle,Zuid-Holland,4.1625,51.90167,2765,1174
+690,Muiden,Muiden,Noord-Holland,5.06944,52.33,6285,69
+691,Zandvoort,Zandvoort,Noord-Holland,4.53306,52.37125,16868,617
+692,Hardenberg,Hardenberg,Overijssel,6.61944,52.57583,57909,6152
+693,Noord-Scharwoude,Langedijk,Noord-Holland,4.81111,52.69833,5665,212
+694,Westerbork,Midden-Drenthe,Drenthe,6.60833,52.85,4605,168
+695,Gouwsluis,Alphen aan den Rijn,Zuid-Holland,4.66899,52.11943,1470,6
+696,Klijndijk,Borger-Odoorn,Drenthe,6.85972,52.83167,685,7
+697,Gendt,Lingewaard,Gelderland,5.97083,51.8775,5590,240
+698,Papenhoven,Sittard-Geleen,Limburg,5.77639,51.04333,730,80
+699,Kornhorn,Grootegast,Groningen,6.24306,53.18167,505,11
+700,Veghel,Veghel,Noord-Brabant,5.54861,51.61667,25352,3335
+701,Stein,Stein,Limburg,5.76667,50.96917,24987,1256
+702,Sint Maartensvlotbrug,Schagen,Noord-Holland,4.70833,52.78667,715,23
+703,Dalen,Coevorden,Drenthe,6.75556,52.69917,3295,224
+704,Hiaure,Dongeradeel,Friesland (Fryslân),5.97227,53.34732,65,6
+705,Oosterhout,Oosterhout,Noord-Brabant,4.85972,51.645,53107,5361
+706,Middelburg,Middelburg,Zeeland,3.61389,51.5,46485,4248
+707,Schinnen,Schinnen,Limburg,5.88889,50.94333,12911,268
+708,Sint Geertruid,Eijsden-Margraten,Limburg,5.76528,50.79667,935,37
+709,Hengelo,Bronckhorst,Gelderland,6.30972,52.05083,80809,18845
+710,Tolkamer,Rijnwaarden,Gelderland,6.10278,51.855,2430,38
+711,Dwingeloo,Westerveld,Drenthe,6.36944,52.83417,2430,539
+712,IJsselstein,IJsselstein,Utrecht,5.04306,52.02,33886,1568
+713,Havelte,Westerveld,Drenthe,6.24015,52.76941,3060,173
+714,Swartbroek,Weert,Limburg,5.77361,51.23,555,26
+715,Niebert,Marum,Groningen,6.32778,53.16083,520,95
+716,Meerlo,Horst aan de Maas,Limburg,6.08472,51.51333,1605,102
+717,Olst,Olst-Wijhe,Overijssel,6.10972,52.3375,4780,183
+718,Houten,Houten,Utrecht,5.16806,52.02833,1335,2053
+719,Helenaveen,Deurne,Noord-Brabant,5.91667,51.39,665,27
+720,Rohel,De Friese Meren,Friesland (Fryslân),5.83173,52.91717,270,22
+721,Wilhelminapark,Brummen,Gelderland,6.06903,52.0929,0,4
+722,Alphen aan den Rijn,Alphen aan den Rijn,Zuid-Holland,4.65546,52.12917,70251,6380
+723,Bangert,Medemblik,Noord-Holland,5.1801,52.73582,1470,168
+724,Papenveer,Nieuwkoop,Zuid-Holland,4.725,52.185,1135,827
+725,Witmarsum,Súdwest-Fryslân,Friesland (Fryslân),5.46902,53.10452,1585,32
+726,America,Horst aan de Maas,Limburg,5.97917,51.43667,1175,57
+727,Wenum,Apeldoorn,Gelderland,5.96389,52.255,335,33
+728,Hollum,Ameland,Friesland (Fryslân),5.63805,53.4394,1160,119
+729,Westbeemster,Beemster,Noord-Holland,4.89861,52.575,400,11
+730,Goes,Goes,Zeeland,3.88889,51.50417,36931,2133
+731,Damwâld,Dantumadeel (Dantumadiel),Friesland (Fryslân),5.99785,53.29046,5560,210
+732,Pannerden,Rijnwaarden,Gelderland,6.03889,51.89083,2085,167
+733,Vlissingen,Vlissingen,Zeeland,3.57361,51.4425,45273,1455
+734,Meijel,Peel en Maas,Limburg,5.88472,51.34417,5180,379
+735,Beers,Cuijk,Noord-Brabant,5.82778,51.72583,1275,40
+736,Putte,Woensdrecht,Noord-Brabant,4.39583,51.36,3440,87
+737,Hauwert,Medemblik,Noord-Holland,5.1,52.70833,720,54
+738,Dronryp,Menaldumadeel (Menaldumadiel),Friesland (Fryslân),5.65,53.2,3486,112
+739,Leersum,Utrechtse Heuvelrug,Utrecht,5.42778,52.01167,6385,5482
+740,Heijen,Gennep,Limburg,5.98056,51.675,1610,200
+741,De Bilt,De Bilt,Utrecht,5.18056,52.11,8945,701
+742,Heelsum,Renkum,Gelderland,5.75833,51.98417,3175,29
+743,Bergstoep,Krimpenerwaard,Zuid-Holland,4.78472,51.9225,1205,41
+744,Noordwijkerhout,Noordwijkerhout,Zuid-Holland,4.49306,52.26167,11875,982
+745,Kilder,Montferland,Gelderland,6.23194,51.9375,980,233
+746,Midlum,Harlingen,Friesland (Fryslân),5.44845,53.18184,535,10
+747,Fochteloo,Ooststellingwerf,Friesland (Fryslân),6.33551,52.99162,305,310
+748,Kalenberg,Steenwijkerland,Overijssel,5.95417,52.77667,190,24
+749,Leunen,Venray,Limburg,5.97917,51.51,2270,21
+750,Valkenburg,Valkenburg aan de Geul,Limburg,5.83205,50.86523,0,842
+751,Reijerscop,Woerden,Utrecht,4.97639,52.07667,145,263
+752,Sint Maarten,Schagen,Noord-Holland,4.74583,52.7725,915,32
+753,Krooswijk,Moerdijk,Noord-Brabant,4.59203,51.64665,4130,1022
+754,Heerle,Roosendaal,Noord-Brabant,4.35972,51.51917,1320,17
+755,Broekerhaven,Stede Broec,Noord-Holland,5.25278,52.68833,850,310
+756,Appelscha,Ooststellingwerf,Friesland (Fryslân),6.35053,52.95526,4035,101
+757,Heilig Landstichting,Groesbeek,Gelderland,5.88333,51.81917,695,302
+758,Hindeloopen,Súdwest-Fryslân,Friesland (Fryslân),5.40081,52.94212,810,48
+759,Wijster,Midden-Drenthe,Drenthe,6.51806,52.81667,780,47
+760,Piershil,Korendijk,Zuid-Holland,4.31389,51.79333,1410,61
+761,Chaam,Alphen-Chaam,Noord-Brabant,4.86111,51.50583,10083,30
+762,Zutphen,Zutphen,Gelderland,6.20139,52.13833,36188,7655
+763,Hoogeveen,Hoogeveen,Drenthe,6.47639,52.7225,38754,6364
+764,Witteveen,Midden-Drenthe,Drenthe,6.66111,52.81333,400,33
+765,Roden,Noordenveld,Drenthe,6.42083,53.1375,1300,1154
+766,Bedum,Bedum,Groningen,6.60278,53.30083,7765,870
+767,Tilburg,Tilburg,Noord-Brabant,5.0995,51.5835,199613,38890
+768,Waspik,Waalwijk,Noord-Brabant,4.94444,51.68667,5120,281
+769,Ottersum,Gennep,Limburg,5.98333,51.70333,1585,184
+770,Voorweg,Alphen aan den Rijn,Zuid-Holland,4.62083,52.08917,710,36
+771,Azewijn,Montferland,Gelderland,6.30556,51.88667,490,34
+772,Winschoten,Oldambt,Groningen,7.03472,53.14417,18506,1984
+773,Lisse,Lisse,Zuid-Holland,4.55694,52.26,22321,1494
+774,Puth,Schinnen,Limburg,5.87361,50.95417,1990,58
+775,Oranjewoud,Heerenveen,Friesland (Fryslân),5.95038,52.94579,1580,212
+776,Zuidveen,Steenwijkerland,Overijssel,6.10694,52.7775,570,52
+777,Spijkenisse,Nissewaard,Zuid-Holland,4.32917,51.845,74988,4164
+778,Heesch,Bernheze,Noord-Brabant,5.52672,51.73362,12810,1395
+779,Oudkarspel,Schagen,Noord-Holland,4.80556,52.71583,3170,17
+780,Oosterbeek,Renkum,Gelderland,5.84583,51.98583,11138,327
+781,Lochem,Lochem,Gelderland,6.41111,52.15917,12360,2132
+782,Zegge,Rucphen,Noord-Brabant,4.51806,51.55667,1575,72
+783,Oegstgeest,Oegstgeest,Zuid-Holland,4.46944,52.18,21149,1315
+784,Stadskanaal,Stadskanaal,Groningen,6.9504,52.98947,20000,2468
+785,Bunnik,Bunnik,Utrecht,5.19861,52.06667,15214,290
+786,Nieuwe-Wetering,De Bilt,Utrecht,5.16528,52.14,200,525
+787,Ouddorp,Goeree-Overflakkee,Zuid-Holland,3.93472,51.81167,5930,580
+788,Zundert,Zundert,Noord-Brabant,4.65556,51.47167,21525,554
+789,Groenekan,De Bilt,Utrecht,5.15278,52.12333,1565,23
+790,Veendam,Veendam,Groningen,6.87917,53.10667,28155,7373
+791,Valburg,Overbetuwe,Gelderland,5.79028,51.91167,1660,81
+792,Hopel,Kerkrade,Limburg,6.05046,50.89245,2240,1510
+793,Helvoirt,Haaren,Noord-Brabant,5.23056,51.63167,3625,319
+794,Ophemert,Neerijnen,Gelderland,5.3875,51.845,1425,42
+795,Borne,Borne,Overijssel,6.7482,52.30136,20550,948
+796,Heerlen,Heerlen,Limburg,5.98154,50.88365,93084,6513
+797,Middenbeemster,Beemster,Noord-Holland,4.9125,52.54917,4070,153
+798,Eyserheide,Gulpen-Wittem,Limburg,5.93056,50.83917,75,3
+799,Heemstede,Heemstede,Noord-Holland,4.62301,52.34992,25562,2416
+800,Sassenheim,Teylingen,Zuid-Holland,4.52222,52.225,15510,645
+801,Ten Boer,Ten Boer,Groningen,6.69444,53.27583,4355,32
+802,Sint Annaparochie,het Bildt,Friesland (Fryslân),5.65727,53.2762,3935,606
+803,Portengense Brug,Stichtse Vecht,Utrecht,4.95833,52.16083,95,54
+804,Almen,Lochem,Gelderland,6.3,52.15833,710,49
+805,Oud Gastel,Halderberge,Noord-Brabant,4.45972,51.58667,5305,565
+806,Bladel,Bladel,Noord-Brabant,5.22083,51.36833,9785,1521
+807,Oudemirdum,De Friese Meren,Friesland (Fryslân),5.53544,52.85019,1335,18
+808,Doezum,Grootegast,Groningen,6.24861,53.20083,725,7
+809,Katwijk aan Zee,Katwijk,Zuid-Holland,4.39861,52.20333,20010,1883
+810,Oostrum,Venray,Limburg,6.01667,51.52917,120,207
+811,Cuijk,Cuijk,Noord-Brabant,5.87917,51.73083,3610,813
+812,Baarle-Nassau,Baarle-Nassau,Noord-Brabant,4.92917,51.4475,2585,148
+813,Doesburg,Doesburg,Gelderland,6.13889,52.0125,11480,2115
+814,Heiloo,Heiloo,Noord-Holland,4.68815,52.60252,20510,2409
+815,Oranjeplaat,Middelburg,Zeeland,3.71003,51.51181,50,30
+816,Den Hoorn,Texel,Noord-Holland,4.75139,53.025,0,7304
+817,Barger-Erfscheidenveen,Emmen,Drenthe,6.86806,52.7275,115,84
+818,Attelaken,Etten-Leur,Noord-Brabant,4.66447,51.58419,335,2569
+819,Grave,Grave,Noord-Brabant,5.73882,51.75902,12999,1979
+820,Kruiningergors,Westvoorne,Zuid-Holland,4.11944,51.92083,165,1710
+821,Zwaagdijk-West,Medemblik,Noord-Holland,5.05417,52.675,585,1578
+822,Veldhoven,Veldhoven,Noord-Brabant,5.40278,51.41833,5340,4294
+823,Koekange,De Wolden,Drenthe,6.31667,52.69917,1085,35
+824,Arnhem,Arnhem,Gelderland,5.91111,51.98,141674,27693
+825,Hoogerheide,Woensdrecht,Noord-Brabant,4.325,51.42417,5810,752
+826,Mierlo,Geldrop-Mierlo,Noord-Brabant,5.61944,51.44,27900,1101
+827,Zuidhorn,Zuidhorn,Groningen,6.40278,53.24667,18917,908
+828,Duivendrecht,Ouder-Amstel,Noord-Holland,4.93964,52.32941,4720,253
+829,Oostburg,Sluis,Zeeland,3.4875,51.32583,4410,119
+830,Zwiggelte,Midden-Drenthe,Drenthe,6.58611,52.87167,220,17
+831,Hasselderheide,Venlo,Limburg,6.17329,51.42585,310,143
+832,Uithuizen,Eemsmond,Groningen,6.67083,53.4075,4935,227
+833,Buitenpost,Achtkarspelen,Friesland (Fryslân),6.14483,53.25166,5120,198
+834,Zwaanshoek,Haarlemmermeer,Noord-Holland,4.61667,52.3125,1455,90725
+835,Haaren,Haaren,Noord-Brabant,5.22222,51.6025,3835,394
+836,Rijswijk,Rijswijk,Zuid-Holland,4.32501,52.03634,47299,2485
+837,Westervoort,Westervoort,Gelderland,5.97222,51.95583,15015,616
+838,Leiden,Leiden,Zuid-Holland,4.49306,52.15833,119713,20038
+839,Lemmer,De Friese Meren,Friesland (Fryslân),5.70912,52.84618,10050,678
+840,Ridderkerk,Ridderkerk,Zuid-Holland,4.60278,51.8725,45189,2597
+841,Drachten,Smallingerland,Friesland (Fryslân),6.0989,53.11254,44537,8160
+842,Vries,Tynaarlo,Drenthe,6.57778,53.07417,3915,212
+843,Uithoorn,Uithoorn,Noord-Holland,4.82639,52.2375,26846,148
+844,Zuidwolde,Bedum,Groningen,6.59167,53.2625,915,144
+845,Dalerveen,Coevorden,Drenthe,6.80697,52.69907,315,39
+846,Terheijden,Drimmelen,Noord-Brabant,4.75417,51.64333,5910,212
+847,Arnemuiden,Middelburg,Zeeland,3.675,51.50167,5075,157
+848,Waalre,Waalre,Noord-Brabant,5.44444,51.38667,6445,1604
+849,Zeeland,Landerd,Noord-Brabant,5.67639,51.6975,46485,336
+850,Enschot,Tilburg,Noord-Brabant,5.13885,51.57846,0,409
+851,De Rips,Gemert-Bakel,Noord-Brabant,5.80972,51.55,875,20
+852,Bleiswijk,Lansingerland,Zuid-Holland,4.53194,52.01083,10549,321
+853,Heumen,Heumen,Gelderland,5.84444,51.765,1010,346
+854,Wijhe,Olst-Wijhe,Overijssel,6.13472,52.38667,18023,171
+855,Druten,Druten,Gelderland,5.60556,51.88833,6270,1562
+856,Wierden,Wierden,Overijssel,6.59306,52.35917,23244,1331
+857,Dieren,Rheden,Gelderland,6.1,52.0525,14842,1793
+858,Wilnis,De Ronde Venen,Utrecht,4.89722,52.19667,5715,65
+859,Herwijnen,Lingewaal,Gelderland,5.12917,51.82667,2305,31
+860,Hilvarenbeek,Hilvarenbeek,Noord-Brabant,5.1375,51.48583,15366,111
+861,Rijs,De Friese Meren,Friesland (Fryslân),5.49694,52.86356,165,5
+862,Warmond,Teylingen,Zuid-Holland,4.50278,52.19667,4275,75
+863,Numansdorp,Cromstrijen,Zuid-Holland,4.4375,51.73167,4280,1317
+864,Ter Aard,Assen,Drenthe,6.54722,53.02583,80,11
+865,Herkenbosch,Roerdalen,Limburg,6.06389,51.15333,3935,318
+866,Geleen,Sittard-Geleen,Limburg,5.82917,50.97417,32790,1826
+867,Oostvoorne,Westvoorne,Zuid-Holland,4.09861,51.9125,4635,419
+868,Werkendam,Werkendam,Noord-Brabant,4.89444,51.81,26362,423
+869,Kolhorn,Hollands Kroon,Noord-Holland,4.88889,52.79417,825,13
+870,Bosch en Duin,Zeist,Utrecht,5.24167,52.11667,1675,27
+871,Pingjum,Súdwest-Fryslân,Friesland (Fryslân),5.44046,53.11533,445,22
+872,Harlingen,Harlingen,Friesland (Fryslân),5.42244,53.17477,16119,1258
+873,Driebergen-Rijsenburg,Utrechtse Heuvelrug,Utrecht,5.28056,52.05333,18553,679
+874,Nijland,Súdwest-Fryslân,Friesland (Fryslân),5.5759,53.05019,775,11
+875,Herten,Roermond,Limburg,5.9625,51.18083,3305,19
+876,Yerseke,Reimerswaal,Zeeland,4.05,51.4925,6541,336
+877,Nederweert,Nederweert,Limburg,5.74861,51.28583,7205,1784
+878,Balk,De Friese Meren,Friesland (Fryslân),5.57964,52.89756,3915,101
+879,Zaltbommel,Zaltbommel,Gelderland,5.24444,51.81,26383,933
+880,Dalfsen,Dalfsen,Overijssel,6.25694,52.51167,26575,2678
+881,Opmeer,Opmeer,Noord-Holland,4.94444,52.70667,11183,298
+882,Sondel,De Friese Meren,Friesland (Fryslân),5.60007,52.87219,410,9
+883,Lienden,Buren,Gelderland,5.51806,51.94833,3470,98
+884,IJlst,Súdwest-Fryslân,Friesland (Fryslân),5.62312,53.01009,3180,98
+885,Schoonoord,Coevorden,Drenthe,6.75556,52.84583,2030,65
+886,Soestduinen,Soest,Utrecht,5.3,52.14583,150,2221
+887,Bussum,Bussum,Noord-Holland,5.16111,52.27333,31334,1770
+888,Nunspeet,Nunspeet,Gelderland,5.78611,52.37917,19496,935
+889,Loon op Zand,Loon op Zand,Noord-Brabant,5.075,51.6275,23000,229
+890,Beetsterzwaag,Opsterland,Friesland (Fryslân),6.07711,53.05914,3485,135
+891,Spaarnwoude,Haarlemmerliede en Spaarnwoude,Noord-Holland,4.69444,52.405,5867,38
+892,Meterik,Horst aan de Maas,Limburg,6.025,51.455,705,258
+893,Uddel,Apeldoorn,Gelderland,5.78056,52.25917,1865,82
+894,Oirschot,Oirschot,Noord-Brabant,5.31389,51.505,10393,973
+895,Giesbeek,Zevenaar,Gelderland,6.06667,51.99333,2745,49
+896,Breezand,Hollands Kroon,Noord-Holland,4.80417,52.89,3370,194
+897,Vaartbroek,Eindhoven,Noord-Brabant,5.49806,51.47954,5200,227
+898,Spijk,Delfzijl,Groningen,6.8375,53.39,1220,153
+899,Geesteren,Berkelland,Gelderland,6.52639,52.13917,0,103
+900,Haelen,Leudal,Limburg,5.95694,51.23583,9935,516
+901,Emst,Epe,Gelderland,5.97361,52.31583,1310,122
+902,Oud-Beijerland,Oud-Beijerland,Zuid-Holland,4.4125,51.82417,23569,1565
+903,Heeseind,Maasdonk,Noord-Brabant,5.4221,51.73569,520,140
+904,Wijchen,Wijchen,Gelderland,5.725,51.80917,32693,2233
+905,Veen,Aalburg,Noord-Brabant,5.10833,51.7775,0,26
+906,Enkhuizen,Enkhuizen,Noord-Holland,5.29167,52.70333,17365,1467
+907,Borger,Borger-Odoorn,Drenthe,6.79306,52.92333,4570,248
+908,Landhorst,Sint Anthonis,Noord-Brabant,5.79167,51.6175,415,18
+909,Baalder,Hardenberg,Overijssel,6.65299,52.58579,3470,50
+910,Donk,Laarbeek,Noord-Brabant,5.62914,51.53843,0,2180
+911,Tussenklappen,Menterwolde,Groningen,6.86528,53.145,85,66
+912,Oldebroek,Oldebroek,Gelderland,5.90139,52.445,23504,111
+913,Strijp,Rijswijk,Zuid-Holland,4.30139,52.03083,3955,182
+914,Belt-Schutsloot,Steenwijkerland,Overijssel,6.06389,52.67167,560,218
+915,Losser,Losser,Overijssel,7.00417,52.26083,22431,907
+916,De Koog,Texel,Noord-Holland,4.76111,53.0975,1025,133
+917,Berltsum,Menaldumadeel (Menaldumadiel),Friesland (Fryslân),5.65101,53.2437,2530,60
+918,Meteren,Geldermalsen,Gelderland,5.28333,51.865,3855,43
+919,Cranendonck,Cranendonck,Noord-Brabant,5.58889,51.30417,19966,2750
+920,Ternaard,Dongeradeel,Friesland (Fryslân),5.96523,53.38203,1165,43
+921,Cadzand,Sluis,Zeeland,3.40833,51.36833,445,167
+922,Raamsdonksveer,Geertruidenberg,Noord-Brabant,4.87361,51.69667,6590,473
+923,Hagestein,Vianen,Utrecht,5.12222,51.98083,970,59
+924,Haulerwijk,Ooststellingwerf,Friesland (Fryslân),6.33453,53.06468,2935,74
+925,Venlo,Venlo,Limburg,6.16806,51.37,92403,12452
+926,Bakel,Gemert-Bakel,Noord-Brabant,5.74028,51.50333,15995,75
+927,Cornwerd,Súdwest-Fryslân,Friesland (Fryslân),5.39085,53.08299,90,19
+928,Oostdijk,Reimerswaal,Zeeland,4.07778,51.44417,530,378
+929,Rheden,Rheden,Gelderland,6.02917,52.005,17669,260
+930,Hoogezand,Hoogezand-Sappemeer,Groningen,6.76111,53.16167,21480,2012
+931,Markelo,Hof van Twente,Overijssel,6.49861,52.235,3785,370
+932,Burgum,Tietjerksteradeel (Tytsjerksteradiel),Friesland (Fryslân),5.99009,53.19243,9720,915
+933,Tienray,Horst aan de Maas,Limburg,6.09306,51.495,1040,24
+934,Arcen,Venlo,Limburg,6.18056,51.47667,8793,783
+935,Gouda,Gouda,Zuid-Holland,4.70833,52.01667,71952,18086
+936,Son,Son en Breugel,Noord-Brabant,5.49282,51.51136,4930,952
+937,Goudswaard,Korendijk,Zuid-Holland,4.27639,51.79417,1530,341
+938,Scherpenzeel,Scherpenzeel,Gelderland,5.48889,52.08,9751,369
+939,Langelille,Weststellingwerf,Friesland (Fryslân),5.84267,52.84213,125,6
+940,Gees,Coevorden,Drenthe,6.68879,52.74741,530,1978
+941,Limbricht,Sittard-Geleen,Limburg,5.8375,51.01167,2575,44
+942,Amsterdamscheveld,Emmen,Drenthe,6.91528,52.68833,190,85
+943,Opende-Oost,Grootegast,Groningen,6.21792,53.17497,265,44
+944,Melick,Roerdalen,Limburg,6.01667,51.15917,3650,58
+945,Veenhuizen,Noordenveld,Drenthe,6.39583,53.03167,950,23
+946,Zandoerle,Veldhoven,Noord-Brabant,5.35833,51.41583,105,36
+947,Rockanje,Westvoorne,Zuid-Holland,4.07083,51.87167,1275,121
+948,Strijen,Strijen,Zuid-Holland,4.55083,51.74521,8793,185
+949,Berlicum,Sint-Michielsgestel,Noord-Brabant,5.4,51.6775,4250,613
+950,Westerhoven,Bergeijk,Noord-Brabant,5.39583,51.3325,1635,372
+951,Breugel,Son en Breugel,Noord-Brabant,5.51111,51.5175,4930,25
+952,Panningen,Peel en Maas,Limburg,5.97917,51.32667,6710,446
+953,Well,Bergen (L),Limburg,6.08889,51.55,2500,80
+954,Leimuiden,Kaag en Braassem,Zuid-Holland,4.66944,52.22417,1035,106
+955,Luyksgestel,Bergeijk,Noord-Brabant,5.32361,51.28917,2465,95
+956,IJhorst,Staphorst,Overijssel,6.29167,52.65917,780,192
+957,Poeldijk,Westland,Zuid-Holland,4.21944,52.02417,5800,150
+958,Liempde,Boxtel,Noord-Brabant,5.37222,51.56917,4170,48
+959,Breskens,Sluis,Zeeland,3.55556,51.39583,4335,72
+960,Gouderak,Krimpenerwaard,Zuid-Holland,4.67778,51.98417,2635,4017
+961,Velp,Rheden,Gelderland,5.97361,51.995,17669,1000
+962,Achterwetering,De Bilt,Utrecht,5.15278,52.15167,70,13
+963,Benthuizen,Alphen aan den Rijn,Zuid-Holland,4.54444,52.0775,18959,305
+964,Stedum,Loppersum,Groningen,6.69583,53.3225,895,17
+965,Liessel,Deurne,Noord-Brabant,5.82083,51.41333,2395,122
+966,Coevorden,Coevorden,Drenthe,6.74046,52.66103,14600,2428
+967,Gorredijk,Opsterland,Friesland (Fryslân),6.06402,53.00659,7040,555
+968,De Mortel,Gemert-Bakel,Noord-Brabant,5.70833,51.54,905,19
+969,Marsum,Menaldumadeel (Menaldumadiel),Friesland (Fryslân),5.72637,53.2105,1185,31
