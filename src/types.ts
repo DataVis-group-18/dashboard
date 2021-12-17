@@ -89,12 +89,14 @@ export class Vulnerability {
   count: number;
   verified: boolean;
   cvss: number;
+  summary: string
 
-  constructor(cve: string, count: number, verified: boolean, cvss: number) {
+  constructor(cve: string, count: number, verified: boolean, cvss: number, summary: string) {
     this.cve = cve;
     this.count = count;
     this.verified = verified;
     this.cvss = cvss;
+    this.summary = summary;
   }
 }
 
@@ -109,12 +111,13 @@ export class LeftPlotObject {
     this.vulns = vulns;
   }
 
-  total(): number {
-    return d3.sum(this.vulns);
+  total(minCVSS: number): number {
+    return d3.sum(this.vulns.slice(minCVSS-1));
   }
 
-  dimensions(): [number, number][] {
-    return d3.zip([0].concat(Array.from(d3.cumsum(this.vulns))), this.vulns) as [number, number][];
+  dimensions(minCVSS: number): [number, number][] {
+    const widths = new Array(minCVSS-1).concat(this.vulns.slice(minCVSS-1))
+    return d3.zip([0].concat(Array.from(d3.cumsum(widths))), widths) as [number, number][];
   }
 }
 
