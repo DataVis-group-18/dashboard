@@ -1,9 +1,16 @@
 import * as d3 from "d3";
 import { FeatureCollection } from "geojson";
+import { convertCompilerOptionsFromJson } from "typescript";
 import { Row, Vulnerability, Location, Margin, Dimensions } from "./types";
 
 type Resolution = "province" | "township";
 type Scaling = "nil" | "capita" | "fraction";
+
+// load the appropriate geojson file
+const GEOJSON: { [key: string]: FeatureCollection } = {
+  province: (await d3.json("data/nl_provinces.geojson"))!,
+  township: (await d3.json("data/nl_townships.geojson"))!,
+};
 
 interface LocationVulnerabilities {
   severity_none: number;
@@ -22,10 +29,17 @@ export function drawGeo(
   locations: d3.DSVParsedArray<Location>,
   shodan: d3.DSVParsedArray<Row>,
   vulnerabilities: d3.DSVParsedArray<Vulnerability>,
-  geo_json: FeatureCollection,
-  resolution: Resolution,
   scaling: Scaling
 ) {
+  const resolution = (
+    document.querySelector("#resolution")! as HTMLInputElement
+  ).value as Resolution;
+
+  (document.querySelector("#resolution")! as HTMLInputElement).onchange =
+    function () {
+      drawGeo(locations, shodan, vulnerabilities, scaling);
+    };
+  const geojson = GEOJSON[resolution];
   const loc_vuln_counts = agg_vuln_per_resolution(
     shodan,
     vulnerabilities,
@@ -33,9 +47,13 @@ export function drawGeo(
     resolution
   );
 
-  const svg = d3.select("svg#map")
-    .attr("viewBox", "0 0 500 500");
-  const dim = new Dimensions(document.querySelector("svg#map")!, Margin.all(50));
+  const svg = d3.select("svg#map").attr("viewBox", "0 0 500 500");
+
+  svg.selectAll("*").remove();
+  const dim = new Dimensions(
+    document.querySelector("svg#map")!,
+    Margin.all(50)
+  );
   const width = 500;
   const height = 500;
 
@@ -50,13 +68,13 @@ export function drawGeo(
   svg
     .append("g")
     .selectAll("path")
-    .data(geo_json.features)
+    .data(geojson.features)
     .enter()
-      .append("path")
-      .attr("id", (d) => d.properties!.name)
-      .attr("fill", (d) => transform_data(loc_vuln_counts, d.properties!.name))
-      .attr("d", d3.geoPath().projection(projection))
-      .style("stroke", "black");
+    .append("path")
+    .attr("id", (d) => d.properties!.name)
+    .attr("fill", (d) => transform_data(loc_vuln_counts, d.properties!.name))
+    .attr("d", d3.geoPath().projection(projection))
+    .style("stroke", "black");
 
   return loc_vuln_counts;
 }
@@ -67,7 +85,7 @@ function transform_data_generator(
   resolution: Resolution,
   scaling: Scaling
 ): (lvc: LocVulnCounts, rn: string) => string {
-  if (resolution === 'province') {
+  if (resolution === "province") {
     var domains: { [key: string]: number[] } = {
       nil: [0, 6000, 20000, 50000],
       capita: [0, 0.005, 0.01, 0.1],
@@ -77,9 +95,7 @@ function transform_data_generator(
       .scaleThreshold<number, string, never>()
       .domain(domains[scaling])
       .range(d3.schemeReds[5]);
-    }
-
-  else if (resolution === 'township') {
+  } else if (resolution === "township") {
     var domains: { [key: string]: number[] } = {
       nil: [0, 6000, 20000, 50000],
       capita: [0, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5],
@@ -89,8 +105,8 @@ function transform_data_generator(
     var colorScale = d3
       .scaleThreshold<number, string, never>()
       .domain(domains[scaling])
-      .range(d3.schemeReds[domains[scaling].length + 1]);    
-    }
+      .range(d3.schemeReds[domains[scaling].length + 1]);
+  }
 
   const stats: { [key: string]: (l: LocationVulnerabilities) => number } = {
     nil: (x) => x.total_vulns,
@@ -167,14 +183,8 @@ function agg_vuln_per_resolution(
       continue;
     } //skip aggregating if we've seen the location index before
 
-    loc.total_devices += get_city_total_devices(
-      shodan[i].location,
-      locations
-    );
-    loc.population += get_city_population(
-      shodan[i].location,
-      locations
-    );
+    loc.total_devices += get_city_total_devices(shodan[i].location, locations);
+    loc.population += get_city_population(shodan[i].location, locations);
     seen_loc_idx.push(shodan[i].location);
   }
 

@@ -63,11 +63,6 @@ const data: Data = {
 const resolution = "township"; // 'province' or 'township';
 const scaling = "capita"; // 'nil' or 'capita' or 'fraction';
 
-// load the appropriate geojson file
-const geo_json: FeatureCollection = (await d3.json(
-  "data/nl_" + resolution + "s.geojson"
-))!;
-
 let selectedVal: string | null = null;
 
 function setSelection(val: string | null) {
@@ -96,8 +91,7 @@ let right = new RightPlot(
   vulnerabilities
 );
 
-const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities, geo_json, resolution, scaling);
-
+const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities, scaling);
 
 
 // EVERYTHING BELOW THIS IS FOR DEBUGGING
