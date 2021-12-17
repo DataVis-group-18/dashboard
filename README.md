@@ -1,5 +1,9 @@
 # Dashboard
 
+## Online Dashboard
+
+You can find the online dashboard [here](https://datavis-group-18.github.io/dashboard/).
+
 ## How to use
 > Note: The data is not committed on the `main` branch. It should be placed in the `public/data` folder.
 
