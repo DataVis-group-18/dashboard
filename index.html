@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Data Visualization Frontend</title>
-    <script type="module" crossorigin src="/dashboard/assets/index.bca804f5.js"></script>
+    <script type="module" crossorigin src="/dashboard/assets/index.0241c2c0.js"></script>
     <link rel="modulepreload" href="/dashboard/assets/vendor.b18d1fcf.js">
-    <link rel="stylesheet" href="/dashboard/assets/index.f81ac07e.css">
+    <link rel="stylesheet" href="/dashboard/assets/index.1cc01323.css">
   </head>
 
   <body>
@@ -13,37 +13,56 @@
     <main>
       <div>
         <h1>Number of vulnerabilities in devices</h1>
-        
+        <p>Select one of the bars to filter the plot on the right.</p>
         <div id="left-controls">
-          Categorize by:&nbsp;
-          <select id="category">
-            <option value="org">Organization</option>
-            <option value="isp">ISP</option>
-            <option value="location">Location</option>
-            <option value="os">Operating System</option>
-          </select>
-          Minimum CVSS: <input id="min-cvss" type="number" min="1" max="10" value="1">
-          Scale: <input id="scale" type="range" min="1" max="1" value="1">
+          <div>
+            Categorize by:&nbsp;
+            <select id="category">
+              <option value="org">Organization</option>
+              <option value="isp">ISP</option>
+              <option value="location">Location</option>
+              <option value="os">Operating System</option>
+            </select>
+          </div>
+          <div>
+            Minimum CVSS:
+            <input id="min-cvss" type="number" min="1" max="10" value="1" />
+          </div>
+          <div id="scale-div">
+            Scale: <input id="scale" type="range" min="1" max="1" value="1" />
+          </div>
         </div>
         <svg id="left-plot"></svg>
-        <svg id="map"></svg>
       </div>
       <div id="divider"></div>
       <div>
+        <h1>CVSS and number of vulnerable devices per vulnerability</h1>
+        <p>Select a vulnerability to see more info</p>
         <svg id="right-plot"></svg>
         <div id="cve-info">
-          <h1 id="cve-name">Select a vulnerability to see more info</h1>
-          <p id="cve-widgets"><span class="cve-widget" id="cve-verified"></span><span class="cve-widget" id="cve-cvss"></span></p>
+          <h1 id="cve-name"></h1>
+          <p id="cve-widgets">
+            <span class="cve-widget" id="cve-verified"></span>
+            <span class="cve-widget" id="cve-cvss"></span>
+          </p>
           <p id="cve-summary"></p>
         </div>
       </div>
+      <div id="map-div">
+        <h1>Locations of vulnerable devices</h1>
+        <svg id="map"></svg>
+      </div>
     </main>
     <footer>
-      <p>Made by Athanasios Theocharis, Gautham Venkataraman &amp; Terts Diepraam</p>
+      <p>
+        Made by Athanasios Theocharis, Gautham Venkataraman &amp; Terts Diepraam
+      </p>
       <p>|</p>
-      <p>Code on <a href="https://github.com/DataVis-group-18/dashboard">GitHub</a></p>
+      <p>
+        Code on
+        <a href="https://github.com/DataVis-group-18/dashboard">GitHub</a>
+      </p>
     </footer>
   </body>
   
-
 </html>
