@@ -33,15 +33,16 @@ export function drawGeo(
     resolution
   );
 
-  const svg = d3.select("svg#map");
+  const svg = d3.select("svg#map")
+    .attr("viewBox", "0 0 500 500");
   const dim = new Dimensions(document.querySelector("svg#map")!, Margin.all(50));
-  const width = dim.width;
-  const height = dim.height;
+  const width = 500;
+  const height = 500;
 
   const projection = d3
     .geoMercator()
-    .center([4.7913, 52.5326]) // longitude and latitude
-    .scale(4000)
+    .center([5.3, 52.2]) // longitude and latitude
+    .scale(6000)
     .translate([width / 2, height / 2]);
 
   const transform_data = transform_data_generator(resolution, scaling);

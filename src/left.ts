@@ -44,6 +44,11 @@ export class LeftPlot extends Plot {
     this.minCVSS = 1;
     this.x = d3.scaleLinear();
 
+    window.addEventListener("resize", () => {
+      this.dimensions.refresh();
+      this.updateChoice(this.choice, false);
+    });
+
     this.svg = d3
       .select(this.container)
       .on("click", function () {
@@ -70,7 +75,7 @@ export class LeftPlot extends Plot {
 
     this.xAxis = this.svg
       .append("g")
-      .attr("transform", `translate(0, ${this.height})`);
+      
 
     this.yAxis = this.svg.append("g");
 
@@ -107,7 +112,7 @@ export class LeftPlot extends Plot {
     });
   }
 
-  updateChoice(c: Choice) {
+  updateChoice(c: Choice, transition = true) {
     this.choice = c;
     this.objects = Object.values(
       getData(this.data.shodan, this.data.vulnerabilities, this.choice)
@@ -131,6 +136,8 @@ export class LeftPlot extends Plot {
       .total(this.minCVSS)
       .toString();
     this.scaleElem.value = this.scaleElem.max;
+
+    this.xAxis.attr("transform", `translate(0, ${this.height})`);
 
     // Add Y axis
     const y = d3
@@ -199,10 +206,11 @@ export class LeftPlot extends Plot {
         }
       });
 
-    this.update(true);
+    this.update(transition);
   }
 
   update(transition = false) {
+    this.dimensions.refresh();
     this.x = this.x.domain([0, parseInt(this.scaleElem.value)]);
 
     this.xAxis

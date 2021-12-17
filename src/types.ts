@@ -158,6 +158,7 @@ export abstract class Plot {
     this.container = elem;
     this.margin = margin;
     this.dimensions = new Dimensions(elem, margin);
+    
   }
 
   abstract update(): void;

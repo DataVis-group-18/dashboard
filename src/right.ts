@@ -27,6 +27,10 @@ export class RightPlot extends Plot {
   ) {
     super(container, new Margin(70, 50, 70, 90));
 
+    window.addEventListener("resize", () => {
+      this.update();
+    });
+
     this.shodan = shodan;
     this.vulnerabilities = vulnerabilities;
     this.cachedFilters = {};
@@ -152,10 +156,6 @@ export class RightPlot extends Plot {
     this.update();
 
     this.tooltip = this.group.append("g").style("pointer-events", "none");
-
-    window.addEventListener("resize", () => {
-      this.update();
-    });
   }
 
   update(): void {

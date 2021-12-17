@@ -10,37 +10,56 @@
     <main>
       <div>
         <h1>Number of vulnerabilities in devices</h1>
-        
+        <p>Select one of the bars to filter the plot on the right.</p>
         <div id="left-controls">
-          Categorize by:&nbsp;
-          <select id="category">
-            <option value="org">Organization</option>
-            <option value="isp">ISP</option>
-            <option value="location">Location</option>
-            <option value="os">Operating System</option>
-          </select>
-          Minimum CVSS: <input id="min-cvss" type="number" min="1" max="10" value="1">
-          Scale: <input id="scale" type="range" min="1" max="1" value="1">
+          <div>
+            Categorize by:&nbsp;
+            <select id="category">
+              <option value="org">Organization</option>
+              <option value="isp">ISP</option>
+              <option value="location">Location</option>
+              <option value="os">Operating System</option>
+            </select>
+          </div>
+          <div>
+            Minimum CVSS:
+            <input id="min-cvss" type="number" min="1" max="10" value="1" />
+          </div>
+          <div id="scale-div">
+            Scale: <input id="scale" type="range" min="1" max="1" value="1" />
+          </div>
         </div>
         <svg id="left-plot"></svg>
-        <svg id="map"></svg>
       </div>
       <div id="divider"></div>
       <div>
+        <h1>CVSS and number of vulnerable devices per vulnerability</h1>
+        <p>Select a vulnerability to see more info</p>
         <svg id="right-plot"></svg>
         <div id="cve-info">
-          <h1 id="cve-name">Select a vulnerability to see more info</h1>
-          <p id="cve-widgets"><span class="cve-widget" id="cve-verified"></span><span class="cve-widget" id="cve-cvss"></span></p>
+          <h1 id="cve-name"></h1>
+          <p id="cve-widgets">
+            <span class="cve-widget" id="cve-verified"></span>
+            <span class="cve-widget" id="cve-cvss"></span>
+          </p>
           <p id="cve-summary"></p>
         </div>
       </div>
+      <div id="map-div">
+        <h1>Locations of vulnerable devices</h1>
+        <svg id="map"></svg>
+      </div>
     </main>
     <footer>
-      <p>Made by Athanasios Theocharis, Gautham Venkataraman &amp; Terts Diepraam</p>
+      <p>
+        Made by Athanasios Theocharis, Gautham Venkataraman &amp; Terts Diepraam
+      </p>
       <p>|</p>
-      <p>Code on <a href="https://github.com/DataVis-group-18/dashboard">GitHub</a></p>
+      <p>
+        Code on
+        <a href="https://github.com/DataVis-group-18/dashboard">GitHub</a>
+      </p>
     </footer>
   </body>
   <script type="module" src="/src/main.ts"></script>
-
 </html>
