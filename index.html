@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Data Visualization Frontend</title>
-    <script type="module" crossorigin src="/dashboard/assets/index.527697f7.js"></script>
-    <link rel="modulepreload" href="/dashboard/assets/vendor.659b84d5.js">
-    <link rel="stylesheet" href="/dashboard/assets/index.1cc01323.css">
+    <script type="module" crossorigin src="/dashboard/assets/index.fa8295f1.js"></script>
+    <link rel="modulepreload" href="/dashboard/assets/vendor.20c3140b.js">
+    <link rel="stylesheet" href="/dashboard/assets/index.86686e67.css">
   </head>
 
   <body>
@@ -57,7 +57,16 @@
             <option value="province">Province</option>
           </select>
         </div>
+        <div>
+          Scaling:
+          <select id="scaling">
+            <option value="nil">Total number of vulnerabilities</option>
+            <option value="capita">Vulnerabilities per capita</option>
+            <option value="fraction">Vulnerabilities per scanned device</option>
+          </select>
+        </div>
         <svg id="map"></svg>
+        <svg id="map-legend"></svg>
       </div>
     </main>
     <footer>
