@@ -28,16 +28,21 @@ type LocVulnCounts = { [key: string]: LocationVulnerabilities };
 export function drawGeo(
   locations: d3.DSVParsedArray<Location>,
   shodan: d3.DSVParsedArray<Row>,
-  vulnerabilities: d3.DSVParsedArray<Vulnerability>,
-  scaling: Scaling
+  vulnerabilities: d3.DSVParsedArray<Vulnerability>
 ) {
   const resolution = (
     document.querySelector("#resolution")! as HTMLInputElement
   ).value as Resolution;
+  const scaling = (document.querySelector("#scaling")! as HTMLInputElement)
+    .value as Scaling;
 
   (document.querySelector("#resolution")! as HTMLInputElement).onchange =
     function () {
-      drawGeo(locations, shodan, vulnerabilities, scaling);
+      drawGeo(locations, shodan, vulnerabilities);
+    };
+  (document.querySelector("#scaling")! as HTMLInputElement).onchange =
+    function () {
+      drawGeo(locations, shodan, vulnerabilities);
     };
   const geojson = GEOJSON[resolution];
   const loc_vuln_counts = agg_vuln_per_resolution(
@@ -63,7 +68,7 @@ export function drawGeo(
     .scale(6000)
     .translate([width / 2, height / 2]);
 
-  const transform_data = transform_data_generator(resolution, scaling);
+  const transform_data = transform_data_generator(resolution, scaling, width);
 
   svg
     .append("g")
@@ -83,30 +88,25 @@ export function drawGeo(
 // its IMPORTANT to tweak with the colorscale domain values cause I'm not sure if there is a heuristic to do that.
 function transform_data_generator(
   resolution: Resolution,
-  scaling: Scaling
+  scaling: Scaling,
+  width: number
 ): (lvc: LocVulnCounts, rn: string) => string {
+  let domains: { [key: string]: number };
   if (resolution === "province") {
-    var domains: { [key: string]: number[] } = {
-      nil: [0, 6000, 20000, 50000],
-      capita: [0, 0.005, 0.01, 0.1],
-      fraction: [0, 0.03, 0.1, 0.3],
+    domains = {
+      nil: 50000,
+      capita: 0.1,
+      fraction: 0.3,
     };
-    var colorScale = d3
-      .scaleThreshold<number, string, never>()
-      .domain(domains[scaling])
-      .range(d3.schemeReds[5]);
-  } else if (resolution === "township") {
-    var domains: { [key: string]: number[] } = {
-      nil: [0, 6000, 20000, 50000],
-      capita: [0, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5],
-      fraction: [0, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 3, 10, 30],
+  } else {
+    domains = {
+      nil: 50000,
+      capita: 5,
+      fraction: 30,
     };
-
-    var colorScale = d3
-      .scaleThreshold<number, string, never>()
-      .domain(domains[scaling])
-      .range(d3.schemeReds[domains[scaling].length + 1]);
   }
+  let colorScale = (x: number) => d3.interpolateReds(x / domains[scaling]);
+  legend(colorScale, domains[scaling]);
 
   const stats: { [key: string]: (l: LocationVulnerabilities) => number } = {
     nil: (x) => x.total_vulns,
@@ -218,4 +218,47 @@ function get_city_total_devices(
   locations: d3.DSVParsedArray<Location>
 ) {
   return locations[loc_idx].total_devices;
+}
+
+function legend(color: (x: number) => string, max: number) {
+  function ramp(color: (x: number) => string, max: number) {
+    const canvas = document.createElement("canvas");
+    canvas.width = 256;
+    canvas.height = 1;
+    const context = canvas.getContext("2d")!;
+    for (let i = 0; i < 256; ++i) {
+      context.fillStyle = color((i / 255) * max);
+      context.fillRect(i, 0, 1, 1);
+    }
+    return canvas;
+  }
+
+  const width = 400;
+  const height = 30;
+  const marginBottom = 16;
+  const svg = d3
+    .select("svg#map-legend")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .style("overflow", "visible")
+    .style("display", "block");
+
+  svg.selectAll("*").remove();
+  
+  svg
+    .append("image")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", width)
+    .attr("height", height)
+    .attr("preserveAspectRatio", "none")
+    .attr("xlink:href", ramp(color, max).toDataURL());
+
+  const x = d3.scaleLinear([0, max], [0, width]);
+
+  svg
+    .append("g")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(x).ticks(6));
 }

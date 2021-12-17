@@ -88,14 +88,21 @@ p {
 #map-div {
   grid-column: 1/4;
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
 #map {
   aspect-ratio: 1;
-  flex: 1;
-  width: 30em;
+  flex: 0;
+  min-height: 30em;
+  min-width: 30em;
+  max-height: 30em;
+  max-width: 30em;
+}
+
+#map-legend {
+  flex: 0;
 }
 
 #scale-div {

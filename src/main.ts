@@ -60,9 +60,6 @@ const data: Data = {
   locations,
 };
 
-const resolution = "township"; // 'province' or 'township';
-const scaling = "capita"; // 'nil' or 'capita' or 'fraction';
-
 let selectedVal: string | null = null;
 
 function setSelection(val: string | null) {
@@ -91,7 +88,7 @@ let right = new RightPlot(
   vulnerabilities
 );
 
-const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities, scaling);
+const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities);
 
 
 // EVERYTHING BELOW THIS IS FOR DEBUGGING
