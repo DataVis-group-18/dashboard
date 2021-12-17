@@ -25,6 +25,7 @@ export class LeftPlot extends Plot {
   xAxis: d3.Selection<SVGGElement, unknown, null, undefined>;
   yAxis: d3.Selection<SVGGElement, unknown, null, undefined>;
   bars: d3.Selection<SVGGElement, unknown, null, undefined>;
+  minCVSS: number;
   onSelect: (org: string | null) => void;
 
   constructor(
@@ -40,6 +41,7 @@ export class LeftPlot extends Plot {
     this.scaleElem = document.querySelector("#scale")! as HTMLInputElement;
     this.objects = [];
     this.groups = [];
+    this.minCVSS = 1;
     this.x = d3.scaleLinear();
 
     this.svg = d3
@@ -54,16 +56,17 @@ export class LeftPlot extends Plot {
         onSelect(null);
       })
       .append("g")
-      .attr("transform", `translate(160, 0)`)
-    
+      .attr("transform", `translate(160, 0)`);
+
     // This is a transparent rect in the background that receives unpropagated events
     // this makes it possible to detect mouse evetns outside the bars.
-    this.svg.append("rect")
+    this.svg
+      .append("rect")
       .attr("x", "0")
       .attr("y", "0")
       .attr("width", this.dimensions.width.toString())
       .attr("height", this.dimensions.height.toString())
-      .attr("opacity", "0")
+      .attr("opacity", "0");
 
     this.xAxis = this.svg
       .append("g")
@@ -98,6 +101,10 @@ export class LeftPlot extends Plot {
       if (!drag) this.update(true);
       down = false;
     });
+
+    document.querySelector("#min-cvss")?.addEventListener("change", (ev) => {
+      this.updateChoice(this.choice);
+    });
   }
 
   updateChoice(c: Choice) {
@@ -105,16 +112,23 @@ export class LeftPlot extends Plot {
     this.objects = Object.values(
       getData(this.data.shodan, this.data.vulnerabilities, this.choice)
     );
-    this.objects.sort((a, b) => b.total() - a.total());
+
+    this.minCVSS = parseInt(
+      (document.querySelector("#min-cvss")! as HTMLInputElement).value
+    );
+    this.objects.sort((a, b) => b.total(this.minCVSS) - a.total(this.minCVSS));
     this.objects = this.objects.slice(0, 20);
+    console.log(this.objects[0]);
 
     this.groups = this.objects.map((d) => d.name);
 
-    this.x = this.x.domain([0, this.objects[0].total()]).range([0, this.width]);
+    this.x = this.x
+      .domain([0, this.objects[0].total(this.minCVSS)])
+      .range([0, this.width]);
 
-    this.scaleElem.max = this.objects[0].total().toString();
+    this.scaleElem.max = this.objects[0].total(this.minCVSS).toString();
     this.scaleElem.min = this.objects[this.objects.length - 1]
-      .total()
+      .total(this.minCVSS)
       .toString();
     this.scaleElem.value = this.scaleElem.max;
 
@@ -138,10 +152,7 @@ export class LeftPlot extends Plot {
       .style("text-anchor", "end");
 
     // color palette = one color per subgroup
-    const color = d3.scaleOrdinal(
-      [...new Array(10).keys()].reverse(),
-      d3.schemeSpectral[10]
-    );
+    const color = (v: number) => d3.interpolateTurbo((v+1) / 10);
 
     const onSelect = this.onSelect;
 
@@ -154,10 +165,8 @@ export class LeftPlot extends Plot {
       .attr("transform", (d) => `translate(0, ${y(d.name)})`)
       .selectAll("rect")
       // enter a second time = loop subgroup per subgroup to add all rectangles
-      .data((d) => d.dimensions())
+      .data((d) => d.dimensions(this.minCVSS))
       .join("rect")
-      .attr("x", "0")
-      .attr("width", "0")
       // .attr("class", "bar")
       .attr("class", (_d, i) => i.toString() + " bar")
       .attr("height", y.bandwidth())
@@ -190,7 +199,7 @@ export class LeftPlot extends Plot {
         }
       });
 
-    this.update();
+    this.update(true);
   }
 
   update(transition = false) {
@@ -206,7 +215,7 @@ export class LeftPlot extends Plot {
       .selectAll("g")
       .data(this.objects)
       .selectAll("rect")
-      .data((d) => d.dimensions())
+      .data((d) => d.dimensions(this.minCVSS))
       .transition()
       .duration(transition ? 300 : 0)
       .attr("x", (d) => this.x(d[0]))
@@ -261,11 +270,10 @@ function getData(
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       );
     }
-    for (const v in row.vulns) {
+    for (const v of row.vulns) {
       data[key].vulns[Math.floor(vulnerabilities[v].cvss - 1)] += 1;
     }
   }
-
   cache[choice] = data;
 
   return data;

@@ -31,14 +31,14 @@ export class RightPlot extends Plot {
     this.vulnerabilities = vulnerabilities;
     this.cachedFilters = {};
     this.selectedCVE = null;
-    this.color = (v) => d3.interpolateTurbo((v.cvss - 1) / 9);
+    this.color = (v) => d3.interpolateTurbo((v.cvss+1) / 10);
 
     this.group = d3
       .select(this.container)
       .append("g")
       .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
 
-    this.x = d3.scaleLinear().domain([1, 10]).range([0, this.width]);
+    this.x = d3.scaleLinear().domain([1, 11]).range([0, this.width]);
 
     this.maxCount = d3.max(vulnerabilities, (v) => v.count)!;
     this.y = d3
@@ -77,6 +77,7 @@ export class RightPlot extends Plot {
       .enter()
       .append("circle")
       .attr("r", 4)
+      .attr("cvss", (v) => v.cvss.toString())
       .on("mouseout", (ev) => {
         if (d3.select(ev.target).attr("opacity") == "0") return;
         this.tooltip.style("display", "none");
@@ -136,7 +137,7 @@ export class RightPlot extends Plot {
         d3.select("#cve-summary").html(v.summary);
         d3.select("#cve-cvss")
           .html("CVSS: " + v.cvss.toString())
-          .style("color", v.cvss <= 2.5 || v.cvss >= 9 ? "white" : "black")
+          .style("color", v.cvss >= 7 ? "white" : "black")
           .style("background", this.color(v));
         
         d3.select("#cve-verified")
@@ -170,7 +171,7 @@ export class RightPlot extends Plot {
       .selectAll("circle")
       .data(this.vulnerabilities)
       .attr("opacity", (_v, i) =>
-        this.filteredVulns ? (i in this.filteredVulns ? "1" : "0") : "1"
+        this.filteredVulns && !(i in this.filteredVulns) ? "0" : "1"
       )
       .attr("pointer-events", (_v, i) =>
         this.filteredVulns && !(i in this.filteredVulns) ? "none" : null
