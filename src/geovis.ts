@@ -235,7 +235,6 @@ function legend(color: (x: number) => string, max: number) {
 
   const width = 400;
   const height = 30;
-  const marginBottom = 16;
   const svg = d3
     .select("svg#map-legend")
     .attr("width", width)
@@ -245,7 +244,7 @@ function legend(color: (x: number) => string, max: number) {
     .style("display", "block");
 
   svg.selectAll("*").remove();
-  
+
   svg
     .append("image")
     .attr("x", 0)
