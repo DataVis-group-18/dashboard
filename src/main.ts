@@ -102,7 +102,7 @@ const loc_vuln_counts = drawGeo(locations, shodan, vulnerabilities, geo_json, re
 
 // EVERYTHING BELOW THIS IS FOR DEBUGGING
 
-var fn = (d, r) => {
+var fn = (d: any, _r: any) => {
     var arr = [];
     for (let k in d){
         arr.push(d[k].total_vulns / 1)
